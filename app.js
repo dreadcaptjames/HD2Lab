@@ -185,7 +185,6 @@ function readRollRules(){
     antiHeavy:$('#rollAntiHeavy').checked,
     demolition:$('#rollDemolition').checked,
     allowUnsafe:$('#rollMode').value==='chaos'&&$('#rollUnsafe').checked,
-    allowDuplicates:$('#rollMode').value==='chaos'&&$('#rollUnsafe').checked&&$('#rollDuplicates').checked,
     cursed:$('#rollMode').value==='chaos'&&$('#rollUnsafe').checked&&$('#rollCursed').checked,
     autoEvaluate:$('#rollAutoEvaluate').checked
   };
@@ -218,15 +217,15 @@ function rulesCheck(rules,fixed){
     if(!rules.cats.has(obj.cat))return 'A locked '+obj.name+' is in a disabled stratagem category.';
     if(rules.support==='none'&&obj.cat==='Support weapon')return 'A locked support weapon conflicts with your support weapon exclusion.';
     if(rules.backpack==='none'&&obj.cat==='Backpack')return 'A locked backpack conflicts with your backpack exclusion.';
+    if(fixedStrats.some((other,j)=>j!==i&&other.id===obj.id))return 'Two locked slots contain the same stratagem. Unlock or change one: duplicates are never allowed.';
     if(!rules.allowUnsafe&&stratConflictIn(obj,fixedStrats.filter((_,j)=>j!==i)))return 'Locked stratagem slots contain incompatible selections.';
-    if(rules.allowUnsafe&&!rules.allowDuplicates&&fixedStrats.filter(x=>x.id===obj.id).length>1)return 'Locked duplicate stratagems need Clone the Nonsense enabled.';
   }
   const fixedSupport=fixedStrats.some(x=>x.cat==='Support weapon');
   const fixedBackpack=fixedStrats.some(x=>x.cat==='Backpack');
   const free=4-fixedStrats.length;
   const required=(rules.support==='required'&&!fixedSupport?1:0)+(rules.backpack==='required'&&!fixedBackpack?1:0);
   if(required>free)return 'Not enough unlocked stratagem slots to satisfy mandatory support and backpack rules.';
-  if(!rules.allowDuplicates&&DB.strat.filter(x=>rules.cats.has(x.cat)&&(rules.support!=='none'||x.cat!=='Support weapon')&&(rules.backpack!=='none'||x.cat!=='Backpack')).length<4)return 'Not enough eligible stratagems remain for four distinct slots.';
+  if(DB.strat.filter(x=>rules.cats.has(x.cat)&&(rules.support!=='none'||x.cat!=='Support weapon')&&(rules.backpack!=='none'||x.cat!=='Backpack')).length<4)return 'Not enough eligible stratagems remain for four distinct slots.';
   return '';
 }
 function stratConflictIn(obj,others){
@@ -245,7 +244,9 @@ function buildRoll(rules,fixed){
     draft[key]=fixed[key]||randPick(items).id;
   }
   const pool=DB.strat.filter(x=>rules.cats.has(x.cat)&&(rules.support!=='none'||x.cat!=='Support weapon')&&(rules.backpack!=='none'||x.cat!=='Backpack'));
-  const compatible=x=>rules.allowUnsafe?(rules.allowDuplicates||!draft.strats.includes(x.id)):!stratConflictIn(x,draft.strats.filter(Boolean).map(id=>byId[id]));
+  // Never select the same stratagem twice, including in Complete Chaos.
+  // The unsafe switch bypasses *only* distinct-item tactical conflicts.
+  const compatible=x=>!draft.strats.includes(x.id)&&(rules.allowUnsafe||!stratConflictIn(x,draft.strats.filter(Boolean).map(id=>byId[id])));
   const insertFrom=category=>{
     const free=draft.strats.map((id,i)=>id===null?i:-1).filter(i=>i>=0);
     const choices=pool.filter(x=>x.cat===category&&compatible(x));
@@ -261,13 +262,10 @@ function buildRoll(rules,fixed){
   // the entire allowed catalog independently, so NO eligible item gets excluded.
   // Other patterns deliberately create truly absurd loadouts when opted in.
   const pattern=rules.cursed?randPick(['WILD DRAW','WILD DRAW','WILD DRAW','WILD DRAW',
-    'COPY MACHINE','COPY MACHINE','CLASS TAKEOVER','CLASS TAKEOVER',
+    'CLASS TAKEOVER','CLASS TAKEOVER','CLASS TAKEOVER',
     'SUPPORT INVASION','BACKPACK PILEUP','VEHICLE PARADE']):'WILD DRAW';
   let themedPool=pool;
-  if(pattern==='COPY MACHINE'&&rules.allowDuplicates){
-    const copy=randPick(pool.filter(compatible));
-    if(copy)themedPool=[copy];
-  } else if(pattern==='CLASS TAKEOVER'){
+  if(pattern==='CLASS TAKEOVER'){
     const cls=randPick([...new Set(pool.map(x=>x.cat))]);
     themedPool=pool.filter(x=>x.cat===cls);
   } else if(pattern==='SUPPORT INVASION'||pattern==='BACKPACK PILEUP'||pattern==='VEHICLE PARADE'){
@@ -364,7 +362,7 @@ function generateRandomLoadout(){
 }
 function resetRandomizerRules(){
   $('#rollMode').value='balanced';
-  $('#rollUnsafe').checked=true;$('#rollDuplicates').checked=true;$('#rollCursed').checked=true;
+  $('#rollUnsafe').checked=true;$('#rollCursed').checked=true;
   antiHeavyModified=false;syncChaosOptions();
   $('#rollArmorWeights').querySelectorAll('input').forEach(x=>x.checked=true);
   $('#rollArmorPassive').value='any';
@@ -381,7 +379,6 @@ let antiHeavyModified=false;
 function syncChaosOptions(){
   const chaos=$('#rollMode').value==='chaos',unsafe=$('#rollUnsafe').checked;
   $('#rollChaosOptions').hidden=!chaos;
-  $('#rollDuplicates').disabled=!chaos||!unsafe;
   $('#rollCursed').disabled=!chaos||!unsafe;
   $('#rollBackpackRule').querySelector('option[value="optional"]').textContent=chaos&&unsafe?'Optional (even if packs compete)':'Allowed if compatible';
 }
