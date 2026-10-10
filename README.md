@@ -86,3 +86,12 @@ Removed the **Clone the Nonsense** control and the **COPY MACHINE** cursed patte
 Each loadout may select **at most one mech**, **one FRV (wheeled vehicle)**, and **one tank**. This is a limit per vehicle family, not a limit of one vehicle total: a mech + FRV, FRV + tank, mech + tank, and mech + FRV + tank combination are all permitted as far as the vehicle-class restriction is concerned. Four Vehicle-category stratagems cannot be selected together, because the catalog has only three unique vehicle families.
 
 The equipment catalog now explicitly labels all nine Vehicle-category entries with `vehicleClass: "mech" | "frv" | "tank"`. Manual picking, ordinary randomization, **Complete Chaos** with unsafe overrides, Cursed Combinations / Vehicle Parade, and rerolls with locked stratagems enforce this non-negotiable limit. A preexisting invalid locked combination produces a clear error instead of modifying the loadout. Other Chaos allowances for multiple distinct support weapons and backpacks remain.
+
+
+### Original 101st logo
+
+The site header and browser tab use the supplied `assets/101st New Logo.png` image without modifying, recoloring or cropping its pixels. The standalone HTML embeds those same original transparent PNG bytes.
+
+### Transparent logo update (v5.4)
+
+Uses the supplied original RGBA PNG (`assets/101st New Logo.png`) in the header and favicon. The PNG file is copied byte-for-byte, displayed with `object-fit: contain` on a transparent background (no cropping, recoloring, opaque panel, or image filtering), and embedded byte-for-byte in the standalone build. No equipment or randomizer logic has changed.

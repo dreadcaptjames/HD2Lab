@@ -459,3 +459,21 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
 .chaos-option-grid .rule-check:has(input:disabled){opacity:.4;cursor:not-allowed}
 .chaos-badge{font-weight:900;color:#ffb495;letter-spacing:.05em}
 @media(max-width:760px){.chaos-option-grid{grid-template-columns:1fr}}
+
+/* Original transparent 101st logo; no pixel editing, cropping or opaque backdrop. */
+.brand-logo {
+  display: block;
+  width: 72px;
+  height: 72px;
+  flex: 0 0 72px;
+  object-fit: contain;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+@media (max-width: 760px) {
+  .brand-logo { width: 58px; height: 58px; flex-basis: 58px; }
+}
+@media (max-width: 390px) {
+  .brand-logo { width: 50px; height: 50px; flex-basis: 50px; }
+}

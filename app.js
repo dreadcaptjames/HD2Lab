@@ -21,7 +21,7 @@ precision:'<circle cx="12" cy="12" r="8"/><path d="M12 1v8m0 6v8M1 12h8m6 0h8"/>
 logistics:'<rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V3h8v4M12 11v6m-3-3h6"/>',
 });
 const svg=(type)=>'<svg viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">'+(ICONS[type]||ICONS.boost)+'</svg>';
-document.getElementById('brandIcon').innerHTML=svg('crest');
+// Brand logo is supplied as the original image asset in index.html.
 // Capability vector: anti-heavy, swarm control, medium threats, objective destruction, survivability, ammo/sustain.
 const DB=window.HD2_DB;
 const byId={};Object.values(DB).forEach(arr=>arr.forEach(x=>byId[x.id]=x));
