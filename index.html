@@ -14,7 +14,7 @@
     <div class="emblem" id="brandIcon"></div>
     <div class="logo-copy">
       <div class="logo-name">HELLDIVER <span style="color:var(--yellow)">//</span> SYNERGY LAB</div>
-      <div class="logo-sub">TACTICAL LOADOUT INTELLIGENCE  //  2026 ARMORY AUDIT</div>
+      <div class="logo-sub">TACTICAL LOADOUT INTELLIGENCE  //  RANDOMIZER ENABLED</div>
     </div>
   </div>
   <div class="top-right">
@@ -25,10 +25,10 @@
 
 <section class="hero" aria-label="Operations command overview">
   <div class="hero-main">
-    <div class="hero-topline"><span class="eyebrow">▦ SUPER EARTH // LOADOUT COMMAND</span><span class="hero-id">OPERATION : READY CHECK · V02.0</span></div>
+    <div class="hero-topline"><span class="eyebrow">▦ SUPER EARTH // LOADOUT COMMAND</span><span class="hero-id">OPERATION : READY CHECK · V04.0</span></div>
     <h1>PREPARE TO<br><em>SPREAD DEMOCRACY.</em></h1>
     <p>Choose your armor, weapons, throwable, booster and four stratagems. Then evaluate the <strong>whole loadout</strong> against your actual mission—coverage, interactions, and tactical conflicts included.</p>
-    <div class="hero-actions"><a class="jump" href="#loadout">CONFIGURE LOADOUT <span>↘</span></a><span class="hero-hint">NO AUTO-GENERATION · YOU PICK EVERY SLOT</span></div>
+    <div class="hero-actions"><a class="jump" href="#loadout">CONFIGURE LOADOUT <span>↘</span></a><a class="jump jump-secondary" href="#randomizer">RANDOMIZE KIT <span>↘</span></a><span class="hero-hint">MANUAL OR RANDOM · EVALUATE ON DEMAND</span></div>
     <div class="hero-bottomline"><span>FIELD SYSTEM 002 / SYNERGY ASSESSMENT</span><span>DOCTRINE: NO SLOT WASTED</span></div>
   </div>
   <aside class="hero-side" aria-label="Tactical enemy scan">
@@ -48,7 +48,7 @@
   <div class="intel-card"><span class="intel-symbol">▦</span><div><small>CATALOG DATABASE</small><strong id="catalogCount">—</strong><span class="intel-sub">body armor + equipment</span></div></div>
   <div class="intel-card"><span class="intel-symbol">◇</span><div><small>TACTICAL READOUT</small><strong>06 <span class="mini-number">VECTORS</span></strong><span class="intel-sub">coverage + synergies</span></div></div>
   <div class="intel-card"><span class="intel-symbol">⛨</span><div><small>REQUISITION RULES</small><strong>ACTIVE</strong><span class="intel-sub">support &amp; pack conflicts</span></div></div>
-  <div class="intel-card"><span class="intel-symbol">⚡</span><div><small>FIELD ASSESSMENT</small><strong>ON DEMAND</strong><span class="intel-sub">nothing scored automatically</span></div></div>
+  <div class="intel-card"><span class="intel-symbol">⚄</span><div><small>RULED RANDOMIZER</small><strong>NOW ONLINE</strong><span class="intel-sub">full chaos or tactical rolls</span></div></div>
 </div>
 
 <main class="workspace" id="loadout">
@@ -108,12 +108,73 @@
         </div>
       </div>
     </section>
+
+    <section class="panel roll-panel" id="randomizer" aria-labelledby="randomizerTitle">
+      <div class="phead"><h2 id="randomizerTitle">04 / Loadout randomizer</h2><span class="headbadge">CONTROLLED CHAOS</span></div>
+      <div class="pbody">
+        <div class="roll-intro">
+          <span class="roll-die" aria-hidden="true">⚄</span>
+          <div><div class="eyebrow">SEAF // EXPERIMENTAL REQUISITIONS</div><h3>LET THE ARMORY DECIDE.</h3><p>Set your rules, roll a complete nine-slot build, and tweak it in the same builder. Everything feeds into the existing Field Analysis—no separate scoring system.</p></div>
+        </div>
+        <div class="roll-block">
+          <label class="small-label" for="rollMode">Randomization doctrine</label>
+          <select class="select-line" id="rollMode">
+            <option value="chaos">Complete chaos — unbiased, valid random gear</option>
+            <option value="balanced" selected>Tactical blend — favor rounded capabilities</option>
+            <option value="mission">Mission-tuned — favor your current front and objective</option>
+          </select>
+          <p class="roll-help">Tactical doctrines sample multiple legal rolls and favor higher coverage. Only the Evaluate button produces an actual synergy score.</p>
+        </div>
+        <div class="roll-rule-grid">
+          <fieldset class="roll-rule-box"><legend>Allowed armor weights</legend>
+            <div class="roll-toggles" id="rollArmorWeights">
+              <label class="rule-toggle"><input type="checkbox" value="Light" checked> Light</label>
+              <label class="rule-toggle"><input type="checkbox" value="Medium" checked> Medium</label>
+              <label class="rule-toggle"><input type="checkbox" value="Heavy" checked> Heavy</label>
+            </div>
+            <label class="roll-select-label" for="rollArmorPassive">Armor passive</label>
+            <select id="rollArmorPassive" class="select-line"><option value="any">Any armor passive</option></select>
+            <p class="roll-help">Limit the weight and, optionally, the passive granted by your armor.</p>
+          </fieldset>
+          <fieldset class="roll-rule-box"><legend>Support &amp; backpack rules</legend>
+            <label class="roll-select-label" for="rollSupportRule">Support weapon</label>
+            <select id="rollSupportRule" class="select-line"><option value="optional">Optional (maximum one)</option><option value="required">Must include one</option><option value="none">Exclude support weapons</option></select>
+            <label class="roll-select-label" for="rollBackpackRule">Separate backpack</label>
+            <select id="rollBackpackRule" class="select-line"><option value="optional">Allowed if compatible</option><option value="required">Must include one</option><option value="none">No separate backpack</option></select>
+          </fieldset>
+        </div>
+        <details class="roll-extra-pools">
+          <summary>Customize weapon, throwable &amp; booster pools <span>OPTIONAL RULES ▾</span></summary>
+          <div class="roll-extra-content" id="rollEquipmentCats"></div>
+        </details>
+        <fieldset class="roll-rule-box roll-wide-rule"><legend>Allowed stratagem classes</legend>
+          <div class="roll-toggles" id="rollStratCats"></div>
+          <p class="roll-help">Disabled categories never appear. Ammo-backpack support weapons still reserve the backpack slot.</p>
+        </fieldset>
+        <fieldset class="roll-rule-box roll-wide-rule"><legend>Mission coverage &amp; analysis</legend>
+          <div class="roll-check-list">
+            <label class="rule-check"><input type="checkbox" id="rollAntiHeavy" checked><span><strong>Require anti-heavy coverage</strong><small>Include a dedicated armored-target answer</small></span></label>
+            <label class="rule-check"><input type="checkbox" id="rollDemolition"><span><strong>Require objective demolition</strong><small>Include effective spawner / structure clearing</small></span></label>
+            <label class="rule-check"><input type="checkbox" id="rollAutoEvaluate"><span><strong>Evaluate automatically after the roll</strong><small>Optional—runs the existing synergy report immediately</small></span></label>
+          </div>
+        </fieldset>
+        <fieldset class="roll-rule-box roll-wide-rule"><legend>Keep equipped gear on rerolls</legend>
+          <p class="roll-help roll-lock-intro">Lock any currently equipped item. Empty slots cannot be locked; all unlocked slots will roll again.</p>
+          <div class="roll-locks" id="rollLocks"></div>
+        </fieldset>
+        <div class="roll-actions">
+          <button class="primary-btn roll-generate" id="rollGenerate">⚄ Generate random loadout</button>
+          <button class="outline-btn" id="rollResetRules" type="button">Reset rules</button>
+        </div>
+        <div class="roll-result" id="rollResult" role="status" aria-live="polite">READY TO ROLL // Choose rules, then generate. No equipment changes until you press Generate.</div>
+      </div>
+    </section>
   </div>
 
   <aside class="analysis">
     <section class="panel">
       <div class="anhero">
-        <div class="anstamp"><span>04 / Field analysis</span><span class="status" id="status">AWAITING INPUT</span></div>
+        <div class="anstamp"><span>05 / Field analysis</span><span class="status" id="status">AWAITING INPUT</span></div>
         <div class="scorerow">
           <div class="score-ring" id="scoreRing"><div class="score-number" id="scoreNum">—</div></div>
           <div class="scoremeta">
