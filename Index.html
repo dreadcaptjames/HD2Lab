@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#090e13">
+<meta name="description" content="Unofficial Helldivers 2 tactical loadout and synergy planner: assemble weapons, armor, stratagems and boosters, then evaluate mission coverage.">
+<title>HELLDIVER // Synergy Lab</title>
+<link rel="stylesheet" href="./styles.css">
+<link rel="icon" type="image/png" href="./101st%20New%20Logo.png">
+</head>
+<body>
+<div class="wrap">
+<div class="broadcast"><span>▰ ▰ ▰  SEAF / TACTICAL NETWORK</span><span>AUTHORIZED FIELD TERMINAL <i>•</i> NOT LIVE-SYNCED</span></div>
+<header class="topbar">
+  <div class="logo">
+    <img class="brand-logo" src="./101st%20New%20Logo.png" alt="101st skull insignia" width="72" height="72">
+    <div class="logo-copy">
+      <div class="logo-name">HELLDIVER <span style="color:var(--yellow)">//</span> SYNERGY LAB</div>
+      <div class="logo-sub">TACTICAL LOADOUT INTELLIGENCE  //  RANDOMIZER ENABLED</div>
+    </div>
+  </div>
+  <div class="top-right">
+    <div class="live"><span class="dot"></span> SYSTEMS NOMINAL</div>
+    <button class="mini-btn" id="resetBtn">↺ Reset build</button>
+  </div>
+</header>
+
+<section class="hero" aria-label="Operations command overview">
+  <div class="hero-main">
+    <div class="hero-topline"><span class="eyebrow">▦ SUPER EARTH // LOADOUT COMMAND</span><span class="hero-id">OPERATION : READY CHECK · V04.0</span></div>
+    <h1>PREPARE TO<br><em>SPREAD DEMOCRACY.</em></h1>
+    <p>Choose your armor, weapons, throwable, booster and four stratagems. Then evaluate the <strong>whole loadout</strong> against your actual mission—coverage, interactions, and tactical conflicts included.</p>
+    <div class="hero-actions"><a class="jump" href="#loadout">CONFIGURE LOADOUT <span>↘</span></a><a class="jump jump-secondary" href="#randomizer">RANDOMIZE KIT <span>↘</span></a><span class="hero-hint">MANUAL OR RANDOM · EVALUATE ON DEMAND</span></div>
+    <div class="hero-bottomline"><span>FIELD SYSTEM 002 / SYNERGY ASSESSMENT</span><span>DOCTRINE: NO SLOT WASTED</span></div>
+  </div>
+  <aside class="hero-side" aria-label="Tactical enemy scan">
+    <div class="scan-top"><span>⟐ ENEMY RECOGNITION GRID</span><span>SECTOR 07 / HOLD</span></div>
+    <div class="tactical-scan">
+      <div class="radar-grid"></div><div class="radar-disc"></div>
+      <div class="radar-north">N · 000°</div>
+      <div class="scan-target"><span id="scanCrest"></span></div>
+      <div class="scan-corner scan-corner-a">＋</div><div class="scan-corner scan-corner-b">＋</div>
+      <div class="radar-index">TGT / <span id="frontCode">TRM</span></div>
+    </div>
+    <div class="scan-bottom"><div><small>ACTIVE BATTLEFRONT</small><strong id="frontDisplay">TERMINIDS</strong></div><span class="scan-live"><i></i> READOUT ACTIVE</span></div>
+  </aside>
+</section>
+
+<div class="command-strip" aria-label="System summary">
+  <div class="intel-card"><span class="intel-symbol">▦</span><div><small>CATALOG DATABASE</small><strong id="catalogCount">—</strong><span class="intel-sub">body armor + equipment</span></div></div>
+  <div class="intel-card"><span class="intel-symbol">◇</span><div><small>TACTICAL READOUT</small><strong>06 <span class="mini-number">VECTORS</span></strong><span class="intel-sub">coverage + synergies</span></div></div>
+  <div class="intel-card"><span class="intel-symbol">⛨</span><div><small>REQUISITION RULES</small><strong>ACTIVE</strong><span class="intel-sub">support &amp; pack conflicts</span></div></div>
+  <div class="intel-card"><span class="intel-symbol">⚄</span><div><small>RULED RANDOMIZER</small><strong>NOW ONLINE</strong><span class="intel-sub">full chaos or tactical rolls</span></div></div>
+</div>
+
+<main class="workspace" id="loadout">
+  <div class="stack">
+    <section class="panel">
+      <div class="phead"><h2>01 / Mission parameters</h2><small>Define your threat</small></div>
+      <div class="pbody">
+        <span class="small-label">Enemy front</span>
+        <div class="factions" id="factions"></div>
+        <div class="mission-grid">
+          <div>
+            <label class="small-label" for="mission">Mission type</label>
+            <select class="select-line" id="mission">
+              <option value="general">General operations</option>
+              <option value="blitz">Blitz / Search &amp; Destroy</option>
+              <option value="defense">Defense / Eradicate</option>
+              <option value="objectives">Objective assault</option>
+              <option value="stealth">Recon / Low contact</option>
+            </select>
+          </div>
+          <div>
+            <label class="small-label" for="party">Operating mode</label>
+            <select class="select-line" id="party">
+              <option value="squad">Squad / team play</option>
+              <option value="solo">Solo / self-sufficient</option>
+            </select>
+          </div>
+        </div>
+        <div class="difficulty">
+          <div class="dtext"><div class="small-label" style="margin:0">Threat level <strong id="diffName">— SUICIDE MISSION</strong></div><input type="range" min="1" max="10" value="7" id="difficulty" aria-label="Difficulty"></div>
+          <div class="dnum" id="diffVal">7</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="phead"><h2>02 / Personal equipment</h2><span class="headbadge">5 SLOTS</span></div>
+      <div class="pbody">
+        <div class="section-label"><h3>Body armor &amp; passive</h3><span>Passive tied to armor choice</span></div>
+        <div id="armorSlot"></div>
+        <div class="section-label section-split"><h3>Weapons &amp; throwables</h3><span>Select each module manually</span></div>
+        <div class="slot-grid" id="weaponSlots"></div>
+        <div class="section-label section-split"><h3>Squad booster</h3><span>Team-wide battlefield modifier</span></div>
+        <div id="boosterSlot"></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="phead"><h2>03 / Stratagem loadout</h2><span class="headbadge">4 CALL-INS</span></div>
+      <div class="pbody">
+        <div class="section-label"><h3>Deployment package</h3><span>Compatible support &amp; backpack slots</span></div>
+        <div class="slot-grid strat-grid" id="stratSlots"></div>
+        <p class="hint">Every mode limits each stratagem to one copy and permits at most one mech, one FRV, and one tank. Normal builder rules also prevent multiple support-weapon call-ins and competing backpacks. These are build-design rules inside this tool, not claims that every blocked combination is impossible in-game.</p>
+        <div class="section-foot">
+          <div class="small-note">Need a starting point? Templates only load when you click them.</div>
+          <div class="templates"><button class="tbtn" data-template="bugs">BUG CLEAR</button><button class="tbtn" data-template="bots">BOT HUNTER</button><button class="tbtn" data-template="squids">SQUID CONTROL</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel roll-panel" id="randomizer" aria-labelledby="randomizerTitle">
+      <div class="phead"><h2 id="randomizerTitle">04 / Loadout randomizer</h2><span class="headbadge">CHAOS ENABLED</span></div>
+      <div class="pbody">
+        <div class="roll-intro">
+          <span class="roll-die" aria-hidden="true">⚄</span>
+          <div><div class="eyebrow">SEAF // EXPERIMENTAL REQUISITIONS</div><h3>LET THE ARMORY DECIDE.</h3><p>Set your rules, roll a complete nine-slot build, and tweak it in the same builder. Everything feeds into the existing Field Analysis—no separate scoring system.</p></div>
+        </div>
+        <div class="roll-block">
+          <label class="small-label" for="rollMode">Randomization doctrine</label>
+          <select class="select-line" id="rollMode">
+            <option value="chaos">COMPLETE CHAOS — anything in the armory</option>
+            <option value="balanced" selected>Tactical blend — favor rounded capabilities</option>
+            <option value="mission">Mission-tuned — favor your current front and objective</option>
+          </select>
+          <p class="roll-help">Chaos rolls ignore synergy and mission tactics; Tactical Blend and Mission-Tuned favor effective, playable builds. The same Evaluate button scores every result.</p>
+          <fieldset class="chaos-options" id="rollChaosOptions" hidden><legend>UNLEASH THE NONSENSE</legend>
+            <p class="chaos-notice">SUPER EARTH SAFETY DEPARTMENT HAS LEFT THE CHAT. Every allowed catalog entry is in the draw, but stratagem IDs stay unique and only one mech, one FRV, and one tank may be selected. Other switches may create <strong>experimental, non-deployable combinations.</strong></p>
+            <div class="chaos-option-grid">
+              <label class="rule-check"><input type="checkbox" id="rollUnsafe" checked><span><strong>BREAK LOADOUT RULES</strong><small>Multiple support weapons and competing backpacks allowed; duplicate stratagems and same-class vehicles are still blocked.</small></span></label>
+              <label class="rule-check"><input type="checkbox" id="rollCursed" checked><span><strong>CURSED COMBINATIONS</strong><small>Sometimes roll category takeovers, support/backpack pileups, or a mech + FRV + tank parade—always with unique stratagems.</small></span></label>
+            </div>
+            <p class="roll-help">Stratagems are always unique, with no more than one Mech, one FRV, and one Tank—even in Chaos. Disable these switches for fully random but planner-compatible selections. Your category restrictions, requirements, and slot locks still apply.</p>
+          </fieldset>
+        </div>
+        <div class="roll-rule-grid">
+          <fieldset class="roll-rule-box"><legend>Allowed armor weights</legend>
+            <div class="roll-toggles" id="rollArmorWeights">
+              <label class="rule-toggle"><input type="checkbox" value="Light" checked> Light</label>
+              <label class="rule-toggle"><input type="checkbox" value="Medium" checked> Medium</label>
+              <label class="rule-toggle"><input type="checkbox" value="Heavy" checked> Heavy</label>
+            </div>
+            <label class="roll-select-label" for="rollArmorPassive">Armor passive</label>
+            <select id="rollArmorPassive" class="select-line"><option value="any">Any armor passive</option></select>
+            <p class="roll-help">Limit the weight and, optionally, the passive granted by your armor.</p>
+          </fieldset>
+          <fieldset class="roll-rule-box"><legend>Support &amp; backpack rules</legend>
+            <label class="roll-select-label" for="rollSupportRule">Support weapon</label>
+            <select id="rollSupportRule" class="select-line"><option value="optional">Optional (roll from any permitted category)</option><option value="required">Must include one</option><option value="none">Exclude support weapons</option></select>
+            <label class="roll-select-label" for="rollBackpackRule">Separate backpack</label>
+            <select id="rollBackpackRule" class="select-line"><option value="optional">Allowed if compatible</option><option value="required">Must include one</option><option value="none">No separate backpack</option></select>
+          </fieldset>
+        </div>
+        <details class="roll-extra-pools">
+          <summary>Customize weapon, throwable &amp; booster pools <span>OPTIONAL RULES ▾</span></summary>
+          <div class="roll-extra-content" id="rollEquipmentCats"></div>
+        </details>
+        <fieldset class="roll-rule-box roll-wide-rule"><legend>Allowed stratagem classes</legend>
+          <div class="roll-toggles" id="rollStratCats"></div>
+          <p class="roll-help">Disabled categories never appear. Normal modes enforce support/backpack compatibility. Full Chaos can intentionally break that rule when its sandbox switch is on.</p>
+        </fieldset>
+        <fieldset class="roll-rule-box roll-wide-rule"><legend>Mission coverage &amp; analysis</legend>
+          <div class="roll-check-list">
+            <label class="rule-check"><input type="checkbox" id="rollAntiHeavy" checked><span><strong>Require anti-heavy coverage</strong><small>Optional rule; switched off by default for Complete Chaos</small></span></label>
+            <label class="rule-check"><input type="checkbox" id="rollDemolition"><span><strong>Require objective demolition</strong><small>Include effective spawner / structure clearing</small></span></label>
+            <label class="rule-check"><input type="checkbox" id="rollAutoEvaluate"><span><strong>Evaluate automatically after the roll</strong><small>Optional—runs the existing synergy report immediately</small></span></label>
+          </div>
+        </fieldset>
+        <fieldset class="roll-rule-box roll-wide-rule"><legend>Keep equipped gear on rerolls</legend>
+          <p class="roll-help roll-lock-intro">Lock any currently equipped item. Empty slots cannot be locked; all unlocked slots will roll again.</p>
+          <div class="roll-locks" id="rollLocks"></div>
+        </fieldset>
+        <div class="roll-actions">
+          <button class="primary-btn roll-generate" id="rollGenerate">⚄ Generate random loadout</button>
+          <button class="outline-btn" id="rollResetRules" type="button">Reset rules</button>
+        </div>
+        <div class="roll-result" id="rollResult" role="status" aria-live="polite">READY TO ROLL // Choose rules, then generate. No equipment changes until you press Generate.</div>
+      </div>
+    </section>
+  </div>
+
+  <aside class="analysis">
+    <section class="panel">
+      <div class="anhero">
+        <div class="anstamp"><span>05 / Field analysis</span><span class="status" id="status">AWAITING INPUT</span></div>
+        <div class="scorerow">
+          <div class="score-ring" id="scoreRing"><div class="score-number" id="scoreNum">—</div></div>
+          <div class="scoremeta">
+            <h3 id="scoreTitle">Build your kit.</h3>
+            <p id="scoreSubtitle">No scores or recommendations are generated until you select Evaluate.</p>
+            <span class="grade" id="grade">0 / 9 EQUIPMENT SLOTS FILLED</span>
+          </div>
+        </div>
+        <div class="actionrow"><button class="primary-btn" id="evaluateBtn">⚡ Evaluate synergy</button><button class="outline-btn" id="copyBtn" title="Copy your loadout report">Copy report</button></div>
+      </div>
+      <div class="analysis-body">
+        <div class="section-label" style="margin-bottom:15px"><h3>Operational coverage</h3><span id="barLabel">NOT ANALYZED</span></div>
+        <div id="bars"></div>
+        <div class="result-header"><h3>Field intelligence</h3><span id="insightCount">NO REPORT</span></div>
+        <div class="insights" id="insights"><div class="placeholder">Select an armor set, weapons, booster and four stratagems, then press <strong>Evaluate Synergy</strong> for grounded strengths, weaknesses, synergy wins, and equipment conflicts.</div></div>
+        <div class="analysis-foot">Scores are heuristic planning estimates—not datamined DPS, win rates, or a promise of optimal performance. Squad composition, mission modifiers, and personal skill still change the answer.</div>
+      </div>
+    </section>
+  </aside>
+</main>
+
+<footer class="bottom">
+  <span>UNOFFICIAL COMMUNITY TOOL • NOT AFFILIATED WITH ARROWHEAD OR SONY • CURATED EQUIPMENT REFERENCE, NOT LIVE-SYNCED</span>
+  <span>References: <a href="https://helldivers.wiki.gg/wiki/Armor_Passive" target="_blank" rel="noreferrer">Armor passives</a> · <a href="https://helldivers.wiki.gg/wiki/All_Stratagems" target="_blank" rel="noreferrer">Stratagems</a> · <a href="https://helldivers.wiki.gg/wiki/Boosters" target="_blank" rel="noreferrer">Boosters</a></span>
+</footer>
+</div>
+
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-head">
+      <div><small id="modalKicker">EQUIPMENT ARMORY</small><h2 id="modalTitle">Select equipment</h2></div>
+      <button class="xbtn" id="closeModal" aria-label="Close equipment picker">×</button>
+    </div>
+    <div class="picker-controls">
+      <div class="search-wrap"><input id="search" autocomplete="off" placeholder="Search by name, role or trait…" aria-label="Search equipment"></div>
+      <div class="filters" id="filters" role="group" aria-label="Equipment category filters"></div>
+      <div class="picker-meta" id="pickerMeta" aria-live="polite"></div>
+    </div>
+    <div class="picker-list" id="pickerList" tabindex="0" aria-label="Available equipment results"></div>
+    <div class="picker-alert" id="pickerAlert" role="status"></div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script src="./data.js" defer></script>
+<script src="./app.js" defer></script>
+</body></html>
