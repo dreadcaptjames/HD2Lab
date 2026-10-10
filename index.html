@@ -101,7 +101,7 @@
       <div class="pbody">
         <div class="section-label"><h3>Deployment package</h3><span>Compatible support &amp; backpack slots</span></div>
         <div class="slot-grid strat-grid" id="stratSlots"></div>
-        <p class="hint">Planner guardrails prevent duplicate stratagems, multiple support-weapon call-ins, and backpacks competing with backpack-fed weapons. These are build-design rules inside this tool, not claims that every blocked combination is impossible in-game.</p>
+        <p class="hint">Every mode limits each stratagem to one copy and permits at most one mech, one FRV, and one tank. Normal builder rules also prevent multiple support-weapon call-ins and competing backpacks. These are build-design rules inside this tool, not claims that every blocked combination is impossible in-game.</p>
         <div class="section-foot">
           <div class="small-note">Need a starting point? Templates only load when you click them.</div>
           <div class="templates"><button class="tbtn" data-template="bugs">BUG CLEAR</button><button class="tbtn" data-template="bots">BOT HUNTER</button><button class="tbtn" data-template="squids">SQUID CONTROL</button></div>
@@ -125,12 +125,12 @@
           </select>
           <p class="roll-help">Chaos rolls ignore synergy and mission tactics; Tactical Blend and Mission-Tuned favor effective, playable builds. The same Evaluate button scores every result.</p>
           <fieldset class="chaos-options" id="rollChaosOptions" hidden><legend>UNLEASH THE NONSENSE</legend>
-            <p class="chaos-notice">SUPER EARTH SAFETY DEPARTMENT HAS LEFT THE CHAT. Every allowed catalog entry is in the draw, but the same stratagem can never occupy two slots. Other switches may create <strong>experimental, non-deployable combinations.</strong></p>
+            <p class="chaos-notice">SUPER EARTH SAFETY DEPARTMENT HAS LEFT THE CHAT. Every allowed catalog entry is in the draw, but stratagem IDs stay unique and only one mech, one FRV, and one tank may be selected. Other switches may create <strong>experimental, non-deployable combinations.</strong></p>
             <div class="chaos-option-grid">
-              <label class="rule-check"><input type="checkbox" id="rollUnsafe" checked><span><strong>BREAK LOADOUT RULES</strong><small>Multiple support weapons, competing backpacks, pack-fed clashes—nothing is protected.</small></span></label>
-              <label class="rule-check"><input type="checkbox" id="rollCursed" checked><span><strong>CURSED COMBINATIONS</strong><small>Sometimes roll category takeovers or support/backpack/vehicle overloads—always with four different stratagems.</small></span></label>
+              <label class="rule-check"><input type="checkbox" id="rollUnsafe" checked><span><strong>BREAK LOADOUT RULES</strong><small>Multiple support weapons and competing backpacks allowed; duplicate stratagems and same-class vehicles are still blocked.</small></span></label>
+              <label class="rule-check"><input type="checkbox" id="rollCursed" checked><span><strong>CURSED COMBINATIONS</strong><small>Sometimes roll category takeovers, support/backpack pileups, or a mech + FRV + tank parade—always with unique stratagems.</small></span></label>
             </div>
-            <p class="roll-help">Stratagems are always unique, even in Chaos. Disable these switches for fully random but planner-compatible selections. Your category restrictions, requirements, and slot locks still apply.</p>
+            <p class="roll-help">Stratagems are always unique, with no more than one Mech, one FRV, and one Tank—even in Chaos. Disable these switches for fully random but planner-compatible selections. Your category restrictions, requirements, and slot locks still apply.</p>
           </fieldset>
         </div>
         <div class="roll-rule-grid">

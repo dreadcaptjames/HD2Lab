@@ -473,3 +473,5 @@ Catalog checked **October 10, 2026** against community-maintained references. Th
 - [Throwables](https://helldivers.wiki.gg/wiki/Category:Throwables)
 - [Boosters](https://helldivers.wiki.gg/wiki/Boosters)
 - [Stratagems](https://helldivers.wiki.gg/wiki/Stratagems)
+
+**Vehicle selection rule:** At most one Mech, one FRV, and one Tank may appear in one loadout; mixed families are allowed, including in Complete Chaos.
