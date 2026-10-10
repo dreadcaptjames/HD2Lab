@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#090e13">
+<meta name="description" content="Unofficial Helldivers 2 tactical loadout and synergy planner: assemble weapons, armor, stratagems and boosters, then evaluate mission coverage.">
+<title>HELLDIVER // Synergy Lab</title>
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<div class="wrap">
+<div class="broadcast"><span>▰ ▰ ▰  SEAF / TACTICAL NETWORK</span><span>AUTHORIZED FIELD TERMINAL <i>•</i> NOT LIVE-SYNCED</span></div>
+<header class="topbar">
+  <div class="logo">
+    <div class="emblem" id="brandIcon"></div>
+    <div class="logo-copy">
+      <div class="logo-name">HELLDIVER <span style="color:var(--yellow)">//</span> SYNERGY LAB</div>
+      <div class="logo-sub">TACTICAL LOADOUT INTELLIGENCE</div>
+    </div>
+  </div>
+  <div class="top-right">
+    <div class="live"><span class="dot"></span> SYSTEMS NOMINAL</div>
+    <button class="mini-btn" id="resetBtn">↺ Reset build</button>
+  </div>
+</header>
+
+<section class="hero" aria-label="Operations command overview">
+  <div class="hero-main">
+    <div class="hero-topline"><span class="eyebrow">▦ SUPER EARTH // LOADOUT COMMAND</span><span class="hero-id">OPERATION : READY CHECK · V02.0</span></div>
+    <h1>PREPARE TO<br><em>SPREAD DEMOCRACY.</em></h1>
+    <p>Choose your armor, weapons, throwable, booster and four stratagems. Then evaluate the <strong>whole loadout</strong> against your actual mission—coverage, interactions, and tactical conflicts included.</p>
+    <div class="hero-actions"><a class="jump" href="#loadout">CONFIGURE LOADOUT <span>↘</span></a><span class="hero-hint">NO AUTO-GENERATION · YOU PICK EVERY SLOT</span></div>
+    <div class="hero-bottomline"><span>FIELD SYSTEM 002 / SYNERGY ASSESSMENT</span><span>DOCTRINE: NO SLOT WASTED</span></div>
+  </div>
+  <aside class="hero-side" aria-label="Tactical enemy scan">
+    <div class="scan-top"><span>⟐ ENEMY RECOGNITION GRID</span><span>SECTOR 07 / HOLD</span></div>
+    <div class="tactical-scan">
+      <div class="radar-grid"></div><div class="radar-disc"></div>
+      <div class="radar-north">N · 000°</div>
+      <div class="scan-target"><span id="scanCrest"></span></div>
+      <div class="scan-corner scan-corner-a">＋</div><div class="scan-corner scan-corner-b">＋</div>
+      <div class="radar-index">TGT / <span id="frontCode">TRM</span></div>
+    </div>
+    <div class="scan-bottom"><div><small>ACTIVE BATTLEFRONT</small><strong id="frontDisplay">TERMINIDS</strong></div><span class="scan-live"><i></i> READOUT ACTIVE</span></div>
+  </aside>
+</section>
+
+<div class="command-strip" aria-label="System summary">
+  <div class="intel-card"><span class="intel-symbol">▦</span><div><small>CATALOG DATABASE</small><strong id="catalogCount">—</strong><span class="intel-sub">curated loadout choices</span></div></div>
+  <div class="intel-card"><span class="intel-symbol">◇</span><div><small>TACTICAL READOUT</small><strong>06 <span class="mini-number">VECTORS</span></strong><span class="intel-sub">coverage + synergies</span></div></div>
+  <div class="intel-card"><span class="intel-symbol">⛨</span><div><small>REQUISITION RULES</small><strong>ACTIVE</strong><span class="intel-sub">support &amp; pack conflicts</span></div></div>
+  <div class="intel-card"><span class="intel-symbol">⚡</span><div><small>FIELD ASSESSMENT</small><strong>ON DEMAND</strong><span class="intel-sub">nothing scored automatically</span></div></div>
+</div>
+
+<main class="workspace" id="loadout">
+  <div class="stack">
+    <section class="panel">
+      <div class="phead"><h2>01 / Mission parameters</h2><small>Define your threat</small></div>
+      <div class="pbody">
+        <span class="small-label">Enemy front</span>
+        <div class="factions" id="factions"></div>
+        <div class="mission-grid">
+          <div>
+            <label class="small-label" for="mission">Mission type</label>
+            <select class="select-line" id="mission">
+              <option value="general">General operations</option>
+              <option value="blitz">Blitz / Search &amp; Destroy</option>
+              <option value="defense">Defense / Eradicate</option>
+              <option value="objectives">Objective assault</option>
+              <option value="stealth">Recon / Low contact</option>
+            </select>
+          </div>
+          <div>
+            <label class="small-label" for="party">Operating mode</label>
+            <select class="select-line" id="party">
+              <option value="squad">Squad / team play</option>
+              <option value="solo">Solo / self-sufficient</option>
+            </select>
+          </div>
+        </div>
+        <div class="difficulty">
+          <div class="dtext"><div class="small-label" style="margin:0">Threat level <strong id="diffName">— SUICIDE MISSION</strong></div><input type="range" min="1" max="10" value="7" id="difficulty" aria-label="Difficulty"></div>
+          <div class="dnum" id="diffVal">7</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="phead"><h2>02 / Personal equipment</h2><span class="headbadge">5 SLOTS</span></div>
+      <div class="pbody">
+        <div class="section-label"><h3>Body armor &amp; passive</h3><span>Passive tied to armor choice</span></div>
+        <div id="armorSlot"></div>
+        <div class="section-label section-split"><h3>Weapons &amp; throwables</h3><span>Select each module manually</span></div>
+        <div class="slot-grid" id="weaponSlots"></div>
+        <div class="section-label section-split"><h3>Squad booster</h3><span>Team-wide battlefield modifier</span></div>
+        <div id="boosterSlot"></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="phead"><h2>03 / Stratagem loadout</h2><span class="headbadge">4 CALL-INS</span></div>
+      <div class="pbody">
+        <div class="section-label"><h3>Deployment package</h3><span>Compatible support &amp; backpack slots</span></div>
+        <div class="slot-grid strat-grid" id="stratSlots"></div>
+        <p class="hint">Planner guardrails prevent duplicate stratagems, multiple support-weapon call-ins, and backpacks competing with backpack-fed weapons. These are build-design rules inside this tool, not claims that every blocked combination is impossible in-game.</p>
+        <div class="section-foot">
+          <div class="small-note">Need a starting point? Templates only load when you click them.</div>
+          <div class="templates"><button class="tbtn" data-template="bugs">BUG CLEAR</button><button class="tbtn" data-template="bots">BOT HUNTER</button><button class="tbtn" data-template="squids">SQUID CONTROL</button></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <aside class="analysis">
+    <section class="panel">
+      <div class="anhero">
+        <div class="anstamp"><span>04 / Field analysis</span><span class="status" id="status">AWAITING INPUT</span></div>
+        <div class="scorerow">
+          <div class="score-ring" id="scoreRing"><div class="score-number" id="scoreNum">—</div></div>
+          <div class="scoremeta">
+            <h3 id="scoreTitle">Build your kit.</h3>
+            <p id="scoreSubtitle">No scores or recommendations are generated until you select Evaluate.</p>
+            <span class="grade" id="grade">0 / 9 EQUIPMENT SLOTS FILLED</span>
+          </div>
+        </div>
+        <div class="actionrow"><button class="primary-btn" id="evaluateBtn">⚡ Evaluate synergy</button><button class="outline-btn" id="copyBtn" title="Copy your loadout report">Copy report</button></div>
+      </div>
+      <div class="analysis-body">
+        <div class="section-label" style="margin-bottom:15px"><h3>Operational coverage</h3><span id="barLabel">NOT ANALYZED</span></div>
+        <div id="bars"></div>
+        <div class="result-header"><h3>Field intelligence</h3><span id="insightCount">NO REPORT</span></div>
+        <div class="insights" id="insights"><div class="placeholder">Select an armor set, weapons, booster and four stratagems, then press <strong>Evaluate Synergy</strong> for grounded strengths, weaknesses, synergy wins, and equipment conflicts.</div></div>
+        <div class="analysis-foot">Scores are heuristic planning estimates—not datamined DPS, win rates, or a promise of optimal performance. Squad composition, mission modifiers, and personal skill still change the answer.</div>
+      </div>
+    </section>
+  </aside>
+</main>
+
+<footer class="bottom">
+  <span>UNOFFICIAL COMMUNITY TOOL • NOT AFFILIATED WITH ARROWHEAD OR SONY • CURATED EQUIPMENT REFERENCE, NOT LIVE-SYNCED</span>
+  <span>References: <a href="https://helldivers.wiki.gg/wiki/Armor_Passive" target="_blank" rel="noreferrer">Armor passives</a> · <a href="https://helldivers.wiki.gg/wiki/All_Stratagems" target="_blank" rel="noreferrer">Stratagems</a> · <a href="https://helldivers.wiki.gg/wiki/Boosters" target="_blank" rel="noreferrer">Boosters</a></span>
+</footer>
+</div>
+
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-head">
+      <div><small id="modalKicker">EQUIPMENT ARMORY</small><h2 id="modalTitle">Select equipment</h2></div>
+      <button class="xbtn" id="closeModal" aria-label="Close equipment picker">×</button>
+    </div>
+    <div class="search-wrap"><input id="search" autocomplete="off" placeholder="Search by name, role or trait…" aria-label="Search equipment"></div>
+    <div class="filters" id="filters"></div>
+    <div class="picker-meta" id="pickerMeta" aria-live="polite"></div>
+    <div class="picker-list" id="pickerList"></div>
+    <div class="picker-alert" id="pickerAlert" role="status"></div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script src="./data.js" defer></script>
+<script src="./app.js" defer></script>
+</body></html>
