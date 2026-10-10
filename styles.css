@@ -321,3 +321,69 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
 /* Large audited armory: keep category filters usable without pushing list below modal fold. */
 .filters{max-height:106px;overflow-y:auto;overscroll-behavior:contain;align-content:start;scrollbar-width:thin;scrollbar-color:var(--line-strong) transparent}
 .filter{flex:0 0 auto}
+
+/* V3.1 — Dedicated, predictable armory scroll regions.
+   The search/filter controls never scroll underneath equipment results. */
+.modal-card{
+  height:min(860px,calc(100dvh - 44px));
+  max-height:calc(100dvh - 44px);
+  min-height:0;
+  overflow:hidden;
+}
+.modal-head{flex:0 0 auto}
+.picker-controls{
+  flex:0 0 auto;
+  min-height:0;
+  position:relative;
+  z-index:1;
+  background:linear-gradient(180deg,#17212c 0%,#101820 100%);
+  border-bottom:1px solid var(--line-strong);
+  box-shadow:0 8px 14px rgba(0,0,0,.16);
+}
+.picker-controls .filters{
+  flex-wrap:wrap;
+  max-height:min(112px,18dvh);
+  overflow-y:auto;
+  overflow-x:hidden;
+  overscroll-behavior:contain;
+  padding-bottom:12px;
+  scrollbar-width:thin;
+  scrollbar-color:var(--line-strong) transparent;
+}
+.picker-controls .picker-meta{
+  padding:8px 22px 11px;
+  border-top:1px solid rgba(255,255,255,.05);
+  font-size:10px;
+}
+.picker-list{
+  flex:1 1 auto;
+  min-height:0;
+  overflow-y:auto;
+  overflow-x:hidden;
+  overscroll-behavior:contain;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-gutter:stable;
+  align-content:start;
+  grid-auto-rows:max-content;
+  padding-top:14px;
+  scroll-behavior:auto;
+}
+.picker-alert:not(:empty){padding-top:9px}
+.picker-alert:empty{display:none}
+.picker-alert:not(:empty){flex:0 0 auto}
+@media(max-width:760px){
+  .modal-card{height:calc(100dvh - 24px);max-height:calc(100dvh - 24px)}
+  .picker-controls .filters{max-height:min(84px,16dvh);gap:6px}
+  .picker-controls .picker-meta{padding:7px 14px 9px}
+  .modal-head{padding:13px 15px 11px}
+  .modal-head h2{font-size:20px}
+  .search-wrap{padding:11px 14px 7px}
+  .filters{padding-left:14px;padding-right:14px}
+  .picker-list{padding:12px 14px 15px}
+}
+
+/* Seven stratagem categories should ALL be visible, including on phones. */
+#modal[data-picker-type="strat"] .picker-controls .filters{
+  max-height:none;
+  overflow:visible;
+}

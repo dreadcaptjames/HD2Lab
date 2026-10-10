@@ -44,3 +44,11 @@ This is an **as-of-date catalog**, not a live-sync service; new releases after t
 ## Disclaimer
 
 Unofficial community planning tool. Not affiliated with or endorsed by Arrowhead Game Studios or Sony Interactive Entertainment. Game trademarks and item names belong to their respective owners.
+
+## V3.1 picker usability fixes
+
+- The equipment picker has a dedicated scrollable results area. Search, category filters, and result counts remain visible.
+- The results list returns to the top whenever a picker opens, its category changes, or its search query changes.
+- All seven stratagem filters remain fully visible even on narrow phones. Larger filter groups (such as armor passives) have an independent scroll area, with its position preserved when selecting a chip.
+- Search receives focus without making the results list or the page jump.
+- All 326 catalog entries, loadout rules, and synergy analysis logic are unchanged.

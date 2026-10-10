@@ -147,10 +147,12 @@
       <div><small id="modalKicker">EQUIPMENT ARMORY</small><h2 id="modalTitle">Select equipment</h2></div>
       <button class="xbtn" id="closeModal" aria-label="Close equipment picker">×</button>
     </div>
-    <div class="search-wrap"><input id="search" autocomplete="off" placeholder="Search by name, role or trait…" aria-label="Search equipment"></div>
-    <div class="filters" id="filters"></div>
-    <div class="picker-meta" id="pickerMeta" aria-live="polite"></div>
-    <div class="picker-list" id="pickerList"></div>
+    <div class="picker-controls">
+      <div class="search-wrap"><input id="search" autocomplete="off" placeholder="Search by name, role or trait…" aria-label="Search equipment"></div>
+      <div class="filters" id="filters" role="group" aria-label="Equipment category filters"></div>
+      <div class="picker-meta" id="pickerMeta" aria-live="polite"></div>
+    </div>
+    <div class="picker-list" id="pickerList" tabindex="0" aria-label="Available equipment results"></div>
     <div class="picker-alert" id="pickerAlert" role="status"></div>
   </div>
 </div>
