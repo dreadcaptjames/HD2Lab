@@ -445,3 +445,17 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
 .roll-gear-pool:last-child{border-bottom:0}
 .roll-gear-pool-title{font-size:10px;color:#b7c6ce;letter-spacing:.1em;text-transform:uppercase;font-weight:900;margin-bottom:10px}
 @media(max-width:480px){.roll-extra-pools summary{font-size:10px;letter-spacing:.01em}.roll-extra-pools summary span{font-size:8px}}
+
+/* V5: Complete Chaos has deliberate sandbox-only guardrail overrides. */
+.chaos-options{margin:15px 0 0;min-width:0;padding:15px;border:1px solid rgba(244,143,129,.50);border-radius:12px;background:linear-gradient(125deg,rgba(81,32,25,.40),rgba(32,24,27,.75)),#171a20;box-shadow:inset 0 0 38px rgba(244,143,129,.04)}
+.chaos-options[hidden]{display:none!important}
+.chaos-options legend{padding:0 8px;font-size:10px;letter-spacing:.17em;font-weight:950;color:#ffb495}
+.chaos-notice{font-size:11px;color:#e3b6aa;line-height:1.6;margin:2px 0 13px}
+.chaos-notice strong{color:#ffe0c8}
+.chaos-option-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.chaos-option-grid .rule-check{background:rgba(18,19,25,.8);border-color:#64443c}
+.chaos-option-grid .rule-check:has(input:checked){background:rgba(79,38,28,.50);border-color:#da866b}
+.chaos-option-grid .rule-check strong{color:#f5c7a9}
+.chaos-option-grid .rule-check:has(input:disabled){opacity:.4;cursor:not-allowed}
+.chaos-badge{font-weight:900;color:#ffb495;letter-spacing:.05em}
+@media(max-width:760px){.chaos-option-grid{grid-template-columns:1fr}}

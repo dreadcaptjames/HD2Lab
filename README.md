@@ -11,7 +11,7 @@ A browser-based, unofficial **Helldivers 2** loadout planner. Players can assemb
 - Offers Terminid, Automaton, Illuminate, and mixed-front scenarios, mission roles, solo/team modes, and 1–10 difficulty.
 - Identifies six role-coverage dimensions: anti-heavy, swarm control, medium-target tools, objective destruction, survivability, and sustain.
 - Recognizes tactical interactions, including Engineering Kit + throwables, Med-Kit + Experimental Infusion, stuns + strikes, and support-weapon + backpack conflicts.
-- Prevents duplicate stratagems, multiple selected support weapons and incompatible backpacks **as deliberate build-design constraints**. The game itself can allow some non-conflicting carry-ins; these constraints are planner policy.
+- Prevents duplicate stratagems, multiple selected support weapons and incompatible backpacks in the **manual builder and tactical randomizer modes** as deliberate build-design constraints. Complete Chaos can explicitly bypass these guardrails. The game itself can allow some non-conflicting carry-ins; these constraints are planner policy.
 - Never generates anything on launch or before the user clicks **Generate Random Loadout**. Manual selection and three click-to-load sample builds are still supported.
 - Includes **Controlled Chaos**, a rule-driven loadout randomizer with Complete Chaos, Tactical Blend, and Mission-Tuned rolls; armor-weight and passive filters; optional category restrictions for primary weapons, sidearms, throwables, boosters, and stratagems; support-weapon and backpack requirements/exclusions; anti-heavy and demolition coverage requirements; and per-slot locks for partial rerolls.
 - Supports optional **automatic synergy evaluation after a random roll**. Otherwise, scoring still happens only when the user clicks **Evaluate Synergy**. Randomized and manual builds share the *same* analysis and report-copying features.
@@ -58,8 +58,22 @@ Unofficial community planning tool. Not affiliated with or endorsed by Arrowhead
 
 ## V4 randomizer behavior
 
-The randomizer uses the full curated equipment catalog and the same nine-slot build state as manual selection. **Complete Chaos** chooses from permitted equipment without optimizing performance. **Tactical Blend** compares several legal rolls and favors varied role coverage and familiar equipment interactions. **Mission-Tuned** weighs the current enemy front and mission type more heavily. Those roll-selection heuristics are not an additional score and should not be confused with the actual Field Analysis.
+The randomizer uses the full curated equipment catalog and the same nine-slot build state as manual selection. **Complete Chaos** now chooses any catalog equipment without tactical optimization; it also offers explicit sandbox switches that can override normal planner safeguards and generate intentionally absurd stratagem combinations. **Tactical Blend** compares several legal rolls and favors varied role coverage and familiar equipment interactions. **Mission-Tuned** weighs the current enemy front and mission type more heavily. Those roll-selection heuristics are not an additional score and should not be confused with the actual Field Analysis.
 
 The optional weapon/throwable/booster category pools are collapsed initially to keep the main rule panel approachable. Every equipment category is allowed unless the player changes it. Each equipment lock keeps that currently selected piece on reroll; locks on empty slots are disabled. For mandatory support/backpack rules, a separate backpack cannot coexist with a support weapon that occupies that slot with its own ammo pack. Rule constraints are enforced before mutating a build. Reset Build clears both the loadout and the randomizer configuration; Reset Rules clears rules and locks without wiping the equipment.
 
 The randomizer does not filter by a player's owned Warbonds or equipment unlocks, and it is not connected to a live player account.
+
+## V5: UNRESTRICTED Complete Chaos
+
+Select **COMPLETE CHAOS — anything in the armory** in the Randomizer. By default, the following Chaos-only options are on:
+
+- **Break Loadout Rules:** allows multiple support weapon call-ins, multiple separate backpacks, and combinations with ammo-backpack-fed weapons. These deliberately bypass the planner’s tactical guardrails (not necessarily all actual in-game loadout rules).
+- **Clone the Nonsense:** permits duplicate copies of the exact same stratagem in multiple slots. These are **sandbox-only** theoretical loadouts, not reliably selectable in an ordinary Helldivers 2 deployment.
+- **Cursed Combinations:** alternates fully unbiased draws with occasional bizarre patterns: four-of-a-kind, repeated stratagem class, support weapon invasion, backpack pileup, and vehicle parade. Every allowed catalog item still has a nonzero chance of appearing via the Wild Draw pattern.
+
+Entering Complete Chaos automatically turns off the default **Require anti-heavy coverage** filter unless the player has explicitly adjusted that filter. The player can re-enable anti-heavy and any other restrictions: armor weight, passive, item category pools, required/excluded support weapons or backpacks, objective demolition, and slot locks are always respected. **Turning off Break Loadout Rules and Cursed Combinations yields fully random, planner-compatible equipment with no tactical bias.** Tactical Blend and Mission-Tuned stay unchanged and continue to enforce the guardrails and tactical requirements.
+
+Every randomized build still fills the normal nine equipment slots and feeds into the **same** six-role Synergy Analysis. The evaluator flags repeated stratagems and other unconventional choices at the top of the report, with a clear distinction between sandbox-only duplicate slots and combinations that merely bypass the planner's preferred loadout rules. Analyzing a bizarre roll is not a claim that all listed items can be carried together in the game.
+
+No build is generated automatically at launch; opening the app still starts from empty slots. Reset Rules restores the tactical default while leaving the existing build untouched.

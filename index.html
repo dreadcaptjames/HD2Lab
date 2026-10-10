@@ -110,7 +110,7 @@
     </section>
 
     <section class="panel roll-panel" id="randomizer" aria-labelledby="randomizerTitle">
-      <div class="phead"><h2 id="randomizerTitle">04 / Loadout randomizer</h2><span class="headbadge">CONTROLLED CHAOS</span></div>
+      <div class="phead"><h2 id="randomizerTitle">04 / Loadout randomizer</h2><span class="headbadge">CHAOS ENABLED</span></div>
       <div class="pbody">
         <div class="roll-intro">
           <span class="roll-die" aria-hidden="true">⚄</span>
@@ -119,11 +119,20 @@
         <div class="roll-block">
           <label class="small-label" for="rollMode">Randomization doctrine</label>
           <select class="select-line" id="rollMode">
-            <option value="chaos">Complete chaos — unbiased, valid random gear</option>
+            <option value="chaos">COMPLETE CHAOS — anything in the armory</option>
             <option value="balanced" selected>Tactical blend — favor rounded capabilities</option>
             <option value="mission">Mission-tuned — favor your current front and objective</option>
           </select>
-          <p class="roll-help">Tactical doctrines sample multiple legal rolls and favor higher coverage. Only the Evaluate button produces an actual synergy score.</p>
+          <p class="roll-help">Chaos rolls ignore synergy and mission tactics; Tactical Blend and Mission-Tuned favor effective, playable builds. The same Evaluate button scores every result.</p>
+          <fieldset class="chaos-options" id="rollChaosOptions" hidden><legend>UNLEASH THE NONSENSE</legend>
+            <p class="chaos-notice">SUPER EARTH SAFETY DEPARTMENT HAS LEFT THE CHAT. Every allowed catalog entry is in the draw. These switches can create <strong>sandbox-only, non-deployable builds.</strong></p>
+            <div class="chaos-option-grid">
+              <label class="rule-check"><input type="checkbox" id="rollUnsafe" checked><span><strong>BREAK LOADOUT RULES</strong><small>Multiple support weapons, competing backpacks, pack-fed clashes—nothing is protected.</small></span></label>
+              <label class="rule-check"><input type="checkbox" id="rollDuplicates" checked><span><strong>CLONE THE NONSENSE</strong><small>Permit the same stratagem in more than one slot.</small></span></label>
+              <label class="rule-check"><input type="checkbox" id="rollCursed" checked><span><strong>CURSED COMBINATIONS</strong><small>Sometimes roll four-of-a-kind, category takeovers, or support/backpack/vehicle overloads.</small></span></label>
+            </div>
+            <p class="roll-help">Disable the chaos switches for fully random but playable selections. Your explicit category restrictions, requirements and slot locks still apply.</p>
+          </fieldset>
         </div>
         <div class="roll-rule-grid">
           <fieldset class="roll-rule-box"><legend>Allowed armor weights</legend>
@@ -138,7 +147,7 @@
           </fieldset>
           <fieldset class="roll-rule-box"><legend>Support &amp; backpack rules</legend>
             <label class="roll-select-label" for="rollSupportRule">Support weapon</label>
-            <select id="rollSupportRule" class="select-line"><option value="optional">Optional (maximum one)</option><option value="required">Must include one</option><option value="none">Exclude support weapons</option></select>
+            <select id="rollSupportRule" class="select-line"><option value="optional">Optional (roll from any permitted category)</option><option value="required">Must include one</option><option value="none">Exclude support weapons</option></select>
             <label class="roll-select-label" for="rollBackpackRule">Separate backpack</label>
             <select id="rollBackpackRule" class="select-line"><option value="optional">Allowed if compatible</option><option value="required">Must include one</option><option value="none">No separate backpack</option></select>
           </fieldset>
@@ -149,11 +158,11 @@
         </details>
         <fieldset class="roll-rule-box roll-wide-rule"><legend>Allowed stratagem classes</legend>
           <div class="roll-toggles" id="rollStratCats"></div>
-          <p class="roll-help">Disabled categories never appear. Ammo-backpack support weapons still reserve the backpack slot.</p>
+          <p class="roll-help">Disabled categories never appear. Normal modes enforce support/backpack compatibility. Full Chaos can intentionally break that rule when its sandbox switch is on.</p>
         </fieldset>
         <fieldset class="roll-rule-box roll-wide-rule"><legend>Mission coverage &amp; analysis</legend>
           <div class="roll-check-list">
-            <label class="rule-check"><input type="checkbox" id="rollAntiHeavy" checked><span><strong>Require anti-heavy coverage</strong><small>Include a dedicated armored-target answer</small></span></label>
+            <label class="rule-check"><input type="checkbox" id="rollAntiHeavy" checked><span><strong>Require anti-heavy coverage</strong><small>Optional rule; switched off by default for Complete Chaos</small></span></label>
             <label class="rule-check"><input type="checkbox" id="rollDemolition"><span><strong>Require objective demolition</strong><small>Include effective spawner / structure clearing</small></span></label>
             <label class="rule-check"><input type="checkbox" id="rollAutoEvaluate"><span><strong>Evaluate automatically after the roll</strong><small>Optional—runs the existing synergy report immediately</small></span></label>
           </div>

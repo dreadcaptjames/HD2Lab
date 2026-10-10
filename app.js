@@ -81,6 +81,16 @@ let metrics=sum.map((total,i)=>clamp(Math.round(100*(1-Math.exp(-total/(baseTarg
 if(state.party==='solo'){metrics[4]=clamp(metrics[4]-7,0,100);metrics[5]=clamp(metrics[5]-5,0,100);}
 const insights=[],bonuses=[];let synergy=0,penalty=0;
 const add=(type,title,body)=>insights.push({type,title,body});const bonus=(pts,title,body)=>{synergy+=pts;bonuses.push({type:'good',title,body})};
+const supports=strats.filter(x=>x.cat==='Support weapon');
+const backpacks=strats.filter(x=>x.cat==='Backpack');
+const duplicates=[...new Set(state.strats.filter((id,i)=>state.strats.indexOf(id)!==i))];
+const invalidReasons=[];
+if(duplicates.length)invalidReasons.push('Repeated stratagems: '+duplicates.map(id=>byId[id].name).join(', '));
+if(supports.length>1)invalidReasons.push(`${supports.length} support weapons selected in one loadout`);
+if(backpacks.length>1)invalidReasons.push(`${backpacks.length} separate backpacks selected`);
+if(backpacks.length&&supports.some(x=>x.packRequired))invalidReasons.push('Backpack-fed weapon clashes with a separate backpack');
+const sandboxBuild=invalidReasons.length>0,nonDeployable=duplicates.length>0;
+if(sandboxBuild)penalty+=Math.min(32,8*invalidReasons.length);
 if(armor.tags.includes('engineering')&&grenade.tags.some(t=>['antiTank','stun','demolition','fire','gas'].includes(t)))bonus(6,'Engineering Kit × '+grenade.name,'Two extra throwables amplify your selected grenade’s tactical role, while the armor also aids controlled fire.');
 if(armor.tags.includes('servo')&&(grenade.tags.includes('antiTank')||grenade.tags.includes('demolition')))bonus(5,'Servo-Assisted delivery','Extra throwing distance helps deliver powerful grenades without committing as close to the target.');
 if(armor.tags.includes('medkit')&&booster.id==='infusion')bonus(9,'Med-Kit × Experimental Infusion','More stims, longer stim duration and boosted stim effects create a genuinely reinforcing sustain loop.');
@@ -115,18 +125,18 @@ if(metrics[4]<43){penalty+=5;add('warn','Limited defensive margin','Low protecti
 if(metrics[5]<44){penalty+=5;add('warn','Long-fight endurance risk','You may lack repeatable damage or refills. Ammo-efficient weapons, a supply backpack, or Hellpod Space Optimization can compensate.');}
 const bombard=strats.filter(x=>x.tags.includes('barrage'));if(bombard.length>1){penalty+=4;add('warn','Competing large-area barrages','Two large bombardments consume stratagem slots while increasing placement and friendly-fire risks.');}
 const risky=strats.filter(x=>x.tags.includes('aoe')||x.tags.includes('barrage'));if(state.party==='squad'&&risky.length>=3)add('warn','Friendly-fire coordination','Three or more area-effect call-ins require careful spacing, timing, and squad communication.');
-if(support?.packRequired)add('info','Ammo backpack accounted for',support.name+' reserves your backpack equipment slot in this planner; you cannot equip a separate Shield or Supply Pack simultaneously.');
+if(support?.packRequired)add('info','Ammo backpack accounted for',sandboxBuild?'A backpack-fed support weapon appears in this sandbox build. Its ammo pack still occupies the same equipment slot in normal play.':support.name+' reserves your backpack equipment slot; a separate backpack would conflict.');
 if(state.front==='bots'&&grenade.id==='stun'&&strats.some(x=>x.tags.includes('antiTank')))add('good','Bot heavy-control chain','Stuns can buy crucial time to align anti-heavy shots and protect the team during reloads.');
 if(state.front==='bugs'&&grenade.id==='thermite'&&support?.tags.includes('antiTank'))add('info','Two anti-heavy tools','Thermite provides a backup heavy answer; use your other slots for breach and medium-enemy handling rather than stacking more single-target damage.');
 const weights=frontFactors.map((f,i)=>f*missionFactors[i]*(i===0&&state.difficulty>=8?1.09:1));const covered=metrics.reduce((a,m,i)=>a+m*weights[i],0)/weights.reduce((a,b)=>a+b,0);
 const gradeScore=clamp(Math.round(covered*.77+20+Math.min(16,synergy)-penalty),0,100);
 const critical=[0,1,2,3].filter(i=>metrics[i]<48);if(!critical.length)add('good','Core mission coverage is present','Your combined weapons and stratagems answer heavy armor, crowds, medium targets and objective destruction.');
 if(!bonuses.length)add('info','Look for a stronger interaction','This build may cover roles, but currently has no standout armor × weapon or control × follow-up combo.');
-insights.unshift(...bonuses);if(insights.length===0)add('info','Well-rounded build','The equipment fills several tactical roles without a pronounced conflict.');
-const status=gradeScore>=85?'EXCELLENT SYNERGY':gradeScore>=70?'COHERENT LOADOUT':gradeScore>=55?'HAS GAPS':'REQUIRES REWORK';
-analyzed={score:gradeScore,metrics,insights,synergy,penalty,status};$('#scoreRing').style.setProperty('--percent',gradeScore);$('#scoreNum').innerHTML=gradeScore+'<small>/100</small>';$('#scoreTitle').textContent=status;$('#scoreSubtitle').textContent=state.difficulty+' / 10 threat · '+fronts.find(x=>x[0]===state.front)[1]+' · '+(state.party==='solo'?'Solo':'Squad')+' play';$('#status').textContent='ASSESSMENT COMPLETE';$('#grade').textContent=`+${Math.min(16,synergy)} INTERACTION • −${penalty} GAP PENALTY`;$('#barLabel').textContent='0–100 HEURISTIC';renderBars(metrics);
+insights.unshift(...bonuses);if(sandboxBuild)insights.unshift({type:'warn',title:nonDeployable?'SANDBOX // DUPLICATE STRATAGEMS':'CHAOS // PLANNER GUARDRAILS OVERRIDDEN',body:invalidReasons.join('. ')+'. Multiple support/backpack call-ins may still be selectable in-game, but cannot all be carried simultaneously. Repeating the exact same stratagem is normally not available in a standard loadout. Treat this score as an experimental planning estimate.'});if(insights.length===0)add('info','Well-rounded build','The equipment fills several tactical roles without a pronounced conflict.');
+const status=nonDeployable?'SANDBOX // DUPLICATE SLOTS':sandboxBuild?'CHAOS // UNCONVENTIONAL':gradeScore>=85?'EXCELLENT SYNERGY':gradeScore>=70?'COHERENT LOADOUT':gradeScore>=55?'HAS GAPS':'REQUIRES REWORK';
+analyzed={score:gradeScore,metrics,insights,synergy,penalty,status,sandboxBuild,nonDeployable};$('#scoreRing').style.setProperty('--percent',gradeScore);$('#scoreNum').innerHTML=gradeScore+'<small>/100</small>';$('#scoreTitle').textContent=status;$('#scoreSubtitle').textContent=state.difficulty+' / 10 threat · '+fronts.find(x=>x[0]===state.front)[1]+' · '+(state.party==='solo'?'Solo':'Squad')+' play';$('#status').textContent=sandboxBuild?'EXPERIMENTAL ASSESSMENT':'ASSESSMENT COMPLETE';$('#grade').textContent=`+${Math.min(16,synergy)} INTERACTION • −${penalty} GAP PENALTY`;$('#barLabel').textContent='0–100 HEURISTIC';renderBars(metrics);
 $('#insightCount').textContent=insights.length+' FINDINGS';$('#insights').innerHTML=insights.map(x=>`<div class="insight ${x.type}"><span class="mark">${x.type==='good'?'✓':x.type==='warn'?'!':'✦'}</span><div><strong>${x.title}</strong><p>${x.body}</p></div></div>`).join('');toast('Assessment complete — review your field intelligence.');}
-function copyBuild(){const all=['armor','primary','secondary','throwable','booster'].map(k=>labels[k]+': '+(byId[state[k]]?.name||'Unassigned'));const data=['HELLDIVER // SYNERGY LAB',`${fronts.find(x=>x[0]===state.front)[1]} | Difficulty ${state.difficulty} | ${state.mission} | ${state.party}`,...all,...state.strats.map((id,i)=>`Stratagem ${i+1}: ${byId[id]?.name||'Unassigned'}`)];if(analyzed)data.push(`Synergy score: ${analyzed.score}/100`,...analyzed.insights.map(x=>`• ${x.title}: ${x.body}`));const out=data.join('\n');if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(out).then(()=>toast('Loadout report copied.')).catch(()=>manualCopy(out));}else manualCopy(out);}
+function copyBuild(){const all=['armor','primary','secondary','throwable','booster'].map(k=>labels[k]+': '+(byId[state[k]]?.name||'Unassigned'));const data=['HELLDIVER // SYNERGY LAB',`${fronts.find(x=>x[0]===state.front)[1]} | Difficulty ${state.difficulty} | ${state.mission} | ${state.party}`,...all,...state.strats.map((id,i)=>`Stratagem ${i+1}: ${byId[id]?.name||'Unassigned'}`)];if(analyzed)data.push(`Synergy score: ${analyzed.score}/100${analyzed.sandboxBuild?(analyzed.nonDeployable?' (DUPLICATE SLOTS / SANDBOX-ONLY)':' (PLANNER GUARDRAILS OVERRIDDEN)'):''}`,...analyzed.insights.map(x=>`• ${x.title}: ${x.body}`));const out=data.join('\n');if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(out).then(()=>toast('Loadout report copied.')).catch(()=>manualCopy(out));}else manualCopy(out);}
 function manualCopy(text){let area=document.createElement('textarea');area.value=text;area.style.position='fixed';area.style.top='-500px';document.body.appendChild(area);area.select();let ok=false;try{ok=document.execCommand('copy')}catch{}area.remove();toast(ok?'Loadout copied.':'Copy unavailable in this browser.',!ok)}
 // Randomizer: draft candidates use the *same* database, slot state and conflict rules
 // as manual selection. No score is published until analyze() is invoked.
@@ -174,6 +184,9 @@ function readRollRules(){
     backpack:$('#rollBackpackRule').value,
     antiHeavy:$('#rollAntiHeavy').checked,
     demolition:$('#rollDemolition').checked,
+    allowUnsafe:$('#rollMode').value==='chaos'&&$('#rollUnsafe').checked,
+    allowDuplicates:$('#rollMode').value==='chaos'&&$('#rollUnsafe').checked&&$('#rollDuplicates').checked,
+    cursed:$('#rollMode').value==='chaos'&&$('#rollUnsafe').checked&&$('#rollCursed').checked,
     autoEvaluate:$('#rollAutoEvaluate').checked
   };
 }
@@ -205,14 +218,15 @@ function rulesCheck(rules,fixed){
     if(!rules.cats.has(obj.cat))return 'A locked '+obj.name+' is in a disabled stratagem category.';
     if(rules.support==='none'&&obj.cat==='Support weapon')return 'A locked support weapon conflicts with your support weapon exclusion.';
     if(rules.backpack==='none'&&obj.cat==='Backpack')return 'A locked backpack conflicts with your backpack exclusion.';
-    if(stratConflictIn(obj,fixedStrats.filter((_,j)=>j!==i)))return 'Locked stratagem slots contain incompatible selections.';
+    if(!rules.allowUnsafe&&stratConflictIn(obj,fixedStrats.filter((_,j)=>j!==i)))return 'Locked stratagem slots contain incompatible selections.';
+    if(rules.allowUnsafe&&!rules.allowDuplicates&&fixedStrats.filter(x=>x.id===obj.id).length>1)return 'Locked duplicate stratagems need Clone the Nonsense enabled.';
   }
   const fixedSupport=fixedStrats.some(x=>x.cat==='Support weapon');
   const fixedBackpack=fixedStrats.some(x=>x.cat==='Backpack');
   const free=4-fixedStrats.length;
   const required=(rules.support==='required'&&!fixedSupport?1:0)+(rules.backpack==='required'&&!fixedBackpack?1:0);
   if(required>free)return 'Not enough unlocked stratagem slots to satisfy mandatory support and backpack rules.';
-  if(DB.strat.filter(x=>rules.cats.has(x.cat)&&(rules.support!=='none'||x.cat!=='Support weapon')&&(rules.backpack!=='none'||x.cat!=='Backpack')).length<4)return 'Not enough eligible stratagems remain for four slots.';
+  if(!rules.allowDuplicates&&DB.strat.filter(x=>rules.cats.has(x.cat)&&(rules.support!=='none'||x.cat!=='Support weapon')&&(rules.backpack!=='none'||x.cat!=='Backpack')).length<4)return 'Not enough eligible stratagems remain for four distinct slots.';
   return '';
 }
 function stratConflictIn(obj,others){
@@ -231,7 +245,7 @@ function buildRoll(rules,fixed){
     draft[key]=fixed[key]||randPick(items).id;
   }
   const pool=DB.strat.filter(x=>rules.cats.has(x.cat)&&(rules.support!=='none'||x.cat!=='Support weapon')&&(rules.backpack!=='none'||x.cat!=='Backpack'));
-  const compatible=x=>!stratConflictIn(x,draft.strats.filter(Boolean).map(id=>byId[id]));
+  const compatible=x=>rules.allowUnsafe?(rules.allowDuplicates||!draft.strats.includes(x.id)):!stratConflictIn(x,draft.strats.filter(Boolean).map(id=>byId[id]));
   const insertFrom=category=>{
     const free=draft.strats.map((id,i)=>id===null?i:-1).filter(i=>i>=0);
     const choices=pool.filter(x=>x.cat===category&&compatible(x));
@@ -243,12 +257,33 @@ function buildRoll(rules,fixed){
   // *separate* backpack is explicitly required.
   if(rules.backpack==='required'&&!draft.strats.some(id=>byId[id]?.cat==='Backpack')&&!insertFrom('Backpack'))return null;
   if(rules.support==='required'&&!draft.strats.some(id=>byId[id]?.cat==='Support weapon')&&!insertFrom('Support weapon'))return null;
+  // A strictly positive share of Chaos rolls (the WILD DRAW pattern) samples
+  // the entire allowed catalog independently, so NO eligible item gets excluded.
+  // Other patterns deliberately create truly absurd loadouts when opted in.
+  const pattern=rules.cursed?randPick(['WILD DRAW','WILD DRAW','WILD DRAW','WILD DRAW',
+    'COPY MACHINE','COPY MACHINE','CLASS TAKEOVER','CLASS TAKEOVER',
+    'SUPPORT INVASION','BACKPACK PILEUP','VEHICLE PARADE']):'WILD DRAW';
+  let themedPool=pool;
+  if(pattern==='COPY MACHINE'&&rules.allowDuplicates){
+    const copy=randPick(pool.filter(compatible));
+    if(copy)themedPool=[copy];
+  } else if(pattern==='CLASS TAKEOVER'){
+    const cls=randPick([...new Set(pool.map(x=>x.cat))]);
+    themedPool=pool.filter(x=>x.cat===cls);
+  } else if(pattern==='SUPPORT INVASION'||pattern==='BACKPACK PILEUP'||pattern==='VEHICLE PARADE'){
+    const cls={'SUPPORT INVASION':'Support weapon','BACKPACK PILEUP':'Backpack','VEHICLE PARADE':'Vehicle'}[pattern];
+    if(pool.some(x=>x.cat===cls))themedPool=pool.filter(x=>x.cat===cls);
+  }
   const empty=shuffleItems(draft.strats.map((id,i)=>id===null?i:-1).filter(i=>i>=0));
+  let patternUsed=false;
   for(const i of empty){
-    const choices=pool.filter(compatible);
+    const special=themedPool.filter(compatible);
+    const choices=special.length?special:pool.filter(compatible);
     if(!choices.length)return null;
+    if(special.length&&themedPool!==pool)patternUsed=true;
     draft.strats[i]=randPick(choices).id;
   }
+  draft.rollPattern=patternUsed?pattern:'WILD DRAW';
   return draft;
 }
 function allRollItems(draft){return [...['armor','primary','secondary','throwable','booster'].map(k=>byId[draft[k]]),...draft.strats.map(id=>byId[id])];}
@@ -290,7 +325,7 @@ function rollRank(draft,mode){
 function generateRandomLoadout(){
   const rules=readRollRules(),fixed=fixedSlots(),problem=rulesCheck(rules,fixed);
   if(problem){randomError(problem);return}
-  const trials=rules.mode==='chaos'?190:rules.mode==='balanced'?140:220;
+  const trials=rules.mode==='chaos'?220:rules.mode==='balanced'?140:220;
   const candidates=[];
   for(let n=0;n<trials;n++){
     const draft=buildRoll(rules,fixed);
@@ -316,7 +351,9 @@ function generateRandomLoadout(){
   const nLocked=Object.keys(fixed).length;
   const modeName={chaos:'COMPLETE CHAOS',balanced:'TACTICAL BLEND',mission:'MISSION-TUNED'}[rules.mode];
   const status=$('#rollResult');status.className='roll-result success';
-  status.innerHTML=`ROLL COMPLETE // ${modeName} · 9/9 slots filled · ${nLocked} item${nLocked===1?'':'s'} kept. <a href="#loadout">Review gear ↑</a> or press Evaluate Synergy for the full tactical report.`;
+  const sandbox=rules.allowUnsafe?' · SANDBOX RULES ON':'';
+  const stunt=rules.mode==='chaos'?' · '+chosen.draft.rollPattern+sandbox:'';
+  status.innerHTML=`ROLL COMPLETE // ${modeName}${stunt} · 9/9 slots filled · ${nLocked} item${nLocked===1?'':'s'} kept. <a href="#loadout">Review gear ↑</a> or press Evaluate Synergy for the full tactical report.`;
   if(rules.autoEvaluate)analyze();
   else{
     $('#scoreTitle').textContent='Randomized kit ready.';
@@ -327,6 +364,8 @@ function generateRandomLoadout(){
 }
 function resetRandomizerRules(){
   $('#rollMode').value='balanced';
+  $('#rollUnsafe').checked=true;$('#rollDuplicates').checked=true;$('#rollCursed').checked=true;
+  antiHeavyModified=false;syncChaosOptions();
   $('#rollArmorWeights').querySelectorAll('input').forEach(x=>x.checked=true);
   $('#rollArmorPassive').value='any';
   $('#rollEquipmentCats').querySelectorAll('input').forEach(x=>x.checked=true);
@@ -338,6 +377,21 @@ function resetRandomizerRules(){
   const result=$('#rollResult');result.className='roll-result';result.textContent='READY TO ROLL // Choose rules, then generate. No equipment changes until you press Generate.';
 }
 initRandomizer();
+let antiHeavyModified=false;
+function syncChaosOptions(){
+  const chaos=$('#rollMode').value==='chaos',unsafe=$('#rollUnsafe').checked;
+  $('#rollChaosOptions').hidden=!chaos;
+  $('#rollDuplicates').disabled=!chaos||!unsafe;
+  $('#rollCursed').disabled=!chaos||!unsafe;
+  $('#rollBackpackRule').querySelector('option[value="optional"]').textContent=chaos&&unsafe?'Optional (even if packs compete)':'Allowed if compatible';
+}
+$('#rollMode').addEventListener('change',()=>{
+  if(!antiHeavyModified)$('#rollAntiHeavy').checked=$('#rollMode').value!=='chaos';
+  syncChaosOptions();
+});
+$('#rollAntiHeavy').addEventListener('change',()=>{antiHeavyModified=true});
+$('#rollUnsafe').addEventListener('change',syncChaosOptions);
+syncChaosOptions();
 $('#rollGenerate').addEventListener('click',generateRandomLoadout);
 $('#rollResetRules').addEventListener('click',resetRandomizerRules);
 $('#rollLocks').addEventListener('change',e=>{if(e.target.matches('[data-lock-slot]'))lockedSlots[e.target.dataset.lockSlot]=e.target.checked});
