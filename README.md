@@ -1,37 +1,46 @@
 # HELLDIVER // SYNERGY LAB
 
-An unofficial, browser-based tactical loadout planner inspired by **Helldivers 2**. It is designed to answer the question: *Does this equipment work well together for my mission?* It is a planning aid, not a real-time game companion or an authoritative weapon-statistics database.
+A browser-based, unofficial **Helldivers 2** loadout planner. Players pick gear manually and then evaluate tactical role coverage and selected synergy interactions for a particular enemy faction and mission.
 
-## What it does
+## What the app does
 
-- Lets players manually choose an enemy front (Terminids, Automatons, Illuminate, or all fronts), mission type, squad/solo mode, and difficulty.
-- Provides nine selectable loadout slots: **armor with its attached passive, primary, secondary, throwable, booster, and four stratagems**.
-- Includes **203 curated equipment entries**: 22 armor sets, 39 primary weapons, 22 secondaries, 22 throwables, 20 boosters, and 78 stratagems. The catalog is intentionally wider than the original prototype, but is **not an exhaustive or guaranteed patch-current database**.
-- Uses a role-based heuristic to estimate anti-heavy coverage, swarm control, medium-target coverage, objective destruction, survivability, and sustain.
-- Identifies particular tactical combinations, such as stuns plus precision attacks, Med-Kit plus Experimental Infusion, engineering throwables, and defensive backpack support.
-- Warns about weak roles, overreliance on large area barrages, and friendly-fire concerns.
-- Applies **deliberate planner restrictions** on duplicate stratagems, multiple support-weapon stratagems, and competing backpack selections. Some restricted combinations might be technically equipable in-game; these are intentional planning rules.
-- Includes three **optional** faction-oriented sample loadouts. Builds are **never evaluated automatically**: the user must select **Evaluate Synergy**.
-- Produces a copyable text report of the loadout and any evaluated insights.
-- Uses a responsive command-terminal interface, with hand-drawn SVG insignia and equipment icons. No game artwork or third-party UI library is required.
+- Lets users manually choose **body armor (with its fixed passive), a primary weapon, a secondary weapon, a throwable, a booster, and four stratagems**.
+- Includes **326 selectable armory entries**, audited October 10, 2026: **110 body armor sets (30 light / 50 medium / 30 heavy)**, **55 primary weapons**, **25 secondaries**, **23 throwables**, **20 boosters**, and **93 normal selectable stratagems**.
+- Includes limited-time, collaboration, campaign, and promotional equipment where it can occupy a regular loadout slot. Ownership is not required for browsing or evaluating a theoretical build.
+- For armor, provides **Light / Medium / Heavy** filters and passive filters. All other equipment is searchable by name, class, or keyword.
+- Offers Terminid, Automaton, Illuminate, and mixed-front scenarios, mission roles, solo/team modes, and 1–10 difficulty.
+- Identifies six role-coverage dimensions: anti-heavy, swarm control, medium-target tools, objective destruction, survivability, and sustain.
+- Recognizes tactical interactions, including Engineering Kit + throwables, Med-Kit + Experimental Infusion, stuns + strikes, and support-weapon + backpack conflicts.
+- Prevents duplicate stratagems, multiple selected support weapons and incompatible backpacks **as deliberate build-design constraints**. The game itself can allow some non-conflicting carry-ins; these constraints are planner policy.
+- Never auto-fills gear or evaluates automatically; users select slots and click **Evaluate Synergy**. Three optional sample builds can be loaded by clicking their buttons.
+- Lets players copy a loadout and its analysis as text.
 
-## How analysis works
+## Catalog scope and accuracy
 
-Each equipment item has six **relative role weights (0–5)** defined in `data.js`. These are editorial heuristic ratings, **not damage numbers, exact penetration, cooldown timings, win probabilities, or datamined values**. The evaluator in `app.js` aggregates coverage, adjusts its mission/faction weighting, applies detected positive equipment interactions, and deducts role-gap or risk penalties. It explains the resulting assessment in plain language.
+The catalog is built from named **player-loadout equipment** in community-maintained indexes checked **October 10, 2026**. It excludes *cosmetic helmets and capes*, *mission-only stratagems* (such as Reinforce and Hellbomb objective drops), April Fools/community joke items, and world-spawn-only objects that cannot be equipped in the four normal stratagem slots. The **IX-Voidwalker is helmet-only** and is therefore not shown in the body-armor picker. The **KDM-500 Outrider** body armor is included. We corrected the **CE-67 Titan** and **CE-74 Breaker** classifications to Light, and include the **BFM-77 Reformer** as Medium.
 
-The same equipment can have different tactical value depending on player preferences, game updates, team composition, and mission modifiers. A high score is not a promise of effectiveness or of being the optimal build.
+The **item names, armor weight classes, and armor passives** were checked against the referenced catalog and individual entries where possible. **Coverage values (`c`) are editorial 0–5 heuristics, not in-game damage, actual penetration values, cooldowns, or patch-verified DPS.** Older curated items retain hand-authored roles, while added entries have conservative class-based planning estimates marked with `estimate: true`. A higher synergy score is not proof of a stronger or optimal build. Item role tags and descriptions may need tuning after future game patches.
+
+This is an **as-of-date catalog**, not a live-sync service; new releases after the audit will require updates. Equipment references are community-maintained and may be delayed or inconsistent immediately after a patch. If a specific item is missing or incorrectly described, the per-category source links below are useful for checking its current status.
 
 ## Project files
 
-- `index.html` — page structure, controls and accessibility labels
-- `styles.css` — responsive visual theme and custom terminal styling
-- `data.js` — curated items, tags, roles, armor/passive pairings and relative coverage values
-- `app.js` — equipment picker, templates, constraints, scoring, report copy and custom SVG iconography
+- `index.html`: static page and accessible loadout controls.
+- `styles.css`: command-terminal theme, desktop/mobile layout, responsive equipment modal.
+- `data.js`: armor/weapon/stratagem catalog, item capability weights, tags, and `HD2_CATALOG` audit metadata.
+- `catalog-audit.json`: audit date, item counts and reference URLs.
+- `CATALOG.md`: human-readable item-by-item checklist of all 326 entries, sorted by slot type and armor weight or equipment category.
+- `app.js`: manual picker, faction/difficulty context, loadout templates, conflict rules, synergy evaluator, and report copying.
 
-There is also a single-file HTML version available separately, with styles and scripts embedded for convenience.
+## Reference catalogs
 
-## References
+- [Armor (body armor and passives)](https://helldivers.wiki.gg/wiki/Armor)
+- [Primary weapons](https://helldivers.wiki.gg/wiki/Category:Primary_Weapons)
+- [Secondary weapons](https://helldivers.wiki.gg/wiki/Category:Secondary_Weapons)
+- [Throwables](https://helldivers.wiki.gg/wiki/Category:Throwables)
+- [Boosters](https://helldivers.wiki.gg/wiki/Boosters)
+- [Stratagems](https://helldivers.wiki.gg/wiki/Stratagems)
 
-For checking terminology and changes, consult the community-maintained [Helldivers Wiki](https://helldivers.wiki.gg/wiki/Helldivers_2), including its pages on [weapons](https://helldivers.wiki.gg/wiki/Weapons), [armor passives](https://helldivers.wiki.gg/wiki/Armor_Passive), [stratagems](https://helldivers.wiki.gg/wiki/All_Stratagems), and [boosters](https://helldivers.wiki.gg/wiki/Boosters).
+## Disclaimer
 
-**Disclaimer:** This is an unofficial fan project. Not endorsed by or affiliated with Arrowhead Game Studios, Sony Interactive Entertainment, or the Helldivers franchise. Game terms are used descriptively.
+Unofficial community planning tool. Not affiliated with or endorsed by Arrowhead Game Studios or Sony Interactive Entertainment. Game trademarks and item names belong to their respective owners.

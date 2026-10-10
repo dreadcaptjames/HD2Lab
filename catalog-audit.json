@@ -1,0 +1,26 @@
+{
+  "version": "3.0",
+  "audited": "2026-10-10",
+  "counts": {
+    "armor": 110,
+    "primary": 55,
+    "secondary": 25,
+    "throwable": 23,
+    "booster": 20,
+    "strat": 93
+  },
+  "notes": [
+    "Body armor only (not helmets or capes)",
+    "Four normal player-selectable stratagems; mission-issued utility excluded",
+    "Heuristic capability profiles\u2014not live game damage or patch-synced statistics",
+    "Campaign and special collaboration equipment included when a normal loadout option"
+  ],
+  "referenceUrls": [
+    "https://helldivers.wiki.gg/wiki/Armor",
+    "https://helldivers.wiki.gg/wiki/Category:Primary_Weapons",
+    "https://helldivers.wiki.gg/wiki/Category:Secondary_Weapons",
+    "https://helldivers.wiki.gg/wiki/Category:Throwables",
+    "https://helldivers.wiki.gg/wiki/Boosters",
+    "https://helldivers.wiki.gg/wiki/Stratagems"
+  ]
+}

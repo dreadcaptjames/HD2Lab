@@ -318,3 +318,6 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
 }
 @media (max-width:440px){.slot-grid{grid-template-columns:1fr}.factions{grid-template-columns:repeat(2,minmax(0,1fr))}.scorerow{gap:12px}.score-ring{width:88px;height:88px;min-width:88px}.score-number{font-size:30px}.actionrow{grid-template-columns:1fr auto}.outline-btn{padding:10px}.primary-btn{font-size:10px}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+/* Large audited armory: keep category filters usable without pushing list below modal fold. */
+.filters{max-height:106px;overflow-y:auto;overscroll-behavior:contain;align-content:start;scrollbar-width:thin;scrollbar-color:var(--line-strong) transparent}
+.filter{flex:0 0 auto}
