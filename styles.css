@@ -477,3 +477,61 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
 @media (max-width: 390px) {
   .brand-logo { width: 50px; height: 50px; flex-basis: 50px; }
 }
+
+/* V5.6 — Native dropdown and scroll-list contrast fix.
+   Native <option> popups otherwise may use a white OS surface while inheriting
+   the site's near-white text, making their choices unreadable. */
+html, body { color-scheme: dark; }
+
+/* Every mission, party, randomizer, armor passive, and equipment-rule selector. */
+select,
+.select-line {
+  color-scheme: dark;
+  background-color: #111b25;
+  color: var(--text);
+  border-color: var(--line-strong);
+}
+select option,
+select optgroup {
+  background-color: #111b25;
+  color: #f2efe6;
+  color-scheme: dark;
+}
+select option:checked {
+  background-color: #34412e;
+  color: #ffe891;
+}
+select option:disabled {
+  background-color: #111b25;
+  color: #8998a5;
+}
+
+/* Scrollable armory entries and filter chips use the same dark surfaces. */
+.picker-list,
+.picker-controls .filters,
+.filters,
+.modal-card {
+  color-scheme: dark;
+  scrollbar-width: thin;
+  scrollbar-color: #435667 #101820;
+}
+.picker-list { background-color: #0e161f; color: var(--text); }
+.picker-controls .filters { background-color: #111b25; }
+
+/* Chromium / Edge / Safari scrollbars (Firefox uses scrollbar-color above). */
+.picker-list::-webkit-scrollbar,
+.filters::-webkit-scrollbar,
+.picker-controls .filters::-webkit-scrollbar { width: 9px; height: 9px; }
+.picker-list::-webkit-scrollbar-track,
+.filters::-webkit-scrollbar-track,
+.picker-controls .filters::-webkit-scrollbar-track { background: #101820; }
+.picker-list::-webkit-scrollbar-thumb,
+.filters::-webkit-scrollbar-thumb,
+.picker-controls .filters::-webkit-scrollbar-thumb {
+  background: #435667;
+  border: 2px solid #101820;
+  border-radius: 999px;
+}
+.picker-list::-webkit-scrollbar-thumb:hover,
+.filters::-webkit-scrollbar-thumb:hover,
+.picker-controls .filters::-webkit-scrollbar-thumb:hover { background: #b79b50; }

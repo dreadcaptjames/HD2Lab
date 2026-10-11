@@ -95,3 +95,7 @@ The site header and browser tab use the supplied `assets/101st New Logo.png` ima
 ### Transparent logo update (v5.4)
 
 Uses the supplied original RGBA PNG (`assets/101st New Logo.png`) in the header and favicon. The PNG file is copied byte-for-byte, displayed with `object-fit: contain` on a transparent background (no cropping, recoloring, opaque panel, or image filtering), and embedded byte-for-byte in the standalone build. No equipment or randomizer logic has changed.
+
+## V5.6: Dark dropdown and scroll-list contrast
+
+All native mission and randomizer selection menus explicitly use a dark color scheme with light option text, including when a user’s browser or operating system is set to light mode. The equipment picker’s long scroll list, filter chip scroll area, and scrollbars now use matching dark backgrounds and visible scrollbar handles. These are display-only changes: the armory data, selection constraints, randomizer, and synergy scoring are unmodified.
