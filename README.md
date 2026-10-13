@@ -99,3 +99,9 @@ Uses the supplied original RGBA PNG (`assets/101st New Logo.png`) in the header 
 ## V5.6: Dark dropdown and scroll-list contrast
 
 All native mission and randomizer selection menus explicitly use a dark color scheme with light option text, including when a user’s browser or operating system is set to light mode. The equipment picker’s long scroll list, filter chip scroll area, and scrollbars now use matching dark backgrounds and visible scrollbar handles. These are display-only changes: the armory data, selection constraints, randomizer, and synergy scoring are unmodified.
+
+## V6.0: Direct PDF export
+
+The Field Analysis panel includes **Export PDF**. This creates and downloads a fully designed, offline, multi-page A4 mission dossier directly in the browser, with the original 101st transparent logo, the current nine equipment slots, four stratagem cards, mission information, a synergy score, six role-coverage metrics, and all field-intelligence findings. The PDF renderer completes every page before downloading the PDF file, rather than opening a temporary print window or relying on a browser print-dialog timer. Long reports continue onto additional pages instead of clipping.
+
+If all nine slots are filled, exporting runs the existing synergy evaluation first when needed. An incomplete loadout exports an unscored draft with clearly labeled empty slots. The PDF contains high-resolution graphical pages; its text is rendered as part of those pages. No external service, third-party library, or network request is required.
