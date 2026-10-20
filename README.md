@@ -1,32 +1,49 @@
-# HELL​​DIVER // SYNERGY LAB — Scope of Authority equipment update
+# HD2Lab — Scope of Authority (October 20, 2026)
 
-The newest *Scope of Authority* Premium Warbond (October 20, 2026) adds **seven loadout-selectable entries**: two armors, one primary weapon, one secondary weapon, one throwable, and two support-weapon stratagems. The capes, cards, emote, and title are not selectable in this app and are not included.
+This is a **drop-in content update**, not a standalone replacement website. It solves the problem with the previous update kit: that kit did not modify your running website, so the new gear wasn't visible.
 
-This kit updates your **existing** v6.0 site ZIP, site folder, or standalone HTML **without replacing the visual design, original 101st logo, PDF exporter, or randomizer rules**. The source website needs to be supplied; this patch is not itself a replacement website.
+## Add to your existing HD2Lab website
 
-## Apply to the full website ZIP
+1. Put `warbond-scope-of-authority.js` alongside your existing `index.html`, `data.js`, and `app.js`.
+2. In `index.html`, find the existing two lines at the bottom:
 
-Place your previous `helldivers-synergy-lab-v6.0-site.zip` next to `apply_warbond_update.py` and `warbond_items.json`. Run:
+   ```html
+   <script src="./data.js" defer></script>
+   <script src="./app.js" defer></script>
+   ```
 
-```bash
-python apply_warbond_update.py helldivers-synergy-lab-v6.0-site.zip
-```
+   Replace them with:
 
-It generates a new `helldivers-synergy-lab-v6.0-site-scope-of-authority.zip` containing the updated source website. The previous ZIP stays untouched.
+   ```html
+   <script src="./data.js" defer></script>
+   <script src="./warbond-scope-of-authority.js" defer></script>
+   <script src="./app.js" defer></script>
+   ```
 
-For a standalone HTML file, supply that file instead; the script outputs a new HTML with the same additions. For a site folder, supply its path instead.
+3. Upload both files (`warbond-scope-of-authority.js` and updated `index.html`) to your GitHub repository and hard-refresh the GitHub Pages app.
 
-## Included functionality
+### How to double-check in the website
 
-- Item categories stay accurate: **LAS-44 Nova and AMW-20 Apex are support stratagems**, not primary weapons; **G-11 Caltrops is a throwable**.
-- `Stationary Shroud` is attached to the correct Light and Medium armor sets and treated as a positional benefit, not ordinary Scout radar.
-- `AMW-20 Apex` requires its ammunition backpack, so conflicting extra backpacks are blocked in standard builds and recognized in Chaos.
-- `G-11 Caltrops` provides slow/stun trap utility with a precision follow-up synergy.
-- Existing loadout filters, nine-slot randomizer, distinct stratagem restrictions, vehicle-class limits and PDF exporter remain intact.
-- Totals update from 326 to **333** entries for a matching v6.0 baseline.
+- A **SCOPE OF AUTHORITY / 7 new loadout items** panel appears below the main header.
+- The equipment total changes from **326 to 333** (unless there were other equipment additions).
+- Open any matching equipment picker and search `scope` to show new Warbond gear in that category. The `scopeOfAuthority` search tag has been added to all seven entries.
+- Verify the following names in their actual menus:
 
-## Source and data fidelity
+| Picker | New items |
+| --- | --- |
+| Light armor | SS-33 Mimetic Marshal |
+| Medium armor | SS-15 Focal Point |
+| Primary weapons | R-40 Sightliner |
+| Secondary weapons | P-44 Mist |
+| Throwables | G-11 Caltrops |
+| Support-weapon stratagems | AMW-20 Apex, LAS-44 Nova |
 
-Source: [Arrowhead / PlayStation Blog — Scope of Authority](https://blog.playstation.com/2026/10/13/helldivers-2-scope-of-authority-premium-warbond-launches-oct-20/), with slot/type support from the Helldivers Wiki.
+The randomizer uses the same database as the manual builder, so these items are automatically available in random rolls when their categories are allowed. The Apex is marked as a backpack-required weapon and obeys the existing restrictions.
 
-**Important:** `c` capability values are game-planning estimates, not verified damage, cooldowns or penetration statistics. No account connection or real-time game data is implied.
+The existing synergy engine uses their conservative capability estimates and tags. The new Stationary Shroud armor currently uses the existing stealth/precision interaction; the app's generic insight label may still say “Scout” until a subsequent `app.js` copy update. Exact in-game weapon damage is **not** claimed.
+
+### Scope
+
+The player-loadout catalog covers body armor and equipment. The Warbond's capes, cosmetics, emote, and player title are intentionally excluded because they cannot be equipped in those slots. Your logo, PDF export and randomizer are untouched.
+
+**Official source:** https://blog.playstation.com/2026/10/13/helldivers-2-scope-of-authority-premium-warbond-launches-oct-20/
