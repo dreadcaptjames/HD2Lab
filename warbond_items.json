@@ -1,0 +1,86 @@
+{
+  "warbond": "Scope of Authority",
+  "releaseDate": "2026-10-20",
+  "officialSource": "https://blog.playstation.com/2026/10/13/helldivers-2-scope-of-authority-premium-warbond-launches-oct-20/",
+  "dataNotes": "Names, slots, armor weights, passive and equipment descriptions are referenced to the official announcement and Helldivers Wiki. Capability vectors are editorial estimates, NOT in-game statistics.",
+  "items": {
+    "armor": [
+      {
+        "id": "armor-ss33mimeticmarshal",
+        "name": "SS-33 Mimetic Marshal",
+        "cat": "Light",
+        "weight": "Light",
+        "passive": "Stationary Shroud",
+        "desc": "Stationary Shroud • Reduced weapon sway and enemy detection range while crouched or prone.",
+        "c": [0, 0, 0, 0, 1, 0],
+        "tags": ["stealth", "precision", "stationary", "mobile"],
+        "estimate": true
+      },
+      {
+        "id": "armor-ss15focalpoint",
+        "name": "SS-15 Focal Point",
+        "cat": "Medium",
+        "weight": "Medium",
+        "passive": "Stationary Shroud",
+        "desc": "Stationary Shroud • Reduced weapon sway and enemy detection range while crouched or prone.",
+        "c": [0, 0, 0, 0, 2, 0],
+        "tags": ["stealth", "precision", "stationary"],
+        "estimate": true
+      }
+    ],
+    "primary": [
+      {
+        "id": "primary-r40sightliner",
+        "name": "R-40 Sightliner",
+        "cat": "Marksman rifle",
+        "desc": "Bolt-action primary sniper rifle built for stable, armor-piercing precision at long range.",
+        "c": [1, 0, 4, 0, 0, 1],
+        "tags": ["precision", "ballistic", "mediumPen", "slow", "stationary"],
+        "estimate": true
+      }
+    ],
+    "secondary": [
+      {
+        "id": "secondary-p44mist",
+        "name": "P-44 Mist",
+        "cat": "Pistol",
+        "desc": "One-handed machine pistol for fast emergency defense when close-range threats breach your position.",
+        "c": [0, 3, 1, 0, 0, 2],
+        "tags": ["ballistic", "fast", "close"],
+        "estimate": true
+      }
+    ],
+    "throwable": [
+      {
+        "id": "throwable-g11caltrops",
+        "name": "G-11 Caltrops",
+        "cat": "Control",
+        "desc": "Special throwable scattering proximity-triggered submunitions that slow and stun enemies in an area.",
+        "c": [0, 3, 1, 0, 1, 1],
+        "tags": ["stun", "control", "trap", "crowd"],
+        "estimate": true
+      }
+    ],
+    "strat": [
+      {
+        "id": "strat-amw20apex",
+        "name": "AMW-20 Apex",
+        "cat": "Support weapon",
+        "desc": "Heavy backpack-fed anti-materiel rifle with strong armor penetration and assisted-reload support.",
+        "c": [5, 0, 5, 0, 0, 1],
+        "tags": ["antiTank", "precision", "mediumPen", "stationary", "ballistic"],
+        "packRequired": true,
+        "estimate": true
+      },
+      {
+        "id": "strat-las44nova",
+        "name": "LAS-44 Nova",
+        "cat": "Support weapon",
+        "desc": "Charge-to-fire precision energy rifle firing non-explosive thermal projectiles; uses heat-based ammunition with improved cooling.",
+        "c": [3, 0, 4, 0, 0, 3],
+        "tags": ["energy", "precision", "mediumPen", "slow"],
+        "estimate": true
+      }
+    ]
+  }
+}
