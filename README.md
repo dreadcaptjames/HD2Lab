@@ -1,49 +1,82 @@
-# HD2Lab — Scope of Authority (October 20, 2026)
+# HD2Lab
 
-This is a **drop-in content update**, not a standalone replacement website. It solves the problem with the previous update kit: that kit did not modify your running website, so the new gear wasn't visible.
+### HELLDIVER // SYNERGY LAB
 
-## Add to your existing HD2Lab website
+**Build your loadout. Test the synergy. Dive with a plan—or embrace the chaos.**
 
-1. Put `warbond-scope-of-authority.js` alongside your existing `index.html`, `data.js`, and `app.js`.
-2. In `index.html`, find the existing two lines at the bottom:
+HD2Lab is an unofficial **Helldivers 2 loadout builder and tactical synergy planner**. It helps players put together a complete kit, see how its equipment complements (or conflicts with) other selections, and judge whether the build suits the enemies and mission ahead.
 
-   ```html
-   <script src="./data.js" defer></script>
-   <script src="./app.js" defer></script>
-   ```
+The goal isn't to tell every Helldiver to use the same “best” loadout. It's to make experimenting with different weapons, armor, boosters, and stratagems more useful—and a lot more fun.
 
-   Replace them with:
+## Build a complete loadout
 
-   ```html
-   <script src="./data.js" defer></script>
-   <script src="./warbond-scope-of-authority.js" defer></script>
-   <script src="./app.js" defer></script>
-   ```
+Choose every part of your kit:
 
-3. Upload both files (`warbond-scope-of-authority.js` and updated `index.html`) to your GitHub repository and hard-refresh the GitHub Pages app.
+- **Body armor and its passive** — including armor-weight and passive filtering.
+- **Primary and secondary weapons** — pick tools for your preferred fighting style.
+- **Throwable** — bring damage, crowd control, or utility.
+- **Booster** — round out the build's squad-wide advantages.
+- **Four stratagems** — combine weapons, air and orbital support, emplacements, backpacks, and vehicles.
 
-### How to double-check in the website
+Then tailor the scenario to **Terminids, Automatons, Illuminate, or all fronts**, along with mission type, difficulty, and solo or squad play.
 
-- A **SCOPE OF AUTHORITY / 7 new loadout items** panel appears below the main header.
-- The equipment total changes from **326 to 333** (unless there were other equipment additions).
-- Open any matching equipment picker and search `scope` to show new Warbond gear in that category. The `scopeOfAuthority` search tag has been added to all seven entries.
-- Verify the following names in their actual menus:
+## Find out how well it works together
 
-| Picker | New items |
+Select **Evaluate Synergy** to get a tactical readout of the entire loadout, not just its individual items.
+
+The report includes an overall **0–100 planning score**, plus six coverage measures:
+
+| Coverage | What it looks at |
 | --- | --- |
-| Light armor | SS-33 Mimetic Marshal |
-| Medium armor | SS-15 Focal Point |
-| Primary weapons | R-40 Sightliner |
-| Secondary weapons | P-44 Mist |
-| Throwables | G-11 Caltrops |
-| Support-weapon stratagems | AMW-20 Apex, LAS-44 Nova |
+| Anti-heavy | Answers to heavily armored enemies |
+| Swarm control | Tools for large groups and sustained pressure |
+| Medium targets | Options for tougher, common threats |
+| Objectives | Ability to destroy or clear mission-critical targets |
+| Survivability | Protection, defensive utility, and staying power |
+| Sustain | Ammunition, resupply, and long-fight effectiveness |
 
-The randomizer uses the same database as the manual builder, so these items are automatically available in random rolls when their categories are allowed. The Apex is marked as a backpack-required weapon and obeys the existing restrictions.
+The app also highlights **useful interactions, gaps, redundancies, and potential conflicts**, with explanations to help you decide what to change. You remain in control of every selection.
 
-The existing synergy engine uses their conservative capability estimates and tags. The new Stationary Shroud armor currently uses the existing stealth/precision interaction; the app's generic insight label may still say “Scout” until a subsequent `app.js` copy update. Exact in-game weapon damage is **not** claimed.
+## Let the armory decide: Randomizer
 
-### Scope
+Want to test an unfamiliar setup or give your squad something to laugh about? The **Controlled Chaos Randomizer** fills the same nine loadout slots as the manual builder and feeds directly into the same synergy analysis.
 
-The player-loadout catalog covers body armor and equipment. The Warbond's capes, cosmetics, emote, and player title are intentionally excluded because they cannot be equipped in those slots. Your logo, PDF export and randomizer are untouched.
+There are three ways to roll:
 
-**Official source:** https://blog.playstation.com/2026/10/13/helldivers-2-scope-of-authority-premium-warbond-launches-oct-20/
+- **Complete Chaos** — wild, unoptimized combinations drawn from the allowed equipment pool.
+- **Tactical Blend** — tends toward more balanced, complementary loadouts.
+- **Mission-Tuned** — favors equipment suited to your selected front and mission.
+
+Customize the roll with rules for armor weight and passive, equipment categories, support weapons, backpacks, and required coverage. **Lock individual slots** to keep favorite gear while rerolling everything else. You can also choose whether each roll is evaluated automatically.
+
+Chaos mode can deliberately create experimental support-weapon and backpack combinations. The app labels these as potentially non-deployable instead of treating them as ordinary legal builds. **Every stratagem must still be unique**, and a loadout may contain **at most one mech, one FRV, and one tank**—although one of each is allowed.
+
+## Export a loadout dossier
+
+Use **Export PDF** to save a shareable, visually styled loadout report featuring the **101st skull emblem** and tactical briefing design. Reports can include your chosen equipment, mission settings, synergy score, coverage graphics, and analysis findings. Incomplete builds can be exported as drafts.
+
+You can also **copy a text report** to share a build quickly.
+
+## Equipment catalog
+
+The catalog currently contains **333 selectable entries**, including equipment from the **Scope of Authority** Warbond (October 2026):
+
+| Category | Entries |
+| --- | ---: |
+| Body armor | 112 |
+| Primary weapons | 56 |
+| Secondary weapons | 26 |
+| Throwables | 24 |
+| Boosters | 20 |
+| Stratagems | 95 |
+| **Total** | **333** |
+
+The catalog is intended for normal loadout slots, so cosmetic helmets, capes, and mission-only call-ins are outside its scope. Item availability, effects, and balance can change with game updates; **the catalog is not live-synchronized**.
+
+## What HD2Lab is—and isn't
+
+HD2Lab is a **planning and experimentation tool**, not an in-game damage simulator or an official ranking of the strongest builds. Synergy scores use curated traits and heuristic estimates, not verified real-time damage numbers or win rates. The best loadout still depends on player skill, squad composition, objectives, and current game balance.
+
+HD2Lab is a fan-made project and is **not affiliated with or endorsed by Arrowhead Game Studios, Sony Interactive Entertainment, or the Helldivers franchise**.
+
+**For managed democracy. For the squad. For questionable loadout decisions.**
