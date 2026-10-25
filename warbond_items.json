@@ -12,8 +12,20 @@
         "weight": "Light",
         "passive": "Stationary Shroud",
         "desc": "Stationary Shroud • Reduced weapon sway and enemy detection range while crouched or prone.",
-        "c": [0, 0, 0, 0, 1, 0],
-        "tags": ["stealth", "precision", "stationary", "mobile"],
+        "c": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        "tags": [
+          "stealth",
+          "precision",
+          "stationary",
+          "mobile"
+        ],
         "estimate": true
       },
       {
@@ -23,8 +35,19 @@
         "weight": "Medium",
         "passive": "Stationary Shroud",
         "desc": "Stationary Shroud • Reduced weapon sway and enemy detection range while crouched or prone.",
-        "c": [0, 0, 0, 0, 2, 0],
-        "tags": ["stealth", "precision", "stationary"],
+        "c": [
+          0,
+          0,
+          0,
+          0,
+          2,
+          0
+        ],
+        "tags": [
+          "stealth",
+          "precision",
+          "stationary"
+        ],
         "estimate": true
       }
     ],
@@ -32,10 +55,23 @@
       {
         "id": "primary-r40sightliner",
         "name": "R-40 Sightliner",
-        "cat": "Marksman rifle",
+        "cat": "Sniper Rifles",
         "desc": "Bolt-action primary sniper rifle built for stable, armor-piercing precision at long range.",
-        "c": [1, 0, 4, 0, 0, 1],
-        "tags": ["precision", "ballistic", "mediumPen", "slow", "stationary"],
+        "c": [
+          1,
+          0,
+          4,
+          0,
+          0,
+          1
+        ],
+        "tags": [
+          "precision",
+          "ballistic",
+          "mediumPen",
+          "slow",
+          "stationary"
+        ],
         "estimate": true
       }
     ],
@@ -45,8 +81,19 @@
         "name": "P-44 Mist",
         "cat": "Pistol",
         "desc": "One-handed machine pistol for fast emergency defense when close-range threats breach your position.",
-        "c": [0, 3, 1, 0, 0, 2],
-        "tags": ["ballistic", "fast", "close"],
+        "c": [
+          0,
+          3,
+          1,
+          0,
+          0,
+          2
+        ],
+        "tags": [
+          "ballistic",
+          "fast",
+          "close"
+        ],
         "estimate": true
       }
     ],
@@ -56,8 +103,20 @@
         "name": "G-11 Caltrops",
         "cat": "Control",
         "desc": "Special throwable scattering proximity-triggered submunitions that slow and stun enemies in an area.",
-        "c": [0, 3, 1, 0, 1, 1],
-        "tags": ["stun", "control", "trap", "crowd"],
+        "c": [
+          0,
+          3,
+          1,
+          0,
+          1,
+          1
+        ],
+        "tags": [
+          "stun",
+          "control",
+          "trap",
+          "crowd"
+        ],
         "estimate": true
       }
     ],
@@ -67,8 +126,21 @@
         "name": "AMW-20 Apex",
         "cat": "Support weapon",
         "desc": "Heavy backpack-fed anti-materiel rifle with strong armor penetration and assisted-reload support.",
-        "c": [5, 0, 5, 0, 0, 1],
-        "tags": ["antiTank", "precision", "mediumPen", "stationary", "ballistic"],
+        "c": [
+          5,
+          0,
+          5,
+          0,
+          0,
+          1
+        ],
+        "tags": [
+          "antiTank",
+          "precision",
+          "mediumPen",
+          "stationary",
+          "ballistic"
+        ],
         "packRequired": true,
         "estimate": true
       },
@@ -77,8 +149,20 @@
         "name": "LAS-44 Nova",
         "cat": "Support weapon",
         "desc": "Charge-to-fire precision energy rifle firing non-explosive thermal projectiles; uses heat-based ammunition with improved cooling.",
-        "c": [3, 0, 4, 0, 0, 3],
-        "tags": ["energy", "precision", "mediumPen", "slow"],
+        "c": [
+          3,
+          0,
+          4,
+          0,
+          0,
+          3
+        ],
+        "tags": [
+          "energy",
+          "precision",
+          "mediumPen",
+          "slow"
+        ],
         "estimate": true
       }
     ]

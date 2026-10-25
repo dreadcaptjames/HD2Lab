@@ -1,18 +1,19 @@
 {
-  "version": "3.0",
-  "audited": "2026-10-10",
+  "version": "6.1",
+  "audited": "2026-10-20",
   "counts": {
-    "armor": 110,
-    "primary": 55,
-    "secondary": 25,
-    "throwable": 23,
+    "armor": 112,
+    "primary": 56,
+    "secondary": 26,
+    "throwable": 24,
     "booster": 20,
-    "strat": 93
+    "strat": 95
   },
   "notes": [
+    "Counts include the Scope of Authority runtime overlay (7 new entries) on the baseline data.js catalog (326 entries).",
     "Body armor only (not helmets or capes)",
     "Four normal player-selectable stratagems; mission-issued utility excluded",
-    "Heuristic capability profiles\u2014not live game damage or patch-synced statistics",
+    "Heuristic capability profiles—not live game damage or patch-synced statistics",
     "Campaign and special collaboration equipment included when a normal loadout option"
   ],
   "referenceUrls": [
@@ -22,5 +23,19 @@
     "https://helldivers.wiki.gg/wiki/Category:Throwables",
     "https://helldivers.wiki.gg/wiki/Boosters",
     "https://helldivers.wiki.gg/wiki/Stratagems"
-  ]
+  ],
+  "baseCounts": {
+    "armor": 110,
+    "primary": 55,
+    "secondary": 25,
+    "throwable": 23,
+    "booster": 20,
+    "strat": 93
+  },
+  "warbondOverlay": {
+    "name": "Scope of Authority",
+    "releaseDate": "2026-10-20",
+    "itemsAdded": 7,
+    "appliedBy": "index.html inline script to original 326-entry data.js"
+  }
 }

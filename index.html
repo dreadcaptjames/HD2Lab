@@ -5,6 +5,78 @@
 <meta name="description" content="Unofficial Helldivers 2 tactical loadout and synergy planner: assemble weapons, armor, stratagems and boosters, then evaluate mission coverage.">
 <title>HELLDIVER // Synergy Lab</title>
 <link rel="stylesheet" href="./styles.css">
+<style id="hd2InterfaceThemes">
+/* HD2LAB // Interface Aesthetics — five faction-inspired palettes.
+   Accents are independent from the selected mission enemy front. */
+:root[data-hd2-theme="terminid"]{--yellow:#facb47;--yellow-2:#ffe891;--cyan:#92ccad;--theme-rgb:250,203,71;--theme-deep:#17180d;--theme-caption:#e7d6a1}
+:root[data-hd2-theme="automaton"]{--yellow:#f17472;--yellow-2:#ffaaa0;--cyan:#ed9b84;--theme-rgb:241,116,114;--theme-deep:#211016;--theme-caption:#ffb6af}
+:root[data-hd2-theme="illuminate"]{--yellow:#bd95ff;--yellow-2:#e2ceff;--cyan:#a9b6ff;--theme-rgb:189,149,255;--theme-deep:#171326;--theme-caption:#e0cafa}
+:root[data-hd2-theme="super-earth"]{--yellow:#77c4ff;--yellow-2:#bce5ff;--cyan:#79d9f1;--theme-rgb:119,196,255;--theme-deep:#0e1b28;--theme-caption:#b8e1ff}
+:root[data-hd2-theme="chaos"]{--yellow:#bdc6cf;--yellow-2:#edf2f5;--cyan:#a1afb9;--theme-rgb:189,198,207;--theme-deep:#171b20;--theme-caption:#d4dce1}
+html[data-hd2-theme] .topbar{border-top-color:var(--yellow)}
+html[data-hd2-theme] .hero-main{box-shadow:inset 0 0 65px rgba(var(--theme-rgb),.045)}
+html[data-hd2-theme] .hero-main::before{border-color:rgba(var(--theme-rgb),.14);box-shadow:0 0 0 28px rgba(var(--theme-rgb),.025),0 0 0 62px rgba(var(--theme-rgb),.017)}
+html[data-hd2-theme] .hero h1 em{text-shadow:0 0 24px rgba(var(--theme-rgb),.18)}
+html[data-hd2-theme] .scan-target{border-color:rgba(var(--theme-rgb),.45);background:rgba(var(--theme-rgb),.075);filter:drop-shadow(0 0 12px rgba(var(--theme-rgb),.21))}
+html[data-hd2-theme] .radar-disc{border-color:rgba(var(--theme-rgb),.43);box-shadow:0 0 0 28px rgba(var(--theme-rgb),.035),inset 0 0 25px rgba(var(--theme-rgb),.055)}
+html[data-hd2-theme] .radar-disc::before,html[data-hd2-theme] .radar-disc::after{border-color:rgba(var(--theme-rgb),.21)}
+html[data-hd2-theme] .faction.active .faction-crest{background:rgba(var(--theme-rgb),.14);box-shadow:inset 0 0 0 1px rgba(var(--theme-rgb),.4)}
+html[data-hd2-theme] .faction.active small{color:var(--theme-caption)}
+html[data-hd2-theme] .intel-symbol{text-shadow:0 0 16px rgba(var(--theme-rgb),.20)}
+html[data-hd2-theme] .score-ring{filter:drop-shadow(0 0 13px rgba(var(--theme-rgb),.16))}
+html[data-hd2-theme] .scan-target svg{stroke:var(--yellow)}
+/* Preserve enemy-front color coding as an informational signal rather than retinting it. */
+html[data-hd2-theme] .hero-side[data-front="bots"] .scan-target svg{stroke:#ff9a87}
+html[data-hd2-theme] .hero-side[data-front="squids"] .scan-target svg{stroke:#c8baff}
+html[data-hd2-theme] select option:checked{background-color:#34404e;color:var(--yellow-2)}
+html[data-hd2-theme] .picker-list::-webkit-scrollbar-thumb:hover,
+html[data-hd2-theme] .filters::-webkit-scrollbar-thumb:hover,
+html[data-hd2-theme] .picker-controls .filters::-webkit-scrollbar-thumb:hover{background:var(--yellow)}
+
+/* THEME COMMAND DECK — deliberate, card-based UI, not five color buttons */
+.theme-deck{margin:16px 0 5px;border:1px solid var(--line-strong);background:linear-gradient(130deg,rgba(20,30,41,.97),rgba(9,15,23,.99));border-radius:12px;padding:22px;position:relative;overflow:hidden;isolation:isolate}
+.theme-deck::before{content:"";position:absolute;pointer-events:none;inset:0;background:radial-gradient(ellipse at 92% 0%,rgba(var(--theme-rgb),.11),transparent 58%);z-index:-1;transition:background .2s}
+.theme-deck::after{content:"";position:absolute;left:0;top:0;width:74px;height:3px;background:var(--yellow)}
+.theme-deck-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:18px}
+.theme-deck-kicker{display:flex;align-items:center;gap:9px;color:var(--yellow);font-size:10px;letter-spacing:.19em;font-weight:900;text-transform:uppercase}
+.theme-deck h2{margin:6px 0 5px;color:var(--text);font-size:clamp(19px,2.4vw,27px);line-height:1.15;letter-spacing:-.035em;text-transform:uppercase}
+.theme-deck p{max-width:640px;color:var(--muted);margin:0;font-size:12px;line-height:1.6}
+.theme-readout{border:1px solid rgba(var(--theme-rgb),.35);background:rgba(var(--theme-rgb),.08);border-radius:8px;padding:10px 13px;min-width:172px;white-space:nowrap}
+.theme-readout small{display:block;font-size:9px;letter-spacing:.13em;color:var(--muted);font-weight:900;margin-bottom:4px}
+.theme-readout strong{display:block;font-size:11px;letter-spacing:.08em;color:var(--yellow);text-transform:uppercase}
+.theme-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.theme-choice{--swatch:#facb47;appearance:none;cursor:pointer;position:relative;overflow:hidden;min-width:0;min-height:154px;border:1px solid #394756;border-radius:9px;background:linear-gradient(155deg,#1a2630,#0b121b);color:var(--text);text-align:left;padding:15px 13px 12px;display:flex;flex-direction:column;gap:8px;transition:border-color .15s,transform .15s,box-shadow .15s}
+.theme-choice::before{content:"";height:3px;background:var(--swatch);position:absolute;top:0;left:0;right:0;opacity:.8}
+.theme-choice:hover{border-color:var(--swatch);transform:translateY(-2px)}
+.theme-choice:focus-visible{outline:2px solid var(--swatch);outline-offset:2px}
+.theme-choice[aria-pressed="true"]{border-color:var(--swatch);background:linear-gradient(165deg,#24313e,#121b24);box-shadow:inset 0 0 0 1px var(--swatch),0 0 23px rgba(var(--theme-rgb),.08)}
+.theme-choice[aria-pressed="true"]::before{height:5px;opacity:1}
+.theme-choice-top{display:flex;align-items:center;justify-content:space-between;gap:4px}
+.theme-choice-icon{font-size:22px;width:38px;height:38px;display:grid;place-items:center;color:var(--swatch);border:1px solid color-mix(in srgb,var(--swatch) 35%,transparent);background:color-mix(in srgb,var(--swatch) 9%,transparent);border-radius:8px;line-height:1}
+.theme-choice-icon svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.theme-selected{display:none;color:var(--swatch);font-size:9px;letter-spacing:.13em;font-weight:900;text-transform:uppercase}
+.theme-choice[aria-pressed="true"] .theme-selected{display:block}
+.theme-choice-name{display:block;line-height:1.1;font-size:14px;font-weight:950;letter-spacing:.055em;text-transform:uppercase}
+.theme-choice-desc{font-size:10px;line-height:1.45;color:#a5b3c0;min-height:28px}
+.theme-colorline{display:flex;gap:5px;margin-top:auto;padding-top:3px}
+.theme-colorline i{display:block;height:5px;flex:1;border-radius:2px;background:var(--swatch)}
+.theme-colorline i:nth-child(2){opacity:.55}.theme-colorline i:nth-child(3){opacity:.23}
+.theme-deck-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;margin-top:14px;font-size:10px;line-height:1.5;color:var(--muted-2);letter-spacing:.04em}
+.theme-deck-foot span:last-child{color:var(--theme-caption)}
+@media(max-width:1000px){.theme-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:680px){.theme-deck{padding:17px 14px}.theme-deck-head{display:block}.theme-readout{display:inline-block;margin-top:12px}.theme-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.theme-choice{min-height:136px;padding:13px 11px 10px}.theme-choice-name{font-size:12px}.theme-choice-desc{font-size:10px}}
+@media(max-width:350px){.theme-grid{grid-template-columns:1fr}.theme-choice{min-height:110px}}
+@media(prefers-reduced-motion:reduce){.theme-choice{transition:none}}
+</style>
+<script>
+// Apply the saved appearance before first paint; do not couple it to battlefront selection.
+(function(){
+  const valid=['terminid','automaton','illuminate','super-earth','chaos'];
+  let saved='terminid';
+  try{const previous=localStorage.getItem('hd2lab-ui-theme');if(valid.includes(previous))saved=previous;}catch(_error){}
+  document.documentElement.setAttribute('data-hd2-theme',saved);
+})();
+</script>
 <link rel="icon" type="image/png" href="./assets/101st%20New%20Logo.png">
 </head>
 <body>
@@ -205,6 +277,25 @@
   </aside>
 </main>
 
+<section class="theme-deck" id="interfaceAesthetic" aria-labelledby="themeDeckTitle">
+  <div class="theme-deck-head">
+    <div>
+      <div class="theme-deck-kicker">◈ PERSONALIZATION / TERMINAL PALETTES</div>
+      <h2 id="themeDeckTitle">06 // Choose your aesthetic</h2>
+      <p>Equip a visual identity for your command terminal. Change the entire interface accent without changing your loadout or selected enemy front.</p>
+    </div>
+    <div class="theme-readout" aria-live="polite" aria-atomic="true"><small>ACTIVE INTERFACE</small><strong id="themeActiveName">TERMINID // AMBER</strong></div>
+  </div>
+  <div class="theme-grid" role="group" aria-label="Interface color theme">
+    <button type="button" class="theme-choice" data-theme-choice="terminid" aria-pressed="true" style="--swatch:#facb47"><span class="theme-choice-top"><span class="theme-choice-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4l4 3 2 5-3 6H9l-3-6 2-5 4-3Z"/><path d="M9 10h.5m5 0h.5M9 15h6M6 8 3 5m15 3 3-3M6 14l-4 3m16-3 4 3"/></svg></span><span class="theme-selected">✓ ACTIVE</span></span><strong class="theme-choice-name">Terminid</strong><span class="theme-choice-desc">Amber hazard signal</span><span class="theme-colorline" aria-hidden="true"><i></i><i></i><i></i></span></button>
+    <button type="button" class="theme-choice" data-theme-choice="automaton" aria-pressed="false" style="--swatch:#f17472"><span class="theme-choice-top"><span class="theme-choice-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 5h10l3 5-2 8-6 3-6-3-2-8 3-5Z"/><path d="M8 11h3m2 0h3M9 15h6M9 5V2m6 3V2"/></svg></span><span class="theme-selected">✓ ACTIVE</span></span><strong class="theme-choice-name">Automaton</strong><span class="theme-choice-desc">Scarlet machine alert</span><span class="theme-colorline" aria-hidden="true"><i></i><i></i><i></i></span></button>
+    <button type="button" class="theme-choice" data-theme-choice="illuminate" aria-pressed="false" style="--swatch:#bd95ff"><span class="theme-choice-top"><span class="theme-choice-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2 19 8v8l-7 6-7-6V8l7-6Z"/><path d="M12 5v14M6 12h12M8 8l4 4 4-4"/></svg></span><span class="theme-selected">✓ ACTIVE</span></span><strong class="theme-choice-name">Illuminate</strong><span class="theme-choice-desc">Violet psionic glow</span><span class="theme-colorline" aria-hidden="true"><i></i><i></i><i></i></span></button>
+    <button type="button" class="theme-choice" data-theme-choice="super-earth" aria-pressed="false" style="--swatch:#77c4ff"><span class="theme-choice-top"><span class="theme-choice-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 4-4 14 0 18 4-4 4-14 0-18ZM12 6V3m0 18v-3"/></svg></span><span class="theme-selected">✓ ACTIVE</span></span><strong class="theme-choice-name">Super Earth</strong><span class="theme-choice-desc">Cerulean command blue</span><span class="theme-colorline" aria-hidden="true"><i></i><i></i><i></i></span></button>
+    <button type="button" class="theme-choice" data-theme-choice="chaos" aria-pressed="false" style="--swatch:#bdc6cf"><span class="theme-choice-top"><span class="theme-choice-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 3 8 5v8l-8 5-8-5V8Z"/><path d="M5 19 19 5M8 8l8 8M9 12h6"/></svg></span><span class="theme-selected">✓ ACTIVE</span></span><strong class="theme-choice-name">Chaos Divers</strong><span class="theme-choice-desc">Grey rogue-ops steel</span><span class="theme-colorline" aria-hidden="true"><i></i><i></i><i></i></span></button>
+  </div>
+  <div class="theme-deck-foot"><span>APPEARANCE ONLY • DOES NOT AFFECT SCORING OR RANDOMIZATION</span><span>Preference saved in this browser</span></div>
+</section>
+
 <footer class="bottom">
   <span>UNOFFICIAL COMMUNITY TOOL • NOT AFFILIATED WITH ARROWHEAD OR SONY • CURATED EQUIPMENT REFERENCE, NOT LIVE-SYNCED</span>
   <span>References: <a href="https://helldivers.wiki.gg/wiki/Armor_Passive" target="_blank" rel="noreferrer">Armor passives</a> · <a href="https://helldivers.wiki.gg/wiki/All_Stratagems" target="_blank" rel="noreferrer">Stratagems</a> · <a href="https://helldivers.wiki.gg/wiki/Boosters" target="_blank" rel="noreferrer">Boosters</a></span>
@@ -228,6 +319,23 @@
 </div>
 <div class="toast" id="toast" role="status"></div>
 <!-- data.js must finish loading before the inline Warbond extension runs. -->
+<script>
+// Theme controls live in index.html, so no second upload is required.
+(function(){
+  const valid={terminid:'TERMINID // AMBER',automaton:'AUTOMATON // SCARLET',illuminate:'ILLUMINATE // VIOLET','super-earth':'SUPER EARTH // BLUE',chaos:'CHAOS DIVERS // GREY'};
+  const buttons=Array.from(document.querySelectorAll('[data-theme-choice]'));
+  const readout=document.getElementById('themeActiveName');
+  function applyTheme(name,save){
+    if(!Object.prototype.hasOwnProperty.call(valid,name))return;
+    document.documentElement.setAttribute('data-hd2-theme',name);
+    buttons.forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.themeChoice===name)));
+    if(readout)readout.textContent=valid[name];
+    if(save){try{localStorage.setItem('hd2lab-ui-theme',name)}catch(_error){}}
+  }
+  buttons.forEach(button=>button.addEventListener('click',()=>applyTheme(button.dataset.themeChoice,true)));
+  applyTheme(document.documentElement.getAttribute('data-hd2-theme')||'terminid',false);
+})();
+</script>
 <script src="./data.js"></script>
 <!-- Scope of Authority: embedded so updating this index.html is the only upload needed. -->
 <script id="scopeOfAuthorityInline">

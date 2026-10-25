@@ -1,8 +1,8 @@
 # HELL DIVER // SYNERGY LAB — full selectable catalog
 
-Catalog checked **October 10, 2026** against community-maintained references. This is a **player-loadout catalog**, not a list of helmets, capes, mission-only stratagems, or unequippable world-spawn items. The synergy weights are estimates, not in-game damage metrics.
+Base catalog checked **October 10, 2026** against community-maintained references; supplemented with the **Scope of Authority** Warbond on **October 20, 2026**. This is a **player-loadout catalog**, not a list of helmets, capes, mission-only stratagems, or unequippable world-spawn items. The synergy weights are estimates, not in-game damage metrics.
 
-**Total: 326 selectable entries.**
+**Current total: 333 selectable entries** (326 from the October 10 baseline listed below, plus 7 Scope of Authority entries appended in the section at the end).
 
 ## Body armor — 110
 
@@ -475,3 +475,20 @@ Catalog checked **October 10, 2026** against community-maintained references. Th
 - [Stratagems](https://helldivers.wiki.gg/wiki/Stratagems)
 
 **Vehicle selection rule:** At most one Mech, one FRV, and one Tank may appear in one loadout; mixed families are allowed, including in Complete Chaos.
+
+
+## Scope of Authority — October 20, 2026 (+7 entries)
+
+These additions load automatically from the site's `index.html`, while the base `data.js` remains the original October 10 audit. The resulting browser catalog contains **333 selectable entries**.
+
+| Loadout category | New selectable item | Notes |
+| --- | --- | --- |
+| Light body armor | SS-33 Mimetic Marshal | Stationary Shroud passive |
+| Medium body armor | SS-15 Focal Point | Stationary Shroud passive |
+| Sniper Rifles (primary) | R-40 Sightliner | Bolt-action long-range precision rifle |
+| Pistols (secondary) | P-44 Mist | Close-range machine pistol |
+| Control throwables | G-11 Caltrops | Proximity-based control field |
+| Support-weapon stratagem | AMW-20 Apex | Backpack-required precision anti-materiel weapon |
+| Support-weapon stratagem | LAS-44 Nova | Charged energy precision rifle |
+
+All numeric capability values remain heuristic loadout-planning estimates, not verified live damage statistics. For an explicit full count including these seven, see `catalog-audit.json`.

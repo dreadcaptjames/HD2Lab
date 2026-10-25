@@ -57,6 +57,12 @@ Use **Export PDF** to save a shareable, visually styled loadout report featuring
 
 You can also **copy a text report** to share a build quickly.
 
+## Customize the terminal
+
+Choose a visual aesthetic from the selector near the bottom of the page. The five built-in palettes are **Terminid (yellow)**, **Automaton (red)**, **Illuminate (purple)**, **Super Earth (blue)**, and **Chaos Divers (grey)**.
+
+Changing the aesthetic updates the tactical interface accents without changing the current enemy front or loadout. The selection is remembered in your browser.
+
 ## Equipment catalog
 
 The catalog currently contains **333 selectable entries**, including equipment from the **Scope of Authority** Warbond (October 2026):
