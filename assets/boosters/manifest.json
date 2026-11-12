@@ -1,0 +1,108 @@
+{
+  "artwork": "Community-traced Helldivers 2 booster icons, yellow hexagonal artwork",
+  "sourceRepository": "https://github.com/AdamLassiter/democracy-plusplus",
+  "originalReference": "https://helldivers.wiki.gg/wiki/Boosters",
+  "attribution": "Credit the Helldivers Wiki and artwork tracers; game artwork and names belong to Arrowhead Game Studios and licensors.",
+  "entries": [
+    {
+      "id": "supplyPods",
+      "name": "Armed Resupply Pods",
+      "sourcePath": "apps/democracy-plusplus/public/images/boosters/Armed_Resupply_Pods_Booster_Icon.svg"
+    },
+    {
+      "id": "concealed",
+      "name": "Concealed Insertion",
+      "sourcePath": "apps/democracy-plusplus/public/images/boosters/Concealed_Insertion_Booster_Icon.svg"
+    },
+    {
+      "id": "deadSprint",
+      "name": "Dead Sprint",
+      "sourcePath": "apps/democracy-plusplus/public/images/boosters/Dead_Sprint_Booster_Icon.svg"
+    },
+    {
+      "id": "infusion",
+      "name": "Experimental Infusion",
+      "sourcePath": "apps/democracy-plusplus/public/images/boosters/Experimental_Infusion_Booster_Icon.svg"
+    },
+    {
+      "id": "pilot",
+      "name": "Expert Extraction Pilot",
+      "sourcePath": "apps/democracy-plusplus/public/images/boosters/Expert_Extraction_Pilot_Booster_Icon.svg"
+    },
+    {
+      "id": "firebombPods",
+      "name": "Firebomb Hellpods",
+      "sourcePath": "apps/democracy-plusplus/public/images/boosters/Firebomb_Hellpods_Booster_Icon.svg"
+    },
+    {
+      "id": "flexBudget",
+      "name": "Flexible Reinforcement Budget",
+      "sourcePath": "apps/democracy-plusplus/public/images/boosters/Flexible_Reinforcement_Budget_Booster_Icon.svg"
+    },
+    {
+      "id": "hellpod",
+      "name": "Hellpod Space Optimization",
+      "sourcePath": "apps/democracy-plusplus/public/images/boosters/Hellpod_Space_Optimization_Booster_Icon.svg"
+    },
+    {
+      "id": "reinforce",
+      "name": "Increased Reinforcement Budget",
+      "sourcePath": "apps/democracy-plusplus/public/images/boosters/Increased_Reinforcement_Budget_Booster_Icon.svg"
+    },
+    {
+      "id": "extinguish",
+      "name": "Integrated Extinguishers",
+      "sourcePath": "apps/democracy-plusplus/public/images/boosters/Integrated_Extinguishers_Booster_Icon.svg"
+    },
+    {
+      "id": "confusion",
+      "name": "Localization Confusion",
+      "sourcePath": "apps/democracy-plusplus/public/images/boosters/Localization_Confusion_Booster_Icon.svg"
+    },
+    {
+      "id": "shocks",
+      "name": "Motivational Shocks",
+      "sourcePath": "apps/democracy-plusplus/public/images/boosters/Motivational_Shocks_Booster_Icon.svg"
+    },
+    {
+      "id": "muscle",
+      "name": "Muscle Enhancement",
+      "sourcePath": "apps/democracy-plusplus/public/images/boosters/Muscle_Enhancement_Booster_Icon.svg"
+    },
+    {
+      "id": "sampleExtractor",
+      "name": "Sample Extricator",
+      "sourcePath": "apps/democracy-plusplus/public/images/boosters/Sample_Extricator_Booster_Icon.svg"
+    },
+    {
+      "id": "sampleScanner",
+      "name": "Sample Scanner",
+      "sourcePath": "apps/democracy-plusplus/public/images/boosters/Sample_Scanner_Booster_Icon.svg"
+    },
+    {
+      "id": "stamina",
+      "name": "Stamina Enhancement",
+      "sourcePath": "apps/democracy-plusplus/public/images/boosters/Stamina_Enhancement_Booster_Icon.svg"
+    },
+    {
+      "id": "stunPods",
+      "name": "Stun Pods",
+      "sourcePath": "apps/democracy-plusplus/public/images/boosters/Stun_Pods_Booster_Icon.svg"
+    },
+    {
+      "id": "surplusEat",
+      "name": "Surplus EAT Allocation",
+      "sourcePath": "apps/democracy-plusplus/public/images/boosters/Surplus_EAT_Allocation_Booster_Icon.svg"
+    },
+    {
+      "id": "uav",
+      "name": "UAV Recon Booster",
+      "sourcePath": "apps/democracy-plusplus/public/images/boosters/UAV_Recon_Booster_Booster_Icon.svg"
+    },
+    {
+      "id": "vitality",
+      "name": "Vitality Enhancement",
+      "sourcePath": "apps/democracy-plusplus/public/images/boosters/Vitality_Enhancement_Booster_Icon.svg"
+    }
+  ]
+}
