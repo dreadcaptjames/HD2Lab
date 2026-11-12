@@ -1,0 +1,35 @@
+name: Cache real armor artwork
+
+on:
+  push:
+    paths:
+      - scripts/sync-armor-artwork.py
+      - .github/workflows/sync-armor-artwork.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  cache-armor-renders:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout HD2Lab
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Download and validate armor renders
+        run: python scripts/sync-armor-artwork.py
+      - name: Commit locally hosted armor artwork
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A assets/armor/
+          if ! git diff --cached --quiet; then
+            git commit -m "assets: cache matching Helldivers 2 body armor renders"
+            git push
+          fi
