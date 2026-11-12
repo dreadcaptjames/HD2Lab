@@ -26,6 +26,14 @@ All **20 boosters** now show their individually matched yellow hexagonal symbols
 
 **Art credit:** Booster artwork is sourced from [Democracy++](https://github.com/AdamLassiter/democracy-plusplus), which mirrors artwork traced by contributors to [the Helldivers Wiki](https://helldivers.wiki.gg/wiki/Boosters). HD2Lab remains an unofficial fan project; game artwork and trademarks belong to Arrowhead Game Studios and its licensors.
 
+## Authentic body armor artwork
+
+The **112 selectable body armors** are matched to their individual Helldivers 2 armor-set renders (not generic category silhouettes). The armor picker and equipped armor slot use full-suit thumbnails, and the chosen armor is also rendered in the PDF dossier when available. The original armor/passive symbol remains as a graceful fallback when an image is unavailable.
+
+Artwork can be **cached locally** to \`assets/armor/\` using \`python scripts/sync-armor-artwork.py\`. A GitHub Actions workflow runs that synchronization when its script/workflow changes and can also be run manually. The site prefers locally hosted WebP renders; while the cache is being populated or if an entry is missing, it can resolve images from the public CORS-enabled community API. This preserves a working armor picker without relying on a successful bulk download.
+
+**Art credit:** Renders originate with [the Helldivers Wiki](https://helldivers.wiki.gg/wiki/Armor), with WebP files and structured matching references supplied by [Helldivers 2 Data API](https://helldivers-api.dionatha.com.br/). HD2Lab is an unofficial fan project; HELLDIVERS 2 game artwork and marks belong to Arrowhead Game Studios and its licensors.
+
 ## Build a complete loadout
 
 Choose every part of your kit:
