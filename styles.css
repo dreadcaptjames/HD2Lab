@@ -577,3 +577,14 @@ select option:disabled {
   .slot:has(.equipment-render-image) .sicon{width:76px;height:56px;flex-basis:76px}
   .slot .sicon img.equipment-render-image{width:74px;height:52px}
 }
+
+/* BODY ARMOR // authentic helmet-and-suit inventory render framing. */
+.armor-artwork{display:block;position:relative;width:100%;height:100%;min-width:0;min-height:0}
+.armor-artwork>svg{position:absolute;top:24%;left:24%;width:52%;height:52%;opacity:.55}
+.armor-artwork>.armor-render-image{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 2px 4px rgba(0,0,0,.40))}
+.slot.armor-slot:has(.armor-render-image){min-height:111px}
+.slot.armor-slot:has(.armor-render-image) .sicon{width:79px;height:88px;flex:0 0 79px;background:#14212e;clip-path:none;border-radius:8px}
+.pick:has(.armor-render-image){grid-template-columns:88px minmax(0,1fr) auto;min-height:102px}
+.pick .picon:has(.armor-render-image){width:82px;height:90px;min-width:82px;border-radius:7px;background:#14212e;clip-path:none}
+@media(max-width:760px){.pick:has(.armor-render-image){grid-template-columns:72px minmax(0,1fr)}.pick .picon:has(.armor-render-image){width:66px;height:78px;min-width:66px}.pick:has(.armor-render-image) .ptag{grid-column:2}}
+@media(max-width:440px){.slot.armor-slot:has(.armor-render-image) .sicon{width:69px;height:80px;flex-basis:69px}}
