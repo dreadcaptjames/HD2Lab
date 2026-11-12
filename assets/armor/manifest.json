@@ -1,0 +1,898 @@
+{
+  "description": "Armor inventory item renders for HD2Lab",
+  "sources": [
+    "https://github.com/helldads/helldads.github.io",
+    "https://github.com/Bendath/HellDex",
+    "https://helldivers-api.dionatha.com.br/",
+    "https://helldivers.wiki.gg/wiki/Armor"
+  ],
+  "notes": "Local renders are sourced from HD2 community collections. Five very recent armor sets use the Helldivers API immutable image CDN as a fallback. All source artwork and game marks remain the property of their owners.",
+  "entries": [
+    {
+      "id": "armor-ac2obedient",
+      "name": "AC-2 Obedient",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/AC-2_Obedient.png",
+      "sourceSha": "fa483f67575642df2aa73d1987563024a9bd4d4a",
+      "wikiFile": "AC-2_Obedient_Armor_Render.png"
+    },
+    {
+      "id": "armor-ad11livewire",
+      "name": "AD-11 Livewire",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/AD-11_Livewire.png",
+      "sourceSha": "dc466b996acae168645638f294e8d53d3db06abf",
+      "wikiFile": "AD-11_Livewire_Armor_Render.png"
+    },
+    {
+      "id": "armor-af50noxiousranger",
+      "name": "AF-50 Noxious Ranger",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/AF-50_Noxious_Ranger.png",
+      "sourceSha": "8c5d5482055a59c18069ddd266ac851d72aab43d",
+      "wikiFile": "AF-50_Noxious_Ranger_Armor_Render.png"
+    },
+    {
+      "id": "armor-b08lightgunner",
+      "name": "B-08 Light Gunner",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/B-08_Light_Gunner.png",
+      "sourceSha": "c36e0a58655aa75f6250b20561bdb01dbc398119",
+      "wikiFile": "B-08_Light_Gunner_Armor_Render.png"
+    },
+    {
+      "id": "armor-bfm16tanker",
+      "name": "BFM-16 Tanker",
+      "externalUrl": "https://helldivers-api.dionatha.com.br/images/v1/armors/bfm-16-tanker.c7384093.webp",
+      "wikiFile": "BFM-16_Tanker_Armor_Render.png"
+    },
+    {
+      "id": "armor-bp32jackboot",
+      "name": "BP-32 Jackboot",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/BP-32_Jackboot.png",
+      "sourceSha": "49cc6271b070ba0a3ebfeb26877cc6f90d272654",
+      "wikiFile": "BP-32_Jackboot_Armor_Render.png"
+    },
+    {
+      "id": "ce07",
+      "name": "CE-07 Demolition Specialist",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/CE-07_Demolition_Specialist.png",
+      "sourceSha": "1ebcaa1035272d608a83da4dce93ba2e75a17ade",
+      "wikiFile": "CE-07_Demolition_Specialist_Armor_Render.png"
+    },
+    {
+      "id": "ce67",
+      "name": "CE-67 Titan",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/CE-67_Titan.png",
+      "sourceSha": "30bb6a7785c8df5bf8fffc37ae17e2452ee98445",
+      "wikiFile": "CE-67_Titan_Armor_Render.png"
+    },
+    {
+      "id": "ce74",
+      "name": "CE-74 Breaker",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/CE-74_Breaker.png",
+      "sourceSha": "2f22f5fd7ab9a47e18d8e8526d7b9b136a27a424",
+      "wikiFile": "CE-74_Breaker_Armor_Render.png"
+    },
+    {
+      "id": "cm21",
+      "name": "CM-21 Trench Paramedic",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/CM-21_Trench_Paramedic.png",
+      "sourceSha": "0e2352e5a86873de2431ce2be0fca4f9270b8805",
+      "wikiFile": "CM-21_Trench_Paramedic_Armor_Render.png"
+    },
+    {
+      "id": "armor-cph26commandant",
+      "name": "CPH-26 Commandant",
+      "sourceRepository": "Bendath/HellDex",
+      "sourcePath": "armor_images/Chest_Armour/CPH-26_Commandant.png",
+      "sourceSha": "f9897e2b2d160cb13b331cac1794b6f4e7a4a88e",
+      "wikiFile": "CPH-26_Commandant_Armor_Render.png"
+    },
+    {
+      "id": "cw4",
+      "name": "CW-4 Arctic Ranger",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/CW-4_Arctic_Ranger.png",
+      "sourceSha": "21a7b1ddeb26679e8ef3c4defe13bdae7c6aa639",
+      "wikiFile": "CW-4_Arctic_Ranger_Armor_Render.png"
+    },
+    {
+      "id": "armor-ds10biggamehunter",
+      "name": "DS-10 Big Game Hunter",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/DS-10_Big_Game_Hunter.png",
+      "sourceSha": "779a56e5323434f4e945a656bb3a36252fdebb79",
+      "wikiFile": "DS-10_Big_Game_Hunter_Armor_Render.png"
+    },
+    {
+      "id": "ex00",
+      "name": "EX-00 Prototype X",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/EX-00_Prototype_X.png",
+      "sourceSha": "317ee1a18b3fd8ee0775d17539377794a1beff90",
+      "wikiFile": "EX-00_Prototype_X_Armor_Render.png"
+    },
+    {
+      "id": "armor-fs37ravager",
+      "name": "FS-37 Ravager",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/FS-37_Ravager.png",
+      "sourceSha": "ee934bc935f156ee3b8cc9b311a083c11b1198c6",
+      "wikiFile": "FS-37_Ravager_Armor_Render.png"
+    },
+    {
+      "id": "fs38",
+      "name": "FS-38 Eradicator",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/FS-38_Eradicator.png",
+      "sourceSha": "a702063b23b8d5eab8b2d0dd198b3881ce3c247c",
+      "wikiFile": "FS-38_Eradicator_Armor_Render.png"
+    },
+    {
+      "id": "gs11",
+      "name": "GS-11 Democracy's Deputy",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/GS-11_Democracys_Deputy.png",
+      "sourceSha": "b2920e3e46803b95f62add3347e0322d9dfc29e2",
+      "wikiFile": "GS-11_Democracy's_Deputy_Armor_Render.png"
+    },
+    {
+      "id": "armor-i09heatseeker",
+      "name": "I-09 Heatseeker",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/I-09_Heatseeker.png",
+      "sourceSha": "4968a179429e00c2f6661283c81030662aa8152f",
+      "wikiFile": "I-09_Heatseeker_Armor_Render.png"
+    },
+    {
+      "id": "armor-ie57hellbent",
+      "name": "IE-57 Hell-Bent",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/IE-57_Hell-Bent.png",
+      "sourceSha": "c4463b7bc1489a6ea98471028e46274d1eff917f",
+      "wikiFile": "IE-57_Hell-Bent_Armor_Render.png"
+    },
+    {
+      "id": "armor-o3freespirit",
+      "name": "O-3 Free Spirit",
+      "sourceRepository": "Bendath/HellDex",
+      "sourcePath": "armor_images/Chest_Armour/O-3_Free_Spirit.png",
+      "sourceSha": "335099e88e22c5e4abe3af2d55f55806a606a4a8",
+      "wikiFile": "O-3_Free_Spirit_Armor_Render.png"
+    },
+    {
+      "id": "armor-ph9predator",
+      "name": "PH-9 Predator",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/PH-9_Predator.png",
+      "sourceSha": "ade8bf8f86ca153999151001dc1a2617728c7f00",
+      "wikiFile": "PH-9_Predator_Armor_Render.png"
+    },
+    {
+      "id": "armor-re1861paradecommander",
+      "name": "RE-1861 Parade Commander",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/RE-1861_Parade_Commander.png",
+      "sourceSha": "9c7bb0da7cd55c2fe316b8c1bfa54bd4a5464da1",
+      "wikiFile": "RE-1861_Parade_Commander_Armor_Render.png"
+    },
+    {
+      "id": "armor-rs100sanctioner",
+      "name": "RS-100 Sanctioner",
+      "sourceRepository": "Bendath/HellDex",
+      "sourcePath": "armor_images/Chest_Armour/RS-100_Sanctioner.png",
+      "sourceSha": "c74f7d7b024e874b873445ba2e65ef9992a159a0",
+      "wikiFile": "RS-100_Sanctioner_Armor_Render.png"
+    },
+    {
+      "id": "armor-rs20constrictor",
+      "name": "RS-20 Constrictor",
+      "sourceRepository": "Bendath/HellDex",
+      "sourcePath": "armor_images/Chest_Armour/RS-20_Constrictor.png",
+      "sourceSha": "873c4c854df568c93ca38c1747ec91a0f4233aa5",
+      "wikiFile": "RS-20_Constrictor_Armor_Render.png"
+    },
+    {
+      "id": "armor-rs89shadowparagon",
+      "name": "RS-89 Shadow Paragon",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/RS-89_Shadow_Paragon.png",
+      "sourceSha": "1241b8bde63aac32d73ba94962d9a64ecdfe0cd4",
+      "wikiFile": "RS-89_Shadow_Paragon_Armor_Render.png"
+    },
+    {
+      "id": "sc30",
+      "name": "SC-30 Trailblazer Scout",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/SC-30_Trailblazer_Scout.png",
+      "sourceSha": "2dae05a4d044c3484063c3b1965d2dbe324b00fe",
+      "wikiFile": "SC-30_Trailblazer_Scout_Armor_Render.png"
+    },
+    {
+      "id": "sc34",
+      "name": "SC-34 Infiltrator",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/SC-34_Infiltrator.png",
+      "sourceSha": "a26e55b1fa583050834c734fb35b3a222a7efc17",
+      "wikiFile": "SC-34_Infiltrator_Armor_Render.png"
+    },
+    {
+      "id": "sc37",
+      "name": "SC-37 Legionnaire",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/SC-37_Legionnaire.png",
+      "sourceSha": "f9d442336208326e549dab4fdaa8fadf43ac68db",
+      "wikiFile": "SC-37_Legionnaire_Armor_Render.png"
+    },
+    {
+      "id": "armor-sr24streetscout",
+      "name": "SR-24 Street Scout",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/SR-24_Street_Scout.png",
+      "sourceSha": "a5565aa995890140ca16298b5b53965c295223c1",
+      "wikiFile": "SR-24_Street_Scout_Armor_Render.png"
+    },
+    {
+      "id": "armor-uf16inspector",
+      "name": "UF-16 Inspector",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/UF-16_Inspector.png",
+      "sourceSha": "2f9c612cc10b243beaeaa1d483c47aa3438f5c76",
+      "wikiFile": "UF-16_Inspector_Armor_Render.png"
+    },
+    {
+      "id": "armor-a35recon",
+      "name": "A-35 Recon",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/A-35_Recon.png",
+      "sourceSha": "289b6fb433d1fab786f11e2751a840bdd340b236",
+      "wikiFile": "A-35_Recon_Armor_Render.png"
+    },
+    {
+      "id": "armor-a9helljumper",
+      "name": "A-9 Helljumper",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/A-9_Helljumper.png",
+      "sourceSha": "2bcc8e5010d1b6c8046f81eb1cdb747313b9ca17",
+      "wikiFile": "A-9_Helljumper_Armor_Render.png"
+    },
+    {
+      "id": "armor-ac1dutiful",
+      "name": "AC-1 Dutiful",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/AC-1_Dutiful.png",
+      "sourceSha": "f039e14387130b1cdfea3d4f074bf113fed060d9",
+      "wikiFile": "AC-1_Dutiful_Armor_Render.png"
+    },
+    {
+      "id": "armor-ad26bleedingedge",
+      "name": "AD-26 Bleeding Edge",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/AD-26_Bleeding_Edge.png",
+      "sourceSha": "92d67afe32163967bc4cb926a4611737890ef9e1",
+      "wikiFile": "AD-26_Bleeding_Edge_Armor_Render.png"
+    },
+    {
+      "id": "armor-af02hazmaster",
+      "name": "AF-02 Haz-Master",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/AF-02_Haz-Master.png",
+      "sourceSha": "b416bd763f539c8ad1b8912645d97ec5a37a16dd",
+      "wikiFile": "AF-02_Haz-Master_Armor_Render.png"
+    },
+    {
+      "id": "af91",
+      "name": "AF-91 Field Chemist",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/AF-91_Field_Chemist.png",
+      "sourceSha": "533e7a843a70601a77549fc5b0bb7c6077d8ced3",
+      "wikiFile": "AF-91_Field_Chemist_Armor_Render.png"
+    },
+    {
+      "id": "b01",
+      "name": "B-01 Tactical",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/B-01_Tactical.png",
+      "sourceSha": "a914d223aefba7e12a5824338e35f156d6403312",
+      "wikiFile": "B-01_Tactical_v1_Armor_Render.png"
+    },
+    {
+      "id": "armor-b22modelcitizen",
+      "name": "B-22 Model Citizen",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/B-22_Model_Citizen.png",
+      "sourceSha": "e973440b93966fd36d1db478f41b7c5342743fdd",
+      "wikiFile": "B-22_Model_Citizen_Armor_Render.png"
+    },
+    {
+      "id": "armor-b24enforcer",
+      "name": "B-24 Enforcer",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/B-24_Enforcer.png",
+      "sourceSha": "f02e77a62d73140a64c670ae6c3f3cb95082b6ac",
+      "wikiFile": "B-24_Enforcer_Body_Icon.png"
+    },
+    {
+      "id": "armor-bfm77reformer",
+      "name": "BFM-77 Reformer",
+      "externalUrl": "https://helldivers-api.dionatha.com.br/images/v1/armors/bfm-77-reformer.034f3153.webp",
+      "wikiFile": "BFM-77_Reformer_Armor_Render.png"
+    },
+    {
+      "id": "armor-bp20correctofficer",
+      "name": "BP-20 Correct Officer",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/BP-20_Correct_Officer.png",
+      "sourceSha": "5575eafa9174cfae5aaf6ce84f8d96b8269f9b01",
+      "wikiFile": "BP-20_Correct_Officer_Armor_Render.png"
+    },
+    {
+      "id": "armor-ce27groundbreaker",
+      "name": "CE-27 Ground Breaker",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/CE-27_Ground_Breaker.png",
+      "sourceSha": "2883bfa8dfd57a62aa32b735ec91ab1382dabe68",
+      "wikiFile": "CE-27_Ground_Breaker_Armor_Render.png"
+    },
+    {
+      "id": "ce35",
+      "name": "CE-35 Trench Engineer",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/CE-35_Trench_Engineer.png",
+      "sourceSha": "a4393b8598262902c732e5e036fc754c3ab6dda9",
+      "wikiFile": "CE-35_Trench_Engineer_Armor_Render.png"
+    },
+    {
+      "id": "armor-ce81juggernaut",
+      "name": "CE-81 Juggernaut",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/CE-81_Juggernaut.png",
+      "sourceSha": "aa58539fde0e6453e90ecf873bd0d74dac558621",
+      "wikiFile": "CE-81_Juggernaut_Armor_Render.png"
+    },
+    {
+      "id": "cm09",
+      "name": "CM-09 Bonesnapper",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/CM-09_Bonesnapper.png",
+      "sourceSha": "23b3a9392c34a7488d8f83460a42870228309e12",
+      "wikiFile": "CM-09_Bonesnapper_Armor_Render.png"
+    },
+    {
+      "id": "armor-cm10clinician",
+      "name": "CM-10 Clinician",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/CM-10_Clinician.png",
+      "sourceSha": "241c868b2276e697da3559aab7c83d9e1d3a0f92",
+      "wikiFile": "CM-10_Clinician_Armor_Render.png"
+    },
+    {
+      "id": "armor-cm14physician",
+      "name": "CM-14 Physician",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/CM-14_Physician.png",
+      "sourceSha": "77956189c469de02570498cde145bdbd2e299ded",
+      "wikiFile": "CM-14_Physician_Armor_Render.png"
+    },
+    {
+      "id": "armor-cpg48sapper",
+      "name": "CPG-48 Sapper",
+      "sourceRepository": "Bendath/HellDex",
+      "sourcePath": "armor_images/Chest_Armour/CPG-48_Sapper.png",
+      "sourceSha": "dbe703da68029b30d4eab0267c2cfd1dd308af52",
+      "wikiFile": "CPG-48_Sapper_Armor_Render.png"
+    },
+    {
+      "id": "armor-cw9whitewolf",
+      "name": "CW-9 White Wolf",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/CW-9_White_Wolf.png",
+      "sourceSha": "b81a281b9e11d8d457aa6a2f59487160c1250a0c",
+      "wikiFile": "CW-9_White_Wolf_Armor_Render.png"
+    },
+    {
+      "id": "armor-dp00tactical",
+      "name": "DP-00 Tactical",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/DP-00_Tactical.png",
+      "sourceSha": "5c1fb476c213579aa11fa1620215115ce555d89b",
+      "wikiFile": "DP-00_Tactical_Armor_Render.png"
+    },
+    {
+      "id": "armor-dp11championofthepeople",
+      "name": "DP-11 Champion of the People",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/DP-11_Champion_of_the_People.png",
+      "sourceSha": "75e68e4bc17dc39fc3e4c03f9bee41d5dde21139",
+      "wikiFile": "DP-11_Champion_of_the_People_Armor_Render.png"
+    },
+    {
+      "id": "dp40",
+      "name": "DP-40 Hero of the Federation",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/DP-40_Hero_of_the_Federation.png",
+      "sourceSha": "972c7c154a8815c589490e7560189fc576495d77",
+      "wikiFile": "DP-40_Hero_of_the_Federation_Armor_Render.png"
+    },
+    {
+      "id": "armor-dp53saviorofthefree",
+      "name": "DP-53 Savior of the Free",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/DP-53_Savior_of_the_Free.png",
+      "sourceSha": "b4122f043d08a49eb74d1955bd0c507479066c58",
+      "wikiFile": "DP-53_Savior_of_the_Free_Armor_Render.png"
+    },
+    {
+      "id": "armor-dp8mountainscaled",
+      "name": "DP-8 Mountain-Scaled",
+      "sourceRepository": "Bendath/HellDex",
+      "sourcePath": "armor_images/Chest_Armour/DP-8_Mountain-Scaled.png",
+      "sourceSha": "f962391d140ffd463cd7b4c799b2b6382c6cc131",
+      "wikiFile": "DP-8_Mountain-Scaled_Armor_Render.png"
+    },
+    {
+      "id": "armor-ds191scorpion",
+      "name": "DS-191 Scorpion",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/DS-191_Scorpion.png",
+      "sourceSha": "75ae482de33e66ca39263cfee37cb2857cd60bd2",
+      "wikiFile": "DS-191_Scorpion_Armor_Render.png"
+    },
+    {
+      "id": "armor-ex03prototype3",
+      "name": "EX-03 Prototype 3",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/EX-03_Prototype_3.png",
+      "sourceSha": "7fd59df7fd2c863e5fcd0561c977f9c094ebbf72",
+      "wikiFile": "EX-03_Prototype_3_Armor_Render.png"
+    },
+    {
+      "id": "armor-ex16prototype16",
+      "name": "EX-16 Prototype 16",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/EX-16_Prototype_16.png",
+      "sourceSha": "0eca0b06b771b702c9c612ffc7de21264dee302a",
+      "wikiFile": "EX-16_Prototype_16_Armor_Render.png"
+    },
+    {
+      "id": "armor-fs34exterminator",
+      "name": "FS-34 Exterminator",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/FS-34_Exterminator.png",
+      "sourceSha": "ebc446fddab27b9a055f61812309ba3af2ae04fe",
+      "wikiFile": "FS-34_Exterminator_Armor_Render.png"
+    },
+    {
+      "id": "armor-gs17frontiermarshal",
+      "name": "GS-17 Frontier Marshal",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/GS-17_Frontier_Marshal.png",
+      "sourceSha": "36d645f3c6eb727482f72a91def286caddfe2d23",
+      "wikiFile": "GS-17_Frontier_Marshal_Armor_Render.png"
+    },
+    {
+      "id": "armor-i102draconaught",
+      "name": "I-102 Draconaught",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/I-102_Draconaught.png",
+      "sourceSha": "e65bdbcc198c1b3383c8258a6fb4873c7e365058",
+      "wikiFile": "I-102_Draconaught_Armor_Render.png"
+    },
+    {
+      "id": "armor-i92firefighter",
+      "name": "I-92 Fire Fighter",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/I-92_Fire_Fighter.png",
+      "sourceSha": "b247aa845aa8da9f7c692c1c3c09da406b88a346",
+      "wikiFile": "I-92_Fire_Fighter_Armor_Render.png"
+    },
+    {
+      "id": "armor-ie12righteous",
+      "name": "IE-12 Righteous",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/IE-12_Righteous.png",
+      "sourceSha": "36ea1b5bb214c9a427cda134e8440bca84d0cdef",
+      "wikiFile": "IE-12_Righteous_Armor_Render.png"
+    },
+    {
+      "id": "armor-ie3martyr",
+      "name": "IE-3 Martyr",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/IE-3_Martyr.png",
+      "sourceSha": "0ad90ff236c899f0aa8225ecb21e919160b94e89",
+      "wikiFile": "IE-3_Martyr_Armor_Render.png"
+    },
+    {
+      "id": "armor-o44bondedpilot",
+      "name": "O-44 Bonded Pilot",
+      "sourceRepository": "Bendath/HellDex",
+      "sourcePath": "armor_images/Chest_Armour/O-44_Bonded_Pilot.png",
+      "sourceSha": "a92db0ffb48a26de87e7e53940b6639a13a7b30f",
+      "wikiFile": "O-44_Bonded_Pilot_Armor_Render.png"
+    },
+    {
+      "id": "ph56",
+      "name": "PH-56 Jaguar",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/PH-56_Jaguar.png",
+      "sourceSha": "6aff99e2f83aa14b48d5db53d5a713f3de9da582",
+      "wikiFile": "PH-56_Jaguar_Armor_Render.png"
+    },
+    {
+      "id": "armor-re2310honoraryguard",
+      "name": "RE-2310 Honorary Guard",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/RE-2310_Honorary_Guard.png",
+      "sourceSha": "04f767daeb094c7b6b9fe6d269c98bda6ec081d5",
+      "wikiFile": "RE-2310_Honorary_Guard_Armor_Render.png"
+    },
+    {
+      "id": "armor-rs6fienddestroyer",
+      "name": "RS-6 Fiend Destroyer",
+      "sourceRepository": "Bendath/HellDex",
+      "sourcePath": "armor_images/Chest_Armour/RS-6_Fiend_Destroyer.png",
+      "sourceSha": "0ad137ef5e19fdc0670bb451463473400fb9c5d1",
+      "wikiFile": "RS-6_Fiend_Destroyer_Armor_Render.png"
+    },
+    {
+      "id": "armor-rs67nullcipher",
+      "name": "RS-67 Null Cipher",
+      "sourceRepository": "Bendath/HellDex",
+      "sourcePath": "armor_images/Chest_Armour/RS-67_Null_Cipher.png",
+      "sourceSha": "816b48bb2798291ecacb29c24f2fab02f1938353",
+      "wikiFile": "RS-67_Null_Cipher_Armor_Render.png"
+    },
+    {
+      "id": "armor-sa04combattechnician",
+      "name": "SA-04 Combat Technician",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/SA-04_Combat_Technician.png",
+      "sourceSha": "82ca079d1429ef5afd75255734cc33550a955862",
+      "wikiFile": "SA-04_Combat_Technician_Armor_Render.png"
+    },
+    {
+      "id": "armor-sa12servoassisted",
+      "name": "SA-12 Servo Assisted",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/SA-12_Servo_Assisted.png",
+      "sourceSha": "1eca4dd53d426c49794a6552dcfe35c87efdcc12",
+      "wikiFile": "SA-12_Servo_Assisted_Armor_Render.png"
+    },
+    {
+      "id": "sa25",
+      "name": "SA-25 Steel Trooper",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/SA-25_Steel_Trooper.png",
+      "sourceSha": "a3335dae1eac982e0715b7b5089c5c9a53f4fa70",
+      "wikiFile": "SA-25_Steel_Trooper_Armor_Render.png"
+    },
+    {
+      "id": "armor-sa7headfirst",
+      "name": "SA-7 Headfirst",
+      "sourceRepository": "Bendath/HellDex",
+      "sourcePath": "armor_images/Chest_Armour/SA-7_Headfirst.png",
+      "sourceSha": "1d9d0c597d0a9df002665b137136e74df1d2b626",
+      "wikiFile": "SA-7_Headfirst_Armor_Render.png"
+    },
+    {
+      "id": "armor-sc15dronemaster",
+      "name": "SC-15 Drone Master",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/SC-15_Drone_Master.png",
+      "sourceSha": "c8a6b44d030a42632470ce732e9933b4b7cfa7a0",
+      "wikiFile": "SC-15_Drone_Master_Armor_Render.png"
+    },
+    {
+      "id": "armor-tg8sharpshooter",
+      "name": "TG-8 Sharpshooter",
+      "sourceRepository": "Bendath/HellDex",
+      "sourcePath": "armor_images/Chest_Armour/TG-8_Sharpshooter.png",
+      "sourceSha": "698aafab0665e385b12b0e93cbd73a73d2b73e94",
+      "wikiFile": "TG-8_Sharpshooter_Armor_Render.png"
+    },
+    {
+      "id": "armor-tr117alphacommander",
+      "name": "TR-117 Alpha Commander",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/TR-117_Alpha_Commander.png",
+      "sourceSha": "e07b646842a887f724ec48fed6495af6835603c2",
+      "wikiFile": "TR-117_Alpha_Commander_Armor_Render.png"
+    },
+    {
+      "id": "armor-tr40goldeagle",
+      "name": "TR-40 Gold Eagle",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/TR-40_Gold_Eagle.png",
+      "sourceSha": "53e0a621a51b67ce6d7a0a3abe561aa6160c196c",
+      "wikiFile": "TR-40_Gold_Eagle_Armor_Render.png"
+    },
+    {
+      "id": "armor-tr7ambassadorofthebrand",
+      "name": "TR-7 Ambassador of the Brand",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/TR-7_Ambassador_of_the_Brand.png",
+      "sourceSha": "a8d8eab32864d06c2cc478fae849a47718993028",
+      "wikiFile": "TR-7_Ambassador_of_the_Brand_Armor_Render.png"
+    },
+    {
+      "id": "armor-tr9cavalierofdemocracy",
+      "name": "TR-9 Cavalier of Democracy",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/TR-9_Cavalier_of_Democracy.png",
+      "sourceSha": "9ffdbd5ecfa2fdd0305d00da39e6b84952fd5216",
+      "wikiFile": "TR-9_Cavalier_of_Democracy_Armor_Render.png"
+    },
+    {
+      "id": "armor-uf50bloodhound",
+      "name": "UF-50 Bloodhound",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/UF-50_Bloodhound.png",
+      "sourceSha": "195705e4469f27b3b3b4dbfa183a52b3099d1272",
+      "wikiFile": "UF-50_Bloodhound_Armor_Render.png"
+    },
+    {
+      "id": "armor-uf84doubtkiller",
+      "name": "UF-84 Doubt Killer",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/UF-84_Doubt_Killer.png",
+      "sourceSha": "7b568d1014f9b2980c73ca683c8c5efeb7a7e1d2",
+      "wikiFile": "UF-84_Doubt_Killer_Armor_Render.png"
+    },
+    {
+      "id": "armor-ad49apollonian",
+      "name": "AD-49 Apollonian",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/AD-49_Apollonian.png",
+      "sourceSha": "9f6e84d072e176d4570363ae84b25332e08966b5",
+      "wikiFile": "AD-49_Apollonian_Armor_Render.png"
+    },
+    {
+      "id": "armor-af52lockdown",
+      "name": "AF-52 Lockdown",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/AF-52_Lockdown.png",
+      "sourceSha": "1aa0bb60f0599e4f67ace5b19f18552ee51db663",
+      "wikiFile": "AF-52_Lockdown_Armor_Render.png"
+    },
+    {
+      "id": "armor-b27fortifiedcommando",
+      "name": "B-27 Fortified Commando",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/B-27_Fortified_Commando.png",
+      "sourceSha": "e28f04298f33393fc67e5163878989d89d489d28",
+      "wikiFile": "B-27_Fortified_Commando_Armor_Render.png"
+    },
+    {
+      "id": "armor-bfm220ironclad",
+      "name": "BFM-220 Ironclad",
+      "externalUrl": "https://helldivers-api.dionatha.com.br/images/v1/armors/bfm-220-ironclad.be6426db.webp",
+      "wikiFile": "BFM-220_Ironclad_Armor_Render.png"
+    },
+    {
+      "id": "armor-bp77grandjuror",
+      "name": "BP-77 Grand Juror",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/BP-77_Grand_Juror.png",
+      "sourceSha": "ea8aee1ebb57373d5959b5070ca6f27ef9241ba0",
+      "wikiFile": "BP-77_Grand_Juror_Armor_Render.png"
+    },
+    {
+      "id": "armor-ce101guerillagorilla",
+      "name": "CE-101 Guerilla Gorilla",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/CE-101_Guerilla_Gorilla.png",
+      "sourceSha": "e321e6f15f33aa351b42942896f651fa47dff31d",
+      "wikiFile": "CE-101_Guerilla_Gorilla_Armor_Render.png"
+    },
+    {
+      "id": "armor-ce64grenadier",
+      "name": "CE-64 Grenadier",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/CE-64_Grenadier.png",
+      "sourceSha": "39a1c06c9f4e271796bf082095f1f658558111a9",
+      "wikiFile": "CE-64_Grenadier_Armor_Render.png"
+    },
+    {
+      "id": "armor-cm17butcher",
+      "name": "CM-17 Butcher",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/CM-17_Butcher.png",
+      "sourceSha": "ca3145f416f66810435cc31ecb16f11bea47e822",
+      "wikiFile": "CM-17_Butcher_Body_Icon.png"
+    },
+    {
+      "id": "armor-cpr80bulwark",
+      "name": "CPR-80 Bulwark",
+      "sourceRepository": "Bendath/HellDex",
+      "sourcePath": "armor_images/Chest_Armour/CPR-80_Bulwark.png",
+      "sourceSha": "b2e62163b6751642dd0e9d89e088ef4ac8984144",
+      "wikiFile": "CPR-80_Bulwark_Armor_Render.png"
+    },
+    {
+      "id": "armor-cw22kodiak",
+      "name": "CW-22 Kodiak",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/CW-22_Kodiak.png",
+      "sourceSha": "ce67e6f6641d139c0f3128c12dfc400b7450be20",
+      "wikiFile": "CW-22_Kodiak_Armor_Render.png"
+    },
+    {
+      "id": "armor-cw36winterwarrior",
+      "name": "CW-36 Winter Warrior",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/CW-36_Winter_Warrior.png",
+      "sourceSha": "b3d47c0fca2ffe3652e254a4d3f2b8b88d873d8c",
+      "wikiFile": "CW-36_Winter_Warrior_Armor_Render.png"
+    },
+    {
+      "id": "armor-ds42federationsblade",
+      "name": "DS-42 Federation's Blade",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/DS-42_Federations_Blade.png",
+      "sourceSha": "efa6d338fb7432af08af5ab7f944477546bf217f",
+      "wikiFile": "DS-42_Federation's_Blade_Armor_Render.png"
+    },
+    {
+      "id": "fs05",
+      "name": "FS-05 Marksman",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/FS-05_Marksman.png",
+      "sourceSha": "ca3e4b8e6dd806a39bfe74b3c5015805d60243a7",
+      "wikiFile": "FS-05_Marksman_Body_Icon.png"
+    },
+    {
+      "id": "armor-fs11executioner",
+      "name": "FS-11 Executioner",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/FS-11_Executioner.png",
+      "sourceSha": "bf3123a1b0eb94211797940be3f4137a5725ab44",
+      "wikiFile": "FS-11_Executioner_Armor_Render.png"
+    },
+    {
+      "id": "armor-fs23battlemaster",
+      "name": "FS-23 Battle Master",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/FS-23_Battle_Master.png",
+      "sourceSha": "d7932b83e2d8bb0f2aa7e2a374e65ed8f486bb0c",
+      "wikiFile": "FS-23_Battle_Master_Armor_Render.png"
+    },
+    {
+      "id": "armor-fs55devastator",
+      "name": "FS-55 Devastator",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/FS-55_Devastator.png",
+      "sourceSha": "ee637e81304baa55e158d2d730e8e53847251ff5",
+      "wikiFile": "FS-55_Devastator_Armor_Render.png"
+    },
+    {
+      "id": "armor-fs61dreadnought",
+      "name": "FS-61 Dreadnought",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/FS-61_Dreadnought.png",
+      "sourceSha": "b8ff93784cf2ef58435b49d0ad8c3b726dc4c52e",
+      "wikiFile": "FS-61_Dreadnought_Armor_Render.png"
+    },
+    {
+      "id": "armor-gs66lawmaker",
+      "name": "GS-66 Lawmaker",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/GS-66_Lawmaker.png",
+      "sourceSha": "10c33995fb17940ae30c573acf765236077c9284",
+      "wikiFile": "GS-66_Lawmaker_Armor_Render.png"
+    },
+    {
+      "id": "i44",
+      "name": "I-44 Salamander",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/I-44_Salamander.png",
+      "sourceSha": "2da9b7eaeb3e64f7d7b01b671b0659a180351dc4",
+      "wikiFile": "I-44_Salamander_Armor_Render.png"
+    },
+    {
+      "id": "armor-kdm500outrider",
+      "name": "KDM-500 Outrider",
+      "sourceRepository": "Bendath/HellDex",
+      "sourcePath": "armor_images/Chest_Armour/KDM-500_Outrider.png",
+      "sourceSha": "dd44c39ec648453690010e3f1321dc7e3595f134",
+      "wikiFile": "KDM-500_Outrider_Armor_Render.png"
+    },
+    {
+      "id": "armor-o2heavyoperator",
+      "name": "O-2 Heavy Operator",
+      "sourceRepository": "Bendath/HellDex",
+      "sourcePath": "armor_images/Chest_Armour/O-2_Heavy_Operator.png",
+      "sourceSha": "d0443fd87db466e0fa3e0b39f017947c77a0b5dc",
+      "wikiFile": "O-2_Heavy_Operator_Armor_Render.png"
+    },
+    {
+      "id": "armor-ph202twigsnapper",
+      "name": "PH-202 Twigsnapper",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/PH-202_Twigsnapper.png",
+      "sourceSha": "fa8093cac98dc79b4557460287ed20582fa8ca85",
+      "wikiFile": "PH-202_Twigsnapper_Armor_Render.png"
+    },
+    {
+      "id": "re824",
+      "name": "RE-824 Bearer of the Standard",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/RE-824_Bearer_of_the_Standard.png",
+      "sourceSha": "96f70172828c2060acc0398c15dd12ea3f38a7ee",
+      "wikiFile": "RE-824_Bearer_of_the_Standard_Armor_Render.png"
+    },
+    {
+      "id": "armor-rs40beastofprey",
+      "name": "RS-40 Beast of Prey",
+      "sourceRepository": "Bendath/HellDex",
+      "sourcePath": "armor_images/Chest_Armour/RS-40_Beast_of_Prey.png",
+      "sourceSha": "f53ed33e67b64618042c75b912ad34afd1020ea3",
+      "wikiFile": "RS-40_Beast_of_Prey_Armor_Render.png"
+    },
+    {
+      "id": "armor-sa32dynamo",
+      "name": "SA-32 Dynamo",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/SA-32_Dynamo.png",
+      "sourceSha": "e7a5e06aa10176a20e40c0e342baf39954db9960",
+      "wikiFile": "SA-32_Dynamo_Armor_Render.png"
+    },
+    {
+      "id": "armor-sa8ram",
+      "name": "SA-8 Ram",
+      "sourceRepository": "Bendath/HellDex",
+      "sourcePath": "armor_images/Chest_Armour/SA-8_Ram.png",
+      "sourceSha": "45fcbab628944c6eee89b21bd88048942f069913",
+      "wikiFile": "SA-8_Ram_Armor_Render.png"
+    },
+    {
+      "id": "armor-sr18roadblock",
+      "name": "SR-18 Roadblock",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/SR-18_Roadblock.png",
+      "sourceSha": "c4af44114b7f9614481caed494f8dc31b7fe3d1e",
+      "wikiFile": "SR-18_Roadblock_Armor_Render.png"
+    },
+    {
+      "id": "sr64",
+      "name": "SR-64 Cinderblock",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/SR-64_Cinderblock.png",
+      "sourceSha": "f37d07e1af413c4488dd90e8b9c01d78b211a9a8",
+      "wikiFile": "SR-64_Cinderblock_Armor_Render.png"
+    },
+    {
+      "id": "armor-tg122demotrooper",
+      "name": "TG-122 Demo-Trooper",
+      "sourceRepository": "Bendath/HellDex",
+      "sourcePath": "armor_images/Chest_Armour/TG-122_Demo-Trooper.png",
+      "sourceSha": "5654aeeea30d122314e27d52d0e8da9bd5dceb34",
+      "wikiFile": "TG-122_Demo-Trooper_Armor_Render.png"
+    },
+    {
+      "id": "armor-tr62knight",
+      "name": "TR-62 Knight",
+      "sourceRepository": "helldads/helldads.github.io",
+      "sourcePath": "public/assets/armor/TR-62_Knight.png",
+      "sourceSha": "0a6e668d4d622b5a8b17dd1931921a4673d11af2",
+      "wikiFile": "TR-62_Knight_Armor_Render.png"
+    },
+    {
+      "id": "armor-ss33mimeticmarshal",
+      "name": "SS-33 Mimetic Marshal",
+      "externalUrl": "https://helldivers-api.dionatha.com.br/images/v1/armors/ss-33-mimetic-marshal.0eb59deb.webp",
+      "wikiFile": "SS-33_Mimetic_Marshal_Armor_Render.png"
+    },
+    {
+      "id": "armor-ss15focalpoint",
+      "name": "SS-15 Focal Point",
+      "externalUrl": "https://helldivers-api.dionatha.com.br/images/v1/armors/ss-15-focal-point.5fc8da01.webp",
+      "wikiFile": "SS-15_Focal_Point_Armor_Render.png"
+    }
+  ]
+}
