@@ -1,0 +1,481 @@
+{
+  "sourceRepository": "https://github.com/nvigneux/Helldivers-2-Stratagems-icons-svg",
+  "artwork": "Community SVG reconstructions of in-game stratagem icons",
+  "entries": [
+    {
+      "id": "meltagun",
+      "name": "40-K Meltagun",
+      "sourcePath": "Castellan’s Creed/40-K Meltagun.svg"
+    },
+    {
+      "id": "acSentry",
+      "name": "A/AC-8 Autocannon Sentry",
+      "sourcePath": "Robotics Workshop/Autocannon Sentry.svg"
+    },
+    {
+      "id": "tesla",
+      "name": "A/ARC-3 Tesla Tower",
+      "sourcePath": "Bridge/Tesla Tower.svg"
+    },
+    {
+      "id": "flameSentry",
+      "name": "A/FLAM-40 Flame Sentry",
+      "sourcePath": "Urban Legends/Flame Sentry.svg"
+    },
+    {
+      "id": "gatSentry",
+      "name": "A/G-16 Gatling Sentry",
+      "sourcePath": "Robotics Workshop/Gatling Sentry.svg"
+    },
+    {
+      "id": "gasMortar",
+      "name": "A/GM-17 Gas Mortar Sentry",
+      "sourcePath": "Entrenched Division/Gas Mortar Sentry.svg"
+    },
+    {
+      "id": "strat-alas98lasersentry",
+      "name": "A/LAS-98 Laser Sentry",
+      "sourcePath": "Control Group/Laser Sentry.svg"
+    },
+    {
+      "id": "mortar",
+      "name": "A/M-12 Mortar Sentry",
+      "sourcePath": "Robotics Workshop/Mortar Sentry.svg"
+    },
+    {
+      "id": "emsSentry",
+      "name": "A/M-23 EMS Mortar Sentry",
+      "sourcePath": "Robotics Workshop/EMS Mortar Sentry.svg"
+    },
+    {
+      "id": "mgSentry",
+      "name": "A/MG-43 Machine Gun Sentry",
+      "sourcePath": "Robotics Workshop/Machine Gun Sentry.svg"
+    },
+    {
+      "id": "rocketSentry",
+      "name": "A/MLS-4X Rocket Sentry",
+      "sourcePath": "Robotics Workshop/Rocket Sentry.svg"
+    },
+    {
+      "id": "ac",
+      "name": "AC-8 Autocannon",
+      "sourcePath": "Patriotic Administration Center/Autocannon.svg"
+    },
+    {
+      "id": "amr",
+      "name": "APW-1 Anti-Materiel Rifle",
+      "sourcePath": "Patriotic Administration Center/Anti-Materiel Rifle.svg"
+    },
+    {
+      "id": "arcThrower",
+      "name": "ARC-3 Arc Thrower",
+      "sourcePath": "Engineering Bay/Arc Thrower.svg"
+    },
+    {
+      "id": "guarddog",
+      "name": "AX/AR-23 Guard Dog",
+      "sourcePath": "Robotics Workshop/Guard Dog.svg"
+    },
+    {
+      "id": "strat-axarc3k9",
+      "name": "AX/ARC-3 K-9",
+      "sourcePath": "Force of Law/Guard Dog K-9.svg"
+    },
+    {
+      "id": "strat-axflam75hotdog",
+      "name": "AX/FLAM-75 Hot Dog",
+      "sourcePath": "Python Commandos/Guard Dog Hot Dog.svg"
+    },
+    {
+      "id": "rover",
+      "name": "AX/LAS-5 Rover",
+      "sourcePath": "Engineering Bay/Guard Dog Rover.svg"
+    },
+    {
+      "id": "gasDog",
+      "name": "AX/TX-13 Dog Breath",
+      "sourcePath": "Chemical Agents/Guard Dog Breath.svg"
+    },
+    {
+      "id": "supplyPack",
+      "name": "B-1 Supply Pack",
+      "sourcePath": "Engineering Bay/Supply Pack.svg"
+    },
+    {
+      "id": "strat-b100portablehellbomb",
+      "name": "B-100 Portable Hellbomb",
+      "sourcePath": "Servants of Freedom/Hellbomb Portable.svg"
+    },
+    {
+      "id": "strat-bflam80cremator",
+      "name": "B/FLAM-80 Cremator",
+      "sourcePath": "Entrenched Division/Cremator.svg"
+    },
+    {
+      "id": "portableHellbomb",
+      "name": "B/MD C4 Pack",
+      "sourcePath": "Redacted Regiment/C4 Pack.svg"
+    },
+    {
+      "id": "strat-cqc1onetrueflag",
+      "name": "CQC-1 One True Flag",
+      "sourcePath": "Masters of Ceremony/One True Flag.svg"
+    },
+    {
+      "id": "strat-cqc20breachinghammer",
+      "name": "CQC-20 Breaching Hammer",
+      "sourcePath": "Siege Breakers/CQC-20.svg"
+    },
+    {
+      "id": "strat-cqc9defoliationtool",
+      "name": "CQC-9 Defoliation Tool",
+      "sourcePath": "Python Commandos/Defoliation Tool.svg"
+    },
+    {
+      "id": "antiTankEmplace",
+      "name": "E/AT-12 Anti-Tank Emplacement",
+      "sourcePath": "Urban Legends/Anti-Tank Emplacement.svg"
+    },
+    {
+      "id": "strat-egl21grenadierbattlement",
+      "name": "E/GL-21 Grenadier Battlement",
+      "sourcePath": "Bridge/Grenadier Battlement.svg"
+    },
+    {
+      "id": "hmgEmplace",
+      "name": "E/MG-101 HMG Emplacement",
+      "sourcePath": "Bridge/HMG Emplacement.svg"
+    },
+    {
+      "id": "eagle110",
+      "name": "Eagle 110mm Rocket Pods",
+      "sourcePath": "Hangar/Eagle 110MM Rocket Pods.svg"
+    },
+    {
+      "id": "eagle500",
+      "name": "Eagle 500kg Bomb",
+      "sourcePath": "Hangar/Eagle 500KG Bomb.svg"
+    },
+    {
+      "id": "eagleAir",
+      "name": "Eagle Airstrike",
+      "sourcePath": "Hangar/Eagle Airstrike.svg"
+    },
+    {
+      "id": "eagleCluster",
+      "name": "Eagle Cluster Bomb",
+      "sourcePath": "Hangar/Eagle Cluster Bomb.svg"
+    },
+    {
+      "id": "strat-eaglegasairstrike",
+      "name": "Eagle Gas Airstrike",
+      "sourcePath": "Hangar/Eagle Gas Strike.svg"
+    },
+    {
+      "id": "eagleNap",
+      "name": "Eagle Napalm Airstrike",
+      "sourcePath": "Hangar/Eagle Napalm Airstrike.svg"
+    },
+    {
+      "id": "eagleSmoke",
+      "name": "Eagle Smoke Strike",
+      "sourcePath": "Hangar/Eagle Smoke Strike.svg"
+    },
+    {
+      "id": "eagleStrafe",
+      "name": "Eagle Strafing Run",
+      "sourcePath": "Hangar/Eagle Strafing Run.svg"
+    },
+    {
+      "id": "eat",
+      "name": "EAT-17 Expendable Anti-Tank",
+      "sourcePath": "Patriotic Administration Center/Expendable Anti-Tank.svg"
+    },
+    {
+      "id": "leveller",
+      "name": "EAT-411 Leveller",
+      "sourcePath": "Siege Breakers/EAT-411.svg"
+    },
+    {
+      "id": "eateNap",
+      "name": "EAT-700 Expendable Napalm",
+      "sourcePath": "Dust Devils/Expendable Napalm.svg"
+    },
+    {
+      "id": "patriot",
+      "name": "EXO-45 Patriot Exosuit",
+      "sourcePath": "Robotics Workshop/Patriot Exosuit.svg"
+    },
+    {
+      "id": "emancipator",
+      "name": "EXO-49 Emancipator Exosuit",
+      "sourcePath": "Robotics Workshop/Emancipator Exosuit.svg"
+    },
+    {
+      "id": "lumberer",
+      "name": "EXO-51 Lumberer Exosuit",
+      "sourcePath": "Exo Experts/Lumberer Exosuit.svg"
+    },
+    {
+      "id": "breakthrough",
+      "name": "EXO-55 Breakthrough Exosuit",
+      "sourcePath": "Exo Experts/Breakthrough Exosuit.svg"
+    },
+    {
+      "id": "spear",
+      "name": "FAF-14 Spear",
+      "sourcePath": "Patriotic Administration Center/Spear.svg"
+    },
+    {
+      "id": "flame",
+      "name": "FLAM-40 Flamethrower",
+      "sourcePath": "Patriotic Administration Center/Flamethrower.svg"
+    },
+    {
+      "id": "shieldRelay",
+      "name": "FX-12 Shield Generator Relay",
+      "sourcePath": "Bridge/Shield Generator Relay.svg"
+    },
+    {
+      "id": "grenLaunch",
+      "name": "GL-21 Grenade Launcher",
+      "sourcePath": "Engineering Bay/Grenade Launcher.svg"
+    },
+    {
+      "id": "beltGrenade",
+      "name": "GL-28 Belt-Fed Grenade Launcher",
+      "sourcePath": "Siege Breakers/GL-28.svg"
+    },
+    {
+      "id": "deescalator",
+      "name": "GL-52 De-Escalator",
+      "sourcePath": "Force of Law/GL-52 De-Escalator.svg"
+    },
+    {
+      "id": "rr",
+      "name": "GR-8 Recoilless Rifle",
+      "sourcePath": "Patriotic Administration Center/Recoilless Rifle.svg"
+    },
+    {
+      "id": "laserC",
+      "name": "LAS-98 Laser Cannon",
+      "sourcePath": "Engineering Bay/Laser Cannon.svg"
+    },
+    {
+      "id": "quasar",
+      "name": "LAS-99 Quasar Cannon",
+      "sourcePath": "Engineering Bay/Quasar Cannon.svg"
+    },
+    {
+      "id": "strat-lift182warppack",
+      "name": "LIFT-182 Warp Pack",
+      "sourcePath": "Control Group/Warp Pack.svg"
+    },
+    {
+      "id": "jump",
+      "name": "LIFT-850 Jump Pack",
+      "sourcePath": "Hangar/Jump Pack.svg"
+    },
+    {
+      "id": "strat-lift860hoverpack",
+      "name": "LIFT-860 Hover Pack",
+      "sourcePath": "Borderline Justice/Hover Pack.svg"
+    },
+    {
+      "id": "maxigun",
+      "name": "M-1000 Maxigun",
+      "sourcePath": "Python Commandos/Maxigun.svg"
+    },
+    {
+      "id": "frv",
+      "name": "M-102 Gunner FRV",
+      "sourcePath": "Hangar/Fast Recon Vehicle.svg"
+    },
+    {
+      "id": "supplyFrv",
+      "name": "M-103 Supply FRV",
+      "sourcePath": "Hangar/Supply FRV.svg"
+    },
+    {
+      "id": "flameFrv",
+      "name": "M-104 Incinerator FRV",
+      "sourcePath": "Hangar/Incinerator FRV.svg"
+    },
+    {
+      "id": "stalwart",
+      "name": "M-105 Stalwart",
+      "sourcePath": "Patriotic Administration Center/Stalwart.svg"
+    },
+    {
+      "id": "atMines",
+      "name": "MD-17 Anti-Tank Mines",
+      "sourcePath": "Engineering Bay/Anti-Tank Mines.svg"
+    },
+    {
+      "id": "apMines",
+      "name": "MD-6 Anti-Personnel Minefield",
+      "sourcePath": "Engineering Bay/Anti-Personnel Minefield.svg"
+    },
+    {
+      "id": "strat-md8gasmines",
+      "name": "MD-8 Gas Mines",
+      "sourcePath": "Engineering Bay/Gas Mine.svg"
+    },
+    {
+      "id": "incMines",
+      "name": "MD-I4 Incendiary Mines",
+      "sourcePath": "Engineering Bay/Incendiary Mines.svg"
+    },
+    {
+      "id": "hmg",
+      "name": "MG-206 Heavy Machine Gun",
+      "sourcePath": "Patriotic Administration Center/Heavy Machine Gun.svg"
+    },
+    {
+      "id": "mg",
+      "name": "MG-43 Machine Gun",
+      "sourcePath": "Patriotic Administration Center/Machine Gun.svg"
+    },
+    {
+      "id": "bulletstorm",
+      "name": "MGX-42 Bullet Storm",
+      "sourcePath": "Exo Experts/Bullet Storm.svg"
+    },
+    {
+      "id": "commando",
+      "name": "MLS-4X Commando",
+      "sourcePath": "Patriotic Administration Center/Commando.svg"
+    },
+    {
+      "id": "strat-ms11solosilo",
+      "name": "MS-11 Solo Silo",
+      "sourcePath": "Dust Devils/Solo Silo.svg"
+    },
+    {
+      "id": "orb120",
+      "name": "Orbital 120mm HE Barrage",
+      "sourcePath": "Orbital Cannons/Orbital 120MM HE Barrage.svg"
+    },
+    {
+      "id": "orb380",
+      "name": "Orbital 380mm HE Barrage",
+      "sourcePath": "Orbital Cannons/Orbital 380MM HE Barrage.svg"
+    },
+    {
+      "id": "orbAirburst",
+      "name": "Orbital Airburst Strike",
+      "sourcePath": "Orbital Cannons/Orbital Airburst Strike.svg"
+    },
+    {
+      "id": "orbEMS",
+      "name": "Orbital EMS Strike",
+      "sourcePath": "Bridge/Orbital EMS Strike.svg"
+    },
+    {
+      "id": "orbGas",
+      "name": "Orbital Gas Strike",
+      "sourcePath": "Bridge/Orbital Gas Strike.svg"
+    },
+    {
+      "id": "orbGatt",
+      "name": "Orbital Gatling Barrage",
+      "sourcePath": "Orbital Cannons/Orbital Gatling Barrage.svg"
+    },
+    {
+      "id": "orbLaser",
+      "name": "Orbital Laser",
+      "sourcePath": "Orbital Cannons/Orbital Laser.svg"
+    },
+    {
+      "id": "orbNapalm",
+      "name": "Orbital Napalm Barrage",
+      "sourcePath": "Orbital Cannons/Orbital Napalm Barrage.svg"
+    },
+    {
+      "id": "orbPS",
+      "name": "Orbital Precision Strike",
+      "sourcePath": "Bridge/Orbital Precision Strike.svg"
+    },
+    {
+      "id": "orbRail",
+      "name": "Orbital Railcannon Strike",
+      "sourcePath": "Orbital Cannons/Orbital Railcannon Strike.svg"
+    },
+    {
+      "id": "orbSmoke",
+      "name": "Orbital Smoke Strike",
+      "sourcePath": "Bridge/Orbital Smoke Strike.svg"
+    },
+    {
+      "id": "orbWalking",
+      "name": "Orbital Walking Barrage",
+      "sourcePath": "Orbital Cannons/Orbital Walking Barrage.svg"
+    },
+    {
+      "id": "epoch",
+      "name": "PLAS-45 Epoch",
+      "sourcePath": "Control Group/Epoch.svg"
+    },
+    {
+      "id": "airburst",
+      "name": "RL-77 Airburst Rocket Launcher",
+      "sourcePath": "Patriotic Administration Center/Airburst Rocket Launcher.svg"
+    },
+    {
+      "id": "rail",
+      "name": "RS-422 Railgun",
+      "sourcePath": "Patriotic Administration Center/Railgun.svg"
+    },
+    {
+      "id": "strat-s11speargun",
+      "name": "S-11 Speargun",
+      "sourcePath": "Dust Devils/Speargun.svg"
+    },
+    {
+      "id": "ballistic",
+      "name": "SH-20 Ballistic Shield Backpack",
+      "sourcePath": "Engineering Bay/Ballistic Shield Backpack.svg"
+    },
+    {
+      "id": "shieldPack",
+      "name": "SH-32 Shield Generator Pack",
+      "sourcePath": "Engineering Bay/Shield Generator Pack.svg"
+    },
+    {
+      "id": "directionalShield",
+      "name": "SH-51 Directional Shield",
+      "sourcePath": "Urban Legends/Directional Shield.svg"
+    },
+    {
+      "id": "wasp",
+      "name": "StA-X3 W.A.S.P. Launcher",
+      "sourcePath": "Patriotic Administration Center/StA-X3 W.A.S.P. Launcher.svg"
+    },
+    {
+      "id": "maelstrom",
+      "name": "TD-110 Maelstrom",
+      "sourcePath": "Bridge/TD-110 Maelstrom.svg"
+    },
+    {
+      "id": "bastion",
+      "name": "TD-220 Bastion MK XVI",
+      "sourcePath": "Siege Breakers/Bastion MK XVI.svg"
+    },
+    {
+      "id": "sterilizer",
+      "name": "TX-41 Sterilizer",
+      "sourcePath": "Chemical Agents/Sterilizer.svg"
+    },
+    {
+      "id": "strat-amw20apex",
+      "name": "AMW-20 Apex",
+      "sourcePath": "Scope of Authority/AMW-20 Apex.svg"
+    },
+    {
+      "id": "strat-las44nova",
+      "name": "LAS-44 Nova",
+      "sourcePath": "Scope of Authority/LAS-44 Nova.svg"
+    }
+  ]
+}
