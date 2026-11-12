@@ -21,6 +21,10 @@ precision:'<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d
 logistics:'<rect x="4" y="7" width="16" height="12" rx="2"/><path d="M8 7V4h8v3M12 11v5m-3-2h6"/>',
 });
 const svg=(type)=>'<svg viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">'+(ICONS[type]||ICONS.boost)+'</svg>';
+const factionLogoUrl={bugs:'./assets/factions/terminid-icon.svg',bots:'./assets/factions/automaton-icon.svg',squids:'./assets/factions/illuminate-icon.svg'};
+const frontCrest=(id,icon)=>factionLogoUrl[id]
+  ? `<img class="faction-image-icon" src="${factionLogoUrl[id]}" alt="" aria-hidden="true">`
+  : svg(icon);
 // Brand logo is supplied as the original image asset in index.html.
 // Capability vector: anti-heavy, swarm control, medium threats, objective destruction, survivability, ammo/sustain.
 const DB=window.HD2_DB;
@@ -59,10 +63,10 @@ const iconFor=(x,type)=>{
 const $=s=>document.querySelector(s);
 function updateParams(){state.mission=$('#mission').value;state.party=$('#party').value;state.difficulty=Number($('#difficulty').value);$('#diffVal').textContent=state.difficulty;const levels=['','TRIVIAL','EASY','MEDIUM','CHALLENGING','HARD','EXTREME','SUICIDE MISSION','IMPOSSIBLE','HELLDIVE','SUPER HELLDIVE'];$('#diffName').textContent='— '+levels[state.difficulty];invalidate();}
 function renderFronts(){
-  $('#factions').innerHTML=fronts.map(([id,name,icon])=>`<button class="faction ${state.front===id?'active':''}" data-front="${id}" aria-pressed="${state.front===id}"><span class="faction-crest">${svg(icon)}</span><span>${name}</span><small>${{bugs:'TERMINID FRONT',bots:'AUTOMATON FRONT',squids:'ILLUMINATE FRONT',mixed:'MULTI-FRONT'}[id]}</small></button>`).join('');
+  $('#factions').innerHTML=fronts.map(([id,name,icon])=>`<button class="faction ${state.front===id?'active':''}" data-front="${id}" aria-pressed="${state.front===id}"><span class="faction-crest">${frontCrest(id,icon)}</span><span>${name}</span><small>${{bugs:'TERMINID FRONT',bots:'AUTOMATON FRONT',squids:'ILLUMINATE FRONT',mixed:'MULTI-FRONT'}[id]}</small></button>`).join('');
   $('#frontDisplay').textContent=fronts.find(x=>x[0]===state.front)[1].toUpperCase();
   $('#frontCode').textContent={bugs:'TRM',bots:'ATM',squids:'ILL',mixed:'ALL'}[state.front];
-  $('#scanCrest').innerHTML=svg(fronts.find(x=>x[0]===state.front)[2]);
+  $('#scanCrest').innerHTML=frontCrest(state.front,fronts.find(x=>x[0]===state.front)[2]);
   document.querySelector('.hero-side').dataset.front=state.front;
 }
 function selected(type,idx){return type==='strat'?byId[state.strats[idx]]:byId[state[type]]}
