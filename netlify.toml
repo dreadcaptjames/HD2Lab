@@ -1,0 +1,5 @@
+# HD2Lab is a plain static site. No npm install or bundler is needed.
+# Publish files directly from the repository root.
+[build]
+  publish = "."
+  command = ""
