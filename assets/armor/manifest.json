@@ -201,9 +201,9 @@
     {
       "id": "armor-rs89shadowparagon",
       "name": "RS-89 Shadow Paragon",
-      "sourceRepository": "helldads/helldads.github.io",
-      "sourcePath": "public/assets/armor/RS-89_Shadow_Paragon.png",
-      "sourceSha": "1241b8bde63aac32d73ba94962d9a64ecdfe0cd4",
+      "sourceRepository": "Bendath/HellDex",
+      "sourcePath": "armor_images/Chest_Armour/RS-89_Shadow_Paragon.png",
+      "sourceSha": "10a93ea5a7d789b6023c0dc4662d3ca7daf297cf",
       "wikiFile": "RS-89_Shadow_Paragon_Armor_Render.png"
     },
     {
