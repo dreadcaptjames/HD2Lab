@@ -29,7 +29,11 @@ const realEquipmentRenderIds={
 };
 const realBoosterIconIds=new Set(["supplyPods","concealed","deadSprint","infusion","pilot","firebombPods","flexBudget","hellpod","reinforce","extinguish","confusion","shocks","muscle","sampleExtractor","sampleScanner","stamina","stunPods","surplusEat","uav","vitality"]);
 const realStratagemIconIds=new Set(["meltagun","acSentry","tesla","flameSentry","gatSentry","gasMortar","strat-alas98lasersentry","mortar","emsSentry","mgSentry","rocketSentry","ac","amr","arcThrower","guarddog","strat-axarc3k9","strat-axflam75hotdog","rover","gasDog","supplyPack","strat-b100portablehellbomb","strat-bflam80cremator","portableHellbomb","strat-cqc1onetrueflag","strat-cqc20breachinghammer","strat-cqc9defoliationtool","antiTankEmplace","strat-egl21grenadierbattlement","hmgEmplace","eagle110","eagle500","eagleAir","eagleCluster","strat-eaglegasairstrike","eagleNap","eagleSmoke","eagleStrafe","eat","leveller","eateNap","patriot","emancipator","lumberer","breakthrough","spear","flame","shieldRelay","grenLaunch","beltGrenade","deescalator","rr","laserC","quasar","strat-lift182warppack","jump","strat-lift860hoverpack","maxigun","frv","supplyFrv","flameFrv","stalwart","atMines","apMines","strat-md8gasmines","incMines","hmg","mg","bulletstorm","commando","strat-ms11solosilo","orb120","orb380","orbAirburst","orbEMS","orbGas","orbGatt","orbLaser","orbNapalm","orbPS","orbRail","orbSmoke","orbWalking","epoch","airburst","rail","strat-s11speargun","ballistic","shieldPack","directionalShield","wasp","maelstrom","bastion","sterilizer","strat-amw20apex","strat-las44nova"]);
+const armorArtworkUrls=Object.create(null);
+window.HD2_ARMOR_IMAGES=armorArtworkUrls;
 function equipmentIconMarkup(item,type){
+  if(type==='armor'&&item&&armorArtworkUrls[item.id])
+    return '<span class="armor-artwork">'+svg(iconFor(item,type))+'<img class="armor-render-image" src="'+armorArtworkUrls[item.id]+'" alt="" loading="lazy" decoding="async"></span>';
   if(item&&realEquipmentRenderIds[type]?.has(item.id))
     return '<img class="equipment-render-image" src="./assets/equipment/'+type+'/'+encodeURIComponent(item.id)+'.png" alt="" loading="lazy" decoding="async">';
   if(type==='strat'&&item&&realStratagemIconIds.has(item.id))
@@ -46,6 +50,42 @@ const frontCrest=(id,icon)=>factionLogoUrl[id]
 // Capability vector: anti-heavy, swarm control, medium threats, objective destruction, survivability, ammo/sustain.
 const DB=window.HD2_DB;
 const byId={};Object.values(DB).forEach(arr=>arr.forEach(x=>byId[x.id]=x));
+// Genuine suit renders from the community-maintained wiki-backed Helldivers data catalog.
+// Prefer checked-in, locally cached artwork; fall back to its CORS-enabled image CDN.
+function armorNameKey(name){return String(name||'').normalize('NFKD').toLowerCase().replace(/[^a-z0-9]/g,'');}
+function refreshArmorArtwork(){
+  renderSlots();
+  if(pickerTarget?.type==='armor')renderPicker();
+}
+async function loadArmorArtwork(){
+  try{
+    const response=await fetch('./assets/armor/manifest.json?v=armor-renders-1',{cache:'no-cache'});
+    if(response.ok){
+      const manifest=await response.json();
+      for(const [id,file] of Object.entries(manifest.images||{})){
+        if(!DB.armor.some(item=>item.id===id)||! /^[a-zA-Z0-9_-]+\.webp$/.test(file))continue;
+        armorArtworkUrls[id]='./assets/armor/'+encodeURIComponent(file);
+      }
+      if(Object.keys(armorArtworkUrls).length)refreshArmorArtwork();
+    }
+  }catch(_error){/* The catalog can still render with its original icons. */}
+  if(Object.keys(armorArtworkUrls).length===DB.armor.length)return;
+  try{
+    const base='https://helldivers-api.dionatha.com.br';
+    const response=await fetch(base+'/v1/armors.json');
+    if(!response.ok) return;
+    const catalog=await response.json();
+    const byName=new Map(DB.armor.map(item=>[armorNameKey(item.name),item]));
+    for(const record of catalog.data||[]){
+      const item=byName.get(armorNameKey(record.name));
+      if(!item||armorArtworkUrls[item.id]||!record.image?.url)continue;
+      const url=new URL(record.image.url,base);
+      if(url.origin!==base||!url.pathname.startsWith('/images/v1/armors/')||!url.pathname.endsWith('.webp'))continue;
+      armorArtworkUrls[item.id]=url.href;
+    }
+    if(Object.keys(armorArtworkUrls).length)refreshArmorArtwork();
+  }catch(_error){/* Network restrictions must not prevent using the app. */}
+}
 const state={front:'bugs',mission:'general',party:'squad',difficulty:7,armor:null,primary:null,secondary:null,throwable:null,booster:null,strats:[null,null,null,null]};
 let analyzed=null,pickerTarget=null,pickerFilter='All',pickerQuery='';
 const labels={armor:'Body armor',primary:'Primary weapon',secondary:'Secondary weapon',throwable:'Throwable',booster:'Squad booster'};
@@ -458,5 +498,6 @@ $('#factions').addEventListener('click',e=>{const b=e.target.closest('[data-fron
 document.addEventListener('click',e=>{const slot=e.target.closest('.slot[data-type]');if(slot)openPicker(slot.dataset.type,Number(slot.dataset.idx));const t=e.target.closest('[data-template]');if(t)applyTemplate(t.dataset.template);});
 $('#evaluateBtn').addEventListener('click',analyze);$('#exportBtn').addEventListener('click',exportBuildPdf);$('#copyBtn').addEventListener('click',copyBuild);$('#resetBtn').addEventListener('click',()=>{Object.assign(state,{front:'bugs',mission:'general',party:'squad',difficulty:7,armor:null,primary:null,secondary:null,throwable:null,booster:null,strats:[null,null,null,null]});$('#mission').value='general';$('#party').value='squad';$('#difficulty').value='7';$('#diffVal').textContent='7';$('#diffName').textContent='— SUICIDE MISSION';renderFronts();resetRandomizerRules();invalidate();toast('Build cleared.');});
 $('#closeModal').addEventListener('click',closePicker);$('#modal').addEventListener('mousedown',e=>{if(e.target===$('#modal'))closePicker()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&pickerTarget)closePicker()});$('#search').addEventListener('input',e=>{pickerQuery=e.target.value.trim().toLowerCase();renderPicker()});$('#filters').addEventListener('click',e=>{const b=e.target.closest('[data-filter]');if(b){pickerFilter=b.dataset.filter;renderPicker()}});$('#pickerList').addEventListener('click',e=>{const clear=e.target.closest('[data-clear]');if(clear){const {type,idx}=pickerTarget;if(type==='strat')state.strats[idx]=null;else state[type]=null;closePicker();invalidate();return}const b=e.target.closest('[data-pick]');if(b)choose(b.dataset.pick)});
-$('#catalogCount').textContent=Object.values(DB).reduce((n,list)=>n+list.length,0)+' ITEMS';renderFronts();renderSlots();renderBars([0,0,0,0,0,0]);
+$('#catalogCount').textContent=Object.values(DB).reduce((n,list)=>n+list.length,0)+' ITEMS';renderFronts();renderSlots();renderBars([0,0,0,0,0,0]);loadArmorArtwork();
+document.addEventListener('error',event=>{if(event.target?.matches?.('img.armor-render-image'))event.target.remove();},true);
 })();
