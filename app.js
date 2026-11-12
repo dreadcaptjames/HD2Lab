@@ -42,7 +42,7 @@ function equipmentIconMarkup(item,type){
     return '<img class="booster-icon-image" src="./assets/boosters/'+encodeURIComponent(item.id)+'.svg" alt="" loading="lazy" decoding="async">';
   return svg(iconFor(item,type));
 }
-const factionLogoUrl={bugs:'./assets/factions/terminid-icon.svg',bots:'./assets/factions/automaton-icon.svg',squids:'./assets/factions/illuminate-icon.svg'};
+const factionLogoUrl={bugs:'./assets/factions/terminid-icon.svg',bots:'./assets/factions/automaton-icon.svg',squids:'./assets/factions/illuminate-icon.svg',mixed:'./assets/factions/super-earth-icon.svg'};
 const frontCrest=(id,icon)=>factionLogoUrl[id]
   ? `<img class="faction-image-icon" src="${factionLogoUrl[id]}" alt="" aria-hidden="true">`
   : svg(icon);
