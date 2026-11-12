@@ -547,3 +547,7 @@ select option:disabled {
 .slot .sicon img.stratagem-icon-image { display:block; width:37px; height:37px; object-fit:contain; }
 .strat-grid .sicon img.stratagem-icon-image { width:35px; height:35px; }
 .picon img.stratagem-icon-image { display:block; width:46px; height:46px; object-fit:contain; }
+
+/* Every booster now displays its own familiar yellow in-game hexagonal symbol. */
+.slot .sicon img.booster-icon-image { display:block; width:43px; height:43px; object-fit:contain; }
+.picon img.booster-icon-image { display:block; width:49px; height:49px; object-fit:contain; }

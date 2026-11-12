@@ -46,7 +46,7 @@
   }
   function equipCard(g,x,y,w,h,title,item,k,icons){
     rect(g,x,y,w,h,C.panel,14,C.line);rect(g,x,y,5,h,C.gold,2);
-    rect(g,x+18,y+21,63,63,'#0e1925',12,C.line);const art=k==='strat'&&item&&icons?.[item.id];if(art)g.drawImage(art,x+21,y+23,57,57);else drawSymbol(g,iconType(item,k),x+28,y+30,43);
+    rect(g,x+18,y+21,63,63,'#0e1925',12,C.line);const art=(k==='strat'||k==='booster')&&item&&icons?.[item.id];if(art)g.drawImage(art,x+21,y+23,57,57);else drawSymbol(g,iconType(item,k),x+28,y+30,43);
     text(g,title.toUpperCase(),x+95,y+43,15,C.soft,true,'left',1.1);
     const name=item?.name||'UNASSIGNED';text(g,name,x+95,y+77,fit(g,name,w-119,25,17),C.white,true);
     const chip=k==='armor'&&item?`${item.weight} ARMOR`:item?.cat||'OPEN SLOT';
@@ -75,7 +75,7 @@
     section(g,'01','PERSONAL EQUIPMENT',530,'05 // REQUISITION SLOTS');
     const personal=[['BODY ARMOR',d.armor,'armor'],['PRIMARY',d.primary,'primary'],['SECONDARY',d.secondary,'secondary'],['THROWABLE',d.throwable,'throwable'],['BOOSTER',d.booster,'booster']];
     const cw=354,gap=25,x0=64,ys=[561,787];
-    personal.forEach(([title,item,k],i)=>equipCard(g,x0+(i%3)*(cw+gap),ys[Math.floor(i/3)],cw,204,title,item,k));
+    personal.forEach(([title,item,k],i)=>equipCard(g,x0+(i%3)*(cw+gap),ys[Math.floor(i/3)],cw,204,title,item,k,icons));
     section(g,'02','STRATAGEM PACKAGE',1049,'04 // ACTIVE CALL-INS');
     const sW=542,sH=223;
     (d.strats||[]).forEach((item,i)=>equipCard(g,64+(i%2)*(sW+26),1080+Math.floor(i/2)*244,sW,sH,`STRATAGEM ${i+1}`,item,'strat',icons));
@@ -128,7 +128,10 @@
     const xrefPos=offset;let str=`xref\n0 ${objects.length}\n0000000000 65535 f \n`;for(let i=1;i<xref.length;i++)str+=`${String(xref[i]).padStart(10,'0')} 00000 n \n`;str+=`trailer\n<< /Size ${objects.length} /Root 1 0 R >>\nstartxref\n${xrefPos}\n%%EOF\n`;parts.push(enc.encode(str));
     return new Blob(parts,{type:'application/pdf'});
   }
-  async function createPdf(d){const logo=await loadLogo(d.logoUrl);const icons=Object.create(null);await Promise.all((d.strats||[]).filter(Boolean).map(async item=>{if(!/^[a-zA-Z0-9_-]+$/.test(item.id||''))return;icons[item.id]=await loadLogo('./assets/stratagems/'+encodeURIComponent(item.id)+'.svg');}));let imgs=analysisPages(d,logo,2);const total=1+imgs.length; // Repaint the page numbers if findings needed extra pages.
+  async function createPdf(d){const logo=await loadLogo(d.logoUrl);const icons=Object.create(null);await Promise.all([
+  ...(d.strats||[]).filter(Boolean).map(async item=>{if(!/^[a-zA-Z0-9_-]+$/.test(item.id||''))return;icons[item.id]=await loadLogo('./assets/stratagems/'+encodeURIComponent(item.id)+'.svg');}),
+  ...(d.booster?[d.booster]:[]).map(async item=>{if(!/^[a-zA-Z0-9_-]+$/.test(item.id||''))return;icons[item.id]=await loadLogo('./assets/boosters/'+encodeURIComponent(item.id)+'.svg');})
+]);let imgs=analysisPages(d,logo,2);const total=1+imgs.length; // Repaint the page numbers if findings needed extra pages.
     imgs=analysisPages(d,logo,total);return pdfFromCanvases([loadoutPage(d,logo,total,icons),...imgs]);}
   async function download(d){const pdf=await createPdf(d);const url=URL.createObjectURL(pdf),a=document.createElement('a');a.href=url;a.download=`Helldivers2_Loadout_${txt(d.front).replace(/[^a-z0-9]/gi,'_')}_${new Date().toISOString().slice(0,10)}.pdf`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);return pdf;}
   window.HD2PDF={download,createPdf};

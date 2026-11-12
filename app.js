@@ -22,10 +22,13 @@ logistics:'<rect x="4" y="7" width="16" height="12" rx="2"/><path d="M8 7V4h8v3M
 });
 const svg=(type)=>'<svg viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">'+(ICONS[type]||ICONS.boost)+'</svg>';
 
+const realBoosterIconIds=new Set(["supplyPods","concealed","deadSprint","infusion","pilot","firebombPods","flexBudget","hellpod","reinforce","extinguish","confusion","shocks","muscle","sampleExtractor","sampleScanner","stamina","stunPods","surplusEat","uav","vitality"]);
 const realStratagemIconIds=new Set(["meltagun","acSentry","tesla","flameSentry","gatSentry","gasMortar","strat-alas98lasersentry","mortar","emsSentry","mgSentry","rocketSentry","ac","amr","arcThrower","guarddog","strat-axarc3k9","strat-axflam75hotdog","rover","gasDog","supplyPack","strat-b100portablehellbomb","strat-bflam80cremator","portableHellbomb","strat-cqc1onetrueflag","strat-cqc20breachinghammer","strat-cqc9defoliationtool","antiTankEmplace","strat-egl21grenadierbattlement","hmgEmplace","eagle110","eagle500","eagleAir","eagleCluster","strat-eaglegasairstrike","eagleNap","eagleSmoke","eagleStrafe","eat","leveller","eateNap","patriot","emancipator","lumberer","breakthrough","spear","flame","shieldRelay","grenLaunch","beltGrenade","deescalator","rr","laserC","quasar","strat-lift182warppack","jump","strat-lift860hoverpack","maxigun","frv","supplyFrv","flameFrv","stalwart","atMines","apMines","strat-md8gasmines","incMines","hmg","mg","bulletstorm","commando","strat-ms11solosilo","orb120","orb380","orbAirburst","orbEMS","orbGas","orbGatt","orbLaser","orbNapalm","orbPS","orbRail","orbSmoke","orbWalking","epoch","airburst","rail","strat-s11speargun","ballistic","shieldPack","directionalShield","wasp","maelstrom","bastion","sterilizer","strat-amw20apex","strat-las44nova"]);
 function equipmentIconMarkup(item,type){
   if(type==='strat'&&item&&realStratagemIconIds.has(item.id))
     return '<img class="stratagem-icon-image" src="./assets/stratagems/'+encodeURIComponent(item.id)+'.svg" alt="" loading="lazy" decoding="async">';
+  if(type==='booster'&&item&&realBoosterIconIds.has(item.id))
+    return '<img class="booster-icon-image" src="./assets/boosters/'+encodeURIComponent(item.id)+'.svg" alt="" loading="lazy" decoding="async">';
   return svg(iconFor(item,type));
 }
 const factionLogoUrl={bugs:'./assets/factions/terminid-icon.svg',bots:'./assets/factions/automaton-icon.svg',squids:'./assets/factions/illuminate-icon.svg'};

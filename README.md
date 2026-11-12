@@ -14,6 +14,12 @@ All **95** selectable stratagems now have individually matched, locally hosted a
 
 **Art credit:** Stratagem SVG illustrations are sourced from [nvigneux's Helldivers 2 Stratagems icons collection](https://github.com/nvigneux/Helldivers-2-Stratagems-icons-svg), which invites community use. These are community-maintained recreations of the in-game icon designs, not official images supplied by Arrowhead. HELLDIVERS 2 names, graphics, and trademarks remain with their respective owners. HD2Lab remains an unofficial fan project.
 
+## In-game booster artwork
+
+All **20 boosters** now show their individually matched yellow hexagonal symbols in the booster picker, equipped booster slot, and exported PDF dossiers. The SVGs are stored locally for GitHub Pages; the app does not depend on an external image host to display them.
+
+**Art credit:** Booster artwork is sourced from [Democracy++](https://github.com/AdamLassiter/democracy-plusplus), which mirrors artwork traced by contributors to [the Helldivers Wiki](https://helldivers.wiki.gg/wiki/Boosters). HD2Lab remains an unofficial fan project; game artwork and trademarks belong to Arrowhead Game Studios and its licensors.
+
 ## Build a complete loadout
 
 Choose every part of your kit:
