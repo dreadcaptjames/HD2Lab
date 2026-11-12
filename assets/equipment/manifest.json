@@ -1,0 +1,750 @@
+{
+  "description": "Helldivers 2 weapon and throwable inventory render asset mapping",
+  "source": "https://github.com/AdamLassiter/democracy-plusplus",
+  "originalGame": "Helldivers 2 by Arrowhead Game Studios",
+  "note": "Artwork sourced from community-maintained inventory renders; original rights stay with their owners.",
+  "entries": [
+    {
+      "type": "primary",
+      "id": "arbitrator",
+      "name": "AR-11 Arbitrator",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/AR-11_Arbitrator_Primary_Render.png",
+      "sourceSha": "2fca9f0567138484d4195bcb136ec9415fafc379"
+    },
+    {
+      "type": "primary",
+      "id": "coyote",
+      "name": "AR-2 Coyote",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/AR-2_Coyote_Primary_Render.png",
+      "sourceSha": "c2cac67b787dc104bc957ca73ece47d085892eb2"
+    },
+    {
+      "type": "primary",
+      "id": "lib",
+      "name": "AR-23 Liberator",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/AR-23_Liberator_Primary_Render.png",
+      "sourceSha": "82f5ac0becc099bb84a54327fbcd68911ec5c06f"
+    },
+    {
+      "type": "primary",
+      "id": "libcarbine",
+      "name": "AR-23A Liberator Carbine",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/AR-23A_Liberator_Carbine_Primary_Render.png",
+      "sourceSha": "47231924e4f113c9fb1efea6c0e366fcfe61060a"
+    },
+    {
+      "type": "primary",
+      "id": "libc",
+      "name": "AR-23C Liberator Concussive",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/AR-23C_Liberator_Concussive_Primary_Render.png",
+      "sourceSha": "be2a7074dbbc81ced30a95b6a54e5296e75bc59d"
+    },
+    {
+      "type": "primary",
+      "id": "libp",
+      "name": "AR-23P Liberator Penetrator",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/AR-23P_Liberator_Penetrator_Primary_Render.png",
+      "sourceSha": "ccd3e83f67118527e12e595d3c2e8298b2b3c477"
+    },
+    {
+      "type": "primary",
+      "id": "pacifier",
+      "name": "AR-32 Pacifier",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/AR-32_Pacifier_Primary_Render.png",
+      "sourceSha": "4d00c5f24f33391afbf8b476b36015e470896ad7"
+    },
+    {
+      "type": "primary",
+      "id": "primary-ar59suppressor",
+      "name": "AR-59 Suppressor",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/AR-59_Suppressor_Primary_Render.png",
+      "sourceSha": "91b5ab979131065623f2bb47dcbc09ff36f2e0c1"
+    },
+    {
+      "type": "primary",
+      "id": "tender",
+      "name": "AR-61 Tenderizer",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/AR-61_Tenderizer_Primary_Render.png",
+      "sourceSha": "89fb5f9a1b4edd6a99ead543791e21aade7df2a3"
+    },
+    {
+      "type": "primary",
+      "id": "oneTwo",
+      "name": "AR/GL-21 One-Two",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/AR-GL-21_One_Two_Primary_Render.png",
+      "sourceSha": "501a8aee51a7f9779f2a83eb0f8a1ecad088d97f"
+    },
+    {
+      "type": "primary",
+      "id": "blitzer",
+      "name": "ARC-12 Blitzer",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/ARC-12_Blitzer_Primary_Render.png",
+      "sourceSha": "83978bb4f9152d1ab73cf0ffe8bff0be3c0ee636"
+    },
+    {
+      "type": "primary",
+      "id": "adj",
+      "name": "BR-14 Adjudicator",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/BR-14_Adjudicator_Primary_Render.png",
+      "sourceSha": "3ccfdcc4313e4ba9b89acc0ef620a6b7d022a2e9"
+    },
+    {
+      "type": "primary",
+      "id": "crossbow",
+      "name": "CB-9 Exploding Crossbow",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/CB-9_Exploding_Crossbow_Primary_Render.png",
+      "sourceSha": "b53c3be4347b982d32174f98343af9aa8a69306d"
+    },
+    {
+      "type": "primary",
+      "id": "primary-dbs2doublefreedom",
+      "name": "DBS-2 Double Freedom",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/DBS-2_Shotgun_Primary_Render.png",
+      "sourceSha": "11412a06fddbc0dd867e1dff0b400a8c12a4c5b0"
+    },
+    {
+      "type": "primary",
+      "id": "torcher",
+      "name": "FLAM-66 Torcher",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/FLAM-66_Torcher_Primary_Render.png",
+      "sourceSha": "63f41e370a612d687a4c6c06b2bc31815355183f"
+    },
+    {
+      "type": "primary",
+      "id": "primary-gl15evictor",
+      "name": "GL-15 Evictor",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/GL-15_Evictor_Primary_Render.png",
+      "sourceSha": "23c652f3bb6adf35b8681db259e8201cd819878e"
+    },
+    {
+      "type": "primary",
+      "id": "dom",
+      "name": "JAR-5 Dominator",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/JAR-5_Dominator_Primary_Render.png",
+      "sourceSha": "e240eec03b44c5ad6ec5093ee95198c2818e6111"
+    },
+    {
+      "type": "primary",
+      "id": "primary-las12sai",
+      "name": "LAS-12 Sai",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/LAS-12_Sai_Primary_Render.png",
+      "sourceSha": "4a06f387bb39c4f492f5959c6cebdb9fbb875c39"
+    },
+    {
+      "type": "primary",
+      "id": "trident",
+      "name": "LAS-13 Trident",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/LAS-13_Trident_Primary_Render.png",
+      "sourceSha": "cc6c7937c1cbd04bbb8c19e8d1cdc3ea12dc2c19"
+    },
+    {
+      "type": "primary",
+      "id": "sickle",
+      "name": "LAS-16 Sickle",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/LAS-16_Sickle_Primary_Render.png",
+      "sourceSha": "85ca023501bc612ac9eadc6f47d4465fa927a416"
+    },
+    {
+      "type": "primary",
+      "id": "primary-las17doubleedgesickle",
+      "name": "LAS-17 Double-Edge Sickle",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/LAS-17_Double-Edge_Sickle_Primary_Render.png",
+      "sourceSha": "1708d159d8459a45e99002be76a8a1a3688934a5"
+    },
+    {
+      "type": "primary",
+      "id": "scythe",
+      "name": "LAS-5 Scythe",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/LAS-5_Scythe_Primary_Render.png",
+      "sourceSha": "8fe8e321df13dee56d062ac81cec0a8e9b3d7258"
+    },
+    {
+      "type": "primary",
+      "id": "primary-m7ssmg",
+      "name": "M7S SMG",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/M7S_SMG_Primary_Render.png",
+      "sourceSha": "c16155c7e2287d6b47b75a500584c7962581fbcc"
+    },
+    {
+      "type": "primary",
+      "id": "primary-m90ashotgun",
+      "name": "M90A Shotgun",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/M90A_Shotgun_Primary_Render.png",
+      "sourceSha": "acdacdb13a7ba0a553d6523c7d63097711f331c9"
+    },
+    {
+      "type": "primary",
+      "id": "ma5c",
+      "name": "MA5C Assault Rifle",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/MA5C_Assault_Rifle_Primary_Render.png",
+      "sourceSha": "844816af752c01f6b9a378254caac2348511c91e"
+    },
+    {
+      "type": "primary",
+      "id": "knight",
+      "name": "MP-98 Knight",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/MP-98_Knight_Primary_Render.png",
+      "sourceSha": "444d78bf8ea9d0dfe101005b8ad6f23b025d6b72"
+    },
+    {
+      "type": "primary",
+      "id": "scorcher",
+      "name": "PLAS-1 Scorcher",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/PLAS-1_Scorcher_Primary_Render.png",
+      "sourceSha": "1566fec9f80d95ea91aa19b4aa44428d8dc43380"
+    },
+    {
+      "type": "primary",
+      "id": "purifier",
+      "name": "PLAS-101 Purifier",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/PLAS-101_Purifier_Primary_Render.png",
+      "sourceSha": "abb2b62485519d8bbe757ff01e8ba44546590554"
+    },
+    {
+      "type": "primary",
+      "id": "primary-plas39acceleratorrifle",
+      "name": "PLAS-39 Accelerator Rifle",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/PLAS-39_Accelerator_Rifle_Primary_Render.png",
+      "sourceSha": "5ce1d24b0b61d4f86eb61b6b6292b1860de4caf7"
+    },
+    {
+      "type": "primary",
+      "id": "deadeye",
+      "name": "R-2 Amendment",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/R-2_Amendment_Primary_Render.png",
+      "sourceSha": "9fda8c2e0e26204bc9ba4dde23cce8ce870ae153"
+    },
+    {
+      "type": "primary",
+      "id": "constitution",
+      "name": "R-2124 Constitution",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/R-2124_Constitution_Primary_Render.png",
+      "sourceSha": "cd786ca9f6f76120763f9246df762d8d5d3ef09d"
+    },
+    {
+      "type": "primary",
+      "id": "erupt",
+      "name": "R-36 Eruptor",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/R-36_Eruptor_Primary_Render.png",
+      "sourceSha": "728a081ce6c27bace2c0c5087fd526c31ac22f28"
+    },
+    {
+      "type": "primary",
+      "id": "primary-r4hyena",
+      "name": "R-4 Hyena",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/R-4_Hyena_Primary_Render.png",
+      "sourceSha": "5f52f0ece523fc8cc0798f6721174d7847fc35bf"
+    },
+    {
+      "type": "primary",
+      "id": "primary-r6deadeye",
+      "name": "R-6 Deadeye",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/R-6_Deadeye_Primary_Render.png",
+      "sourceSha": "3fe2c64e126f2f94293bdbcc24f30d90278c3897"
+    },
+    {
+      "type": "primary",
+      "id": "diligence",
+      "name": "R-63 Diligence",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/R-63_Diligence_Primary_Render.png",
+      "sourceSha": "bb1ee3c44a8ab41afbd9ae970d9a00222b62a84e"
+    },
+    {
+      "type": "primary",
+      "id": "dcs",
+      "name": "R-63CS Diligence Counter Sniper",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/R-63CS_Diligence_Counter_Sniper_Primary_Render.png",
+      "sourceSha": "83b482e4971c766682f757bdc873af169a79a890"
+    },
+    {
+      "type": "primary",
+      "id": "primary-r72censor",
+      "name": "R-72 Censor",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/R-72_Censor_Primary_Render.png",
+      "sourceSha": "f8d6af00a3e7a49539644985e37c84ad8d02e8f4"
+    },
+    {
+      "type": "primary",
+      "id": "primary-r40khotshotmarksmanrifle",
+      "name": "R/40-K Hot-Shot Marksman Rifle",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/R-40-K_Hot-Shot_Primary_Render.png",
+      "sourceSha": "6b79ee987be313d37b0a60a2335f29337fe903e4"
+    },
+    {
+      "type": "primary",
+      "id": "halt",
+      "name": "SG-20 Halt",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/SG-20_Halt_Primary_Render.png",
+      "sourceSha": "56e7d0c0437db977d969cfe9a0c33849891614a6"
+    },
+    {
+      "type": "primary",
+      "id": "breaker",
+      "name": "SG-225 Breaker",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/SG-225_Breaker_Primary_Render.png",
+      "sourceSha": "304314f6a287bd368dcf9c9029e5543cdb30d845"
+    },
+    {
+      "type": "primary",
+      "id": "breakerI",
+      "name": "SG-225IE Breaker Incendiary",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/SG-225IE_Breaker_Incendiary_Primary_Render.png",
+      "sourceSha": "5624fb04ebef33114c2bfd07d1b55d8bf7047751"
+    },
+    {
+      "type": "primary",
+      "id": "liberatorCon",
+      "name": "SG-225SP Breaker Spray&Pray",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/SG-225SP_Breaker_Spray&Pray_Primary_Render.png",
+      "sourceSha": "786b4ebd5017262b6086076fcc6d5620be00cb73"
+    },
+    {
+      "type": "primary",
+      "id": "cookout",
+      "name": "SG-451 Cookout",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/SG-451_Cookout_Primary_Render.png",
+      "sourceSha": "06e445c75379c88f75753fa008a8be4b60314418"
+    },
+    {
+      "type": "primary",
+      "id": "punisher",
+      "name": "SG-8 Punisher",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/SG-8_Punisher_Primary_Render.png",
+      "sourceSha": "a4333d530c9301ca3aff93871fb8a7aac3c1185f"
+    },
+    {
+      "type": "primary",
+      "id": "punisherPlasma",
+      "name": "SG-8P Punisher Plasma",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/SG-8P_Punisher_Plasma_Primary_Render.png",
+      "sourceSha": "2e4f7428fea2fc8a9ee7de0fedd902fe1d83d00a"
+    },
+    {
+      "type": "primary",
+      "id": "slugger",
+      "name": "SG-8S Slugger",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/SG-8S_Slugger_Primary_Render.png",
+      "sourceSha": "139424eae9297581e40f8567ad5368b7b24a93b9"
+    },
+    {
+      "type": "primary",
+      "id": "primary-sg97sweeper",
+      "name": "SG-97 Sweeper",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/SG-97_Shotgun_Primary_Render.png",
+      "sourceSha": "58560293dcb0c93f5d27ba8697fea0d1ca8d4ed7"
+    },
+    {
+      "type": "primary",
+      "id": "primary-smg203gallant",
+      "name": "SMG-203 Gallant",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/SMG-203_Gallant_Primary_Render.png",
+      "sourceSha": "0f4669199bd0eec07edd0e2ae8ec47ad11271169"
+    },
+    {
+      "type": "primary",
+      "id": "reprimand",
+      "name": "SMG-32 Reprimand",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/SMG-32_Reprimand_Primary_Render.png",
+      "sourceSha": "ff5899b4b61acc31ee94871893d5a04db590d8ca"
+    },
+    {
+      "type": "primary",
+      "id": "defender",
+      "name": "SMG-37 Defender",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/SMG-37_Defender_Primary_Render.png",
+      "sourceSha": "9b8886198eb0183563a360a995e5d61e4e524eb4"
+    },
+    {
+      "type": "primary",
+      "id": "pummeler",
+      "name": "SMG-72 Pummeler",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/SMG-72_Pummeler_Primary_Render.png",
+      "sourceSha": "6f1c39ace0380abf9a1fe0f07aab72bba9f364d9"
+    },
+    {
+      "type": "primary",
+      "id": "primary-smgflam34stoker",
+      "name": "SMG/FLAM-34 Stoker",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/SMGFLAM-34_Stoker_Primary_Icon.png",
+      "sourceSha": "9eb1795fb42feacc7ecbd5ae677048bf12f8969e"
+    },
+    {
+      "type": "primary",
+      "id": "primary-sta11smg",
+      "name": "StA-11 SMG",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/StA-11_SMG_Primary_Render.png",
+      "sourceSha": "eadd7dfa15d30186313a0916ae6d78729bf2e6a0"
+    },
+    {
+      "type": "primary",
+      "id": "sta52",
+      "name": "StA-52 Assault Rifle",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/StA-52_Assault_Rifle_Primary_Render.png",
+      "sourceSha": "586aab615582be908a9553d57a35d0b407128622"
+    },
+    {
+      "type": "primary",
+      "id": "variable",
+      "name": "VG-70 Variable",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/VG-70_Variable_Primary_Render.png",
+      "sourceSha": "693355c33f8a48e4aad546fa43738f4af845ae75"
+    },
+    {
+      "type": "primary",
+      "id": "primary-r40sightliner",
+      "name": "R-40 Sightliner",
+      "sourcePath": "apps/democracy-plusplus/public/images/primaries/R-40_Sightliner_Primary_Render.png",
+      "sourceSha": "296d36a0de38730754745ea0ae2c5cd5c539257f"
+    },
+    {
+      "type": "secondary",
+      "id": "lance",
+      "name": "CQC-19 Stun Lance",
+      "sourcePath": "apps/democracy-plusplus/public/images/secondaries/CQC-19_Stun_Lance_Secondary_Render.png",
+      "sourceSha": "9ce0466f18a1030493a28020cba04ae3e18384e3"
+    },
+    {
+      "type": "secondary",
+      "id": "saber",
+      "name": "CQC-2 Saber",
+      "sourcePath": "apps/democracy-plusplus/public/images/secondaries/CQC-2_Saber_Secondary_Render.png",
+      "sourceSha": "fe42c702be118a74c71a5c05a0639fa181aa42c2"
+    },
+    {
+      "type": "secondary",
+      "id": "baton",
+      "name": "CQC-30 Stun Baton",
+      "sourcePath": "apps/democracy-plusplus/public/images/secondaries/CQC-30_Stun_Baton_Secondary_Render.png",
+      "sourceSha": "e61ed4781315786ecd9efe439997e21120a1eebe"
+    },
+    {
+      "type": "secondary",
+      "id": "machete",
+      "name": "CQC-42 Machete",
+      "sourcePath": "apps/democracy-plusplus/public/images/secondaries/CQC-42_Machete_Secondary_Render.png",
+      "sourceSha": "25fcb2e159c0d9104a200c1db14015253e4f064e"
+    },
+    {
+      "type": "secondary",
+      "id": "hatchet",
+      "name": "CQC-5 Combat Hatchet",
+      "sourcePath": "apps/democracy-plusplus/public/images/secondaries/CQC-5_Combat_Hatchet_Secondary_Render.png",
+      "sourceSha": "91146995ae11e26faba13f474a5f22596ce05a9a"
+    },
+    {
+      "type": "secondary",
+      "id": "secondary-cqc73entrenchmenttool",
+      "name": "CQC-73 Entrenchment Tool",
+      "sourcePath": "apps/democracy-plusplus/public/images/secondaries/CQC-73_Entrenchment_Tool_Secondary_Render.png",
+      "sourceSha": "4d062485e811e9689417db8fcad137b5245cff1f"
+    },
+    {
+      "type": "secondary",
+      "id": "ultimatum",
+      "name": "GP-20 Ultimatum",
+      "sourcePath": "apps/democracy-plusplus/public/images/secondaries/GP-20_Ultimatum_Secondary_Render.png",
+      "sourceSha": "636c4152ef948d25c54812dcdf786109489c122a"
+    },
+    {
+      "type": "secondary",
+      "id": "gp31",
+      "name": "GP-31 Grenade Pistol",
+      "sourcePath": "apps/democracy-plusplus/public/images/secondaries/GP-31_Grenade_Pistol_Secondary_Render.png",
+      "sourceSha": "00b94de5b0ec372f31eaaacad3011cbc6093ee08"
+    },
+    {
+      "type": "secondary",
+      "id": "talon",
+      "name": "LAS-58 Talon",
+      "sourcePath": "apps/democracy-plusplus/public/images/secondaries/LAS-58_Talon_Secondary_Render.png",
+      "sourceSha": "11ee47181b97f70fd3f7a7068e194bf8b4c56a26"
+    },
+    {
+      "type": "secondary",
+      "id": "bush",
+      "name": "LAS-7 Dagger",
+      "sourcePath": "apps/democracy-plusplus/public/images/secondaries/LAS-7_Dagger_Secondary_Render.png",
+      "sourceSha": "000b73f463e9c38d065e45198df87692e849222d"
+    },
+    {
+      "type": "secondary",
+      "id": "secondary-m6csocompistol",
+      "name": "M6C/SOCOM Pistol",
+      "sourcePath": "apps/democracy-plusplus/public/images/secondaries/M6C-SOCOM_Pistol_Secondary_Render.png",
+      "sourceSha": "f138b6520c7a95895ac79fd9ecfd59ce24d60331"
+    },
+    {
+      "type": "secondary",
+      "id": "stimP",
+      "name": "P-11 Stim Pistol",
+      "sourcePath": "apps/democracy-plusplus/public/images/secondaries/P-11_Stim_Pistol_Secondary_Render.png",
+      "sourceSha": "0352a41c16ac46925ebe1fcc80d77127f9b9a183"
+    },
+    {
+      "type": "secondary",
+      "id": "verdict",
+      "name": "P-113 Verdict",
+      "sourcePath": "apps/democracy-plusplus/public/images/secondaries/P-113_Verdict_Secondary_Render.png",
+      "sourceSha": "753d12b0cfccce8a0a3006ce562d0555fc9ecf4a"
+    },
+    {
+      "type": "secondary",
+      "id": "redeem",
+      "name": "P-19 Redeemer",
+      "sourcePath": "apps/democracy-plusplus/public/images/secondaries/P-19_Redeemer_Secondary_Render.png",
+      "sourceSha": "ad8997f8ab71b7f8cbfb7482570ba54137a2a4fd"
+    },
+    {
+      "type": "secondary",
+      "id": "peace",
+      "name": "P-2 Peacemaker",
+      "sourcePath": "apps/democracy-plusplus/public/images/secondaries/P-2_Peacemaker_Secondary_Render.png",
+      "sourceSha": "008363209a8cfb35c50ab75c7f0af2ebc76a0573"
+    },
+    {
+      "type": "secondary",
+      "id": "missileP",
+      "name": "P-33 Missile Pistol",
+      "sourcePath": "apps/democracy-plusplus/public/images/secondaries/P-33_Missile_Pistol_Secondary_Render.png",
+      "sourceSha": "a15db2f61183a73b5cb43062276def086fe77f40"
+    },
+    {
+      "type": "secondary",
+      "id": "breacher",
+      "name": "P-34 Breacher",
+      "sourcePath": "apps/democracy-plusplus/public/images/secondaries/P-34_Breacher_Secondary_Render.png",
+      "sourceSha": "19930711e83edded46fc31a21695a985cc2c1ab9"
+    },
+    {
+      "type": "secondary",
+      "id": "reeducator",
+      "name": "P-35 Re-Educator",
+      "sourcePath": "apps/democracy-plusplus/public/images/secondaries/P-35_Re-Educator_Secondary_Render.png",
+      "sourceSha": "92f4b9a4ce16623a0f612a9dd875f572a7b5568f"
+    },
+    {
+      "type": "secondary",
+      "id": "senator",
+      "name": "P-4 Senator",
+      "sourcePath": "apps/democracy-plusplus/public/images/secondaries/P-4_Senator_Secondary_Render.png",
+      "sourceSha": "55137884007a05d31dc489ada214df4812931ca5"
+    },
+    {
+      "type": "secondary",
+      "id": "veto",
+      "name": "P-69 Veto",
+      "sourcePath": "apps/democracy-plusplus/public/images/secondaries/P-69_Veto_Secondary_Icon.png",
+      "sourceSha": "d3004e8976c60e4228d27a5e029e3a39ac565368"
+    },
+    {
+      "type": "secondary",
+      "id": "crisper",
+      "name": "P-72 Crisper",
+      "sourcePath": "apps/democracy-plusplus/public/images/secondaries/P-72_Crisper_Secondary_Render.png",
+      "sourceSha": "907dffcbb0747921866847832b35fe7bea65ea40"
+    },
+    {
+      "type": "secondary",
+      "id": "warrant",
+      "name": "P-92 Warrant",
+      "sourcePath": "apps/democracy-plusplus/public/images/secondaries/P-92_Warrant_Secondary_Render.png",
+      "sourceSha": "07a41afc9cfee63587397ec3758ca0529ddb0dc4"
+    },
+    {
+      "type": "secondary",
+      "id": "secondary-p40kboltpistol",
+      "name": "P/40-K Bolt Pistol",
+      "sourcePath": "apps/democracy-plusplus/public/images/secondaries/P-40-K_Bolt_Pistol_Secondary_Render.png",
+      "sourceSha": "a0df72338a2f03c5ffec50a3bdfe419ac6bb1581"
+    },
+    {
+      "type": "secondary",
+      "id": "loyalist",
+      "name": "PLAS-15 Loyalist",
+      "sourcePath": "apps/democracy-plusplus/public/images/secondaries/PLAS-15_Loyalist_Secondary_Render.png",
+      "sourceSha": "b3c266c96774e0baf4392e3d2d8d54b3285e91b7"
+    },
+    {
+      "type": "secondary",
+      "id": "bushwhacker",
+      "name": "SG-22 Bushwhacker",
+      "sourcePath": "apps/democracy-plusplus/public/images/secondaries/SG-22_Bushwhacker_Secondary_Render.png",
+      "sourceSha": "5d60922b464d4f636784b91155c2b477168890b3"
+    },
+    {
+      "type": "secondary",
+      "id": "secondary-p44mist",
+      "name": "P-44 Mist",
+      "sourcePath": "apps/democracy-plusplus/public/images/secondaries/P-44_Mist_Secondary_Render.png",
+      "sourceSha": "8c9f6a436f2a25e5c06980631967bbac05acb351"
+    },
+    {
+      "type": "throwable",
+      "id": "incendiary",
+      "name": "G-10 Incendiary",
+      "sourcePath": "apps/democracy-plusplus/public/images/throwables/G-10_Incendiary_Throwable_Render.png",
+      "sourceSha": "8292576057292ef2e0d73104e0b7bdc7b7e6c817"
+    },
+    {
+      "type": "throwable",
+      "id": "urchin",
+      "name": "G-109 Urchin",
+      "sourcePath": "apps/democracy-plusplus/public/images/throwables/G-109_Urchin_Throwable_Render.png",
+      "sourceSha": "3ee5056aa10525f8e19ed13e9cdffd387fadafe7"
+    },
+    {
+      "type": "throwable",
+      "id": "he",
+      "name": "G-12 High Explosive",
+      "sourcePath": "apps/democracy-plusplus/public/images/throwables/G-12_High_Explosive_Throwable_Render.png",
+      "sourceSha": "a53cb2041e2fc6660ff5ef49bc583b2b52487315"
+    },
+    {
+      "type": "throwable",
+      "id": "thermite",
+      "name": "G-123 Thermite",
+      "sourcePath": "apps/democracy-plusplus/public/images/throwables/G-123_Thermite_Throwable_Render.png",
+      "sourceSha": "86226a426671f12997e006bda0b3d72a00265f0c"
+    },
+    {
+      "type": "throwable",
+      "id": "impactI",
+      "name": "G-13 Incendiary Impact",
+      "sourcePath": "apps/democracy-plusplus/public/images/throwables/G-13_Incendiary_Impact_Throwable_Render.png",
+      "sourceSha": "d5af7987ce3e7e9b594bad706d52adff0622300d"
+    },
+    {
+      "type": "throwable",
+      "id": "pyro",
+      "name": "G-142 Pyrotech",
+      "sourcePath": "apps/democracy-plusplus/public/images/throwables/G-142_Pyrotech_Throwable_Render.png",
+      "sourceSha": "41c0a1eea366f46bb6bee3a30e19f12fc66da84f"
+    },
+    {
+      "type": "throwable",
+      "id": "impact",
+      "name": "G-16 Impact",
+      "sourcePath": "apps/democracy-plusplus/public/images/throwables/G-16_Impact_Throwable_Render.png",
+      "sourceSha": "4693e4db9df52c057d990ed6fa9b1c4970e05aac"
+    },
+    {
+      "type": "throwable",
+      "id": "stun",
+      "name": "G-23 Stun",
+      "sourcePath": "apps/democracy-plusplus/public/images/throwables/G-23_Stun_Throwable_Render.png",
+      "sourceSha": "cee292ac06de7f02645253ac8509c8267d24e329"
+    },
+    {
+      "type": "throwable",
+      "id": "smoke",
+      "name": "G-3 Smoke",
+      "sourcePath": "apps/democracy-plusplus/public/images/throwables/G-3_Smoke_Throwable_Render.png",
+      "sourceSha": "2698904213f52d2f8d6a2562908bad33acd65c8c"
+    },
+    {
+      "type": "throwable",
+      "id": "arcG",
+      "name": "G-31 Arc",
+      "sourcePath": "apps/democracy-plusplus/public/images/throwables/G-31_ARC_Throwable_Render.png",
+      "sourceSha": "50fe0dc3f3743a5d2039586a84da49f3264b9eed"
+    },
+    {
+      "type": "throwable",
+      "id": "gas",
+      "name": "G-4 Gas",
+      "sourcePath": "apps/democracy-plusplus/public/images/throwables/G-4_Gas_Throwable_Render.png",
+      "sourceSha": "2855b047d6c3c956ec249d76727af7511a981aad"
+    },
+    {
+      "type": "throwable",
+      "id": "giga",
+      "name": "G-48 Giga Grenade",
+      "sourcePath": "apps/democracy-plusplus/public/images/throwables/G-48_Giga_Grenade_Throwable_Render.png",
+      "sourceSha": "3f979f54abb45b897518cff85314fac75de54cb4"
+    },
+    {
+      "type": "throwable",
+      "id": "seeker",
+      "name": "G-50 Seeker",
+      "sourcePath": "apps/democracy-plusplus/public/images/throwables/G-50_Seeker_Throwable_Render.png",
+      "sourceSha": "72b641ce4ea32409d51989d7304c30acc0f74798"
+    },
+    {
+      "type": "throwable",
+      "id": "frag",
+      "name": "G-6 Frag",
+      "sourcePath": "apps/democracy-plusplus/public/images/throwables/G-6_Frag_Throwable_Render.png",
+      "sourceSha": "a9c2797468596bc5200c2495c2222d4fb3dd7001"
+    },
+    {
+      "type": "throwable",
+      "id": "atSeeker",
+      "name": "G-60 Anti-Tank Seeker",
+      "sourcePath": "apps/democracy-plusplus/public/images/throwables/G-60_Anti-Tank_Seeker_Throwable_Render.png",
+      "sourceSha": "6537d3e1bff1843ee32ae3c2b2beefbaa1e3c8cd"
+    },
+    {
+      "type": "throwable",
+      "id": "pineapple",
+      "name": "G-7 Pineapple",
+      "sourcePath": "apps/democracy-plusplus/public/images/throwables/G-7_Pineapple_Throwable_Render.png",
+      "sourceSha": "bd4369e02ede29863e5059cba119c2c16184d886"
+    },
+    {
+      "type": "throwable",
+      "id": "immolation",
+      "name": "G-8 Immolation",
+      "sourcePath": "apps/democracy-plusplus/public/images/throwables/G-8_Immolation_Throwable_Render.png",
+      "sourceSha": "6b00d2b865e2bc7efb5e2f4822408818e02d2b02"
+    },
+    {
+      "type": "throwable",
+      "id": "smokescreen",
+      "name": "G-89 Smokescreen",
+      "sourcePath": "apps/democracy-plusplus/public/images/throwables/G-89_Smokescreen_Throwable_Render.png",
+      "sourceSha": "456fb24eaf5f939b5f2d13b0430085ca03606a0a"
+    },
+    {
+      "type": "throwable",
+      "id": "throwable-g40kmeltamine",
+      "name": "G/40-K Melta Mine",
+      "sourcePath": "apps/democracy-plusplus/public/images/throwables/G-40-K_Melta_Mine_Throwable_Render.png",
+      "sourceSha": "acfe367da7450e485cd123cd34560d2c74e0883c"
+    },
+    {
+      "type": "throwable",
+      "id": "shieldG",
+      "name": "G/SH-39 Shield",
+      "sourcePath": "apps/democracy-plusplus/public/images/throwables/G-SH-39_Shield_Throwable_Render.png",
+      "sourceSha": "a44d0ec3bf4aead39d10758de8e5c03ea5f637ab"
+    },
+    {
+      "type": "throwable",
+      "id": "throwknife",
+      "name": "K-2 Throwing Knife",
+      "sourcePath": "apps/democracy-plusplus/public/images/throwables/K-2_Throwing_Knife_Throwable_Render.png",
+      "sourceSha": "a7fc54e63559fa0a49d58ef452ffa523ee9c4a08"
+    },
+    {
+      "type": "throwable",
+      "id": "dynamite",
+      "name": "TED-63 Dynamite",
+      "sourcePath": "apps/democracy-plusplus/public/images/throwables/TED-63_Dynamite_Throwable_Render.png",
+      "sourceSha": "ae209f9de18cd647781f26861c8bfaae6027641a"
+    },
+    {
+      "type": "throwable",
+      "id": "lure",
+      "name": "TM-1 Lure Mine",
+      "sourcePath": "apps/democracy-plusplus/public/images/throwables/TM-1_Lure_Mine_Throwable_Render.png",
+      "sourceSha": "75a00d919f30365eafd7c57b00325d708d44b1e9"
+    },
+    {
+      "type": "throwable",
+      "id": "throwable-g11caltrops",
+      "name": "G-11 Caltrops",
+      "sourcePath": "apps/democracy-plusplus/public/images/throwables/G-11_Caltrops_Throwable_Render.png",
+      "sourceSha": "23f0e627d76dc06c5f5d9b2dee856661afbb843e"
+    }
+  ]
+}
