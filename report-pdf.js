@@ -46,7 +46,7 @@
   }
   function equipCard(g,x,y,w,h,title,item,k,icons){
     rect(g,x,y,w,h,C.panel,14,C.line);rect(g,x,y,5,h,C.gold,2);
-    rect(g,x+18,y+21,63,63,'#0e1925',12,C.line);const art=item&&icons?.[item.id];if(art){const wide=k==='primary'||k==='secondary';g.drawImage(art,x+21,y+(wide?35:23),57,wide?33:57);}else drawSymbol(g,iconType(item,k),x+28,y+30,43);
+    rect(g,x+18,y+21,63,63,'#0e1925',12,C.line);const art=item&&icons?.[item.id];if(art){const wide=k==='primary'||k==='secondary';if(k==='armor')g.drawImage(art,x+20,y+22,60,60);else g.drawImage(art,x+21,y+(wide?35:23),57,wide?33:57);}else drawSymbol(g,iconType(item,k),x+28,y+30,43);
     text(g,title.toUpperCase(),x+95,y+43,15,C.soft,true,'left',1.1);
     const name=item?.name||'UNASSIGNED';text(g,name,x+95,y+77,fit(g,name,w-119,25,17),C.white,true);
     const chip=k==='armor'&&item?`${item.weight} ARMOR`:item?.cat||'OPEN SLOT';
@@ -108,7 +108,7 @@
     }
     return imgs;
   }
-  function loadLogo(url){return new Promise(resolve=>{if(!url){resolve(null);return;}const img=new Image();img.onload=()=>resolve(img);img.onerror=()=>resolve(null);img.src=url;if(img.complete&&img.naturalWidth)resolve(img);});}
+  function loadLogo(url){return new Promise(resolve=>{if(!url){resolve(null);return;}const img=new Image();if(/^https?:\/\//.test(url))img.crossOrigin='anonymous';img.onload=()=>resolve(img);img.onerror=()=>resolve(null);img.src=url;if(img.complete&&img.naturalWidth)resolve(img);});}
   function jpegBytes(c){const str=atob(c.toDataURL('image/jpeg',.93).split(',')[1]);const bytes=new Uint8Array(str.length);for(let i=0;i<str.length;i++)bytes[i]=str.charCodeAt(i);return bytes;}
   function pdfFromCanvases(canvases){
     const jpgs=canvases.map(jpegBytes),objects=[];
@@ -131,6 +131,7 @@
   async function createPdf(d){const logo=await loadLogo(d.logoUrl);const icons=Object.create(null);await Promise.all([
   ...(d.strats||[]).filter(Boolean).map(async item=>{if(!/^[a-zA-Z0-9_-]+$/.test(item.id||''))return;icons[item.id]=await loadLogo('./assets/stratagems/'+encodeURIComponent(item.id)+'.svg');}),
   ...(d.booster?[d.booster]:[]).map(async item=>{if(!/^[a-zA-Z0-9_-]+$/.test(item.id||''))return;icons[item.id]=await loadLogo('./assets/boosters/'+encodeURIComponent(item.id)+'.svg');}),
+  ...(d.armor?[d.armor]:[]).map(async item=>{if(!/^[a-zA-Z0-9_-]+$/.test(item.id||''))return;icons[item.id]=await loadLogo(window.HD2_ARMOR_IMAGES?.[item.id]);}),
   ...['primary','secondary','throwable'].filter(type=>d[type]).map(async type=>{const item=d[type];if(!/^[a-zA-Z0-9_-]+$/.test(item.id||''))return;icons[item.id]=await loadLogo('./assets/equipment/'+type+'/'+encodeURIComponent(item.id)+'.png');})
 ]);let imgs=analysisPages(d,logo,2);const total=1+imgs.length; // Repaint the page numbers if findings needed extra pages.
     imgs=analysisPages(d,logo,total);return pdfFromCanvases([loadoutPage(d,logo,total,icons),...imgs]);}
