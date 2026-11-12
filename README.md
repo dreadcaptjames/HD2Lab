@@ -14,6 +14,12 @@ All **95** selectable stratagems now have individually matched, locally hosted a
 
 **Art credit:** Stratagem SVG illustrations are sourced from [nvigneux's Helldivers 2 Stratagems icons collection](https://github.com/nvigneux/Helldivers-2-Stratagems-icons-svg), which invites community use. These are community-maintained recreations of the in-game icon designs, not official images supplied by Arrowhead. HELLDIVERS 2 names, graphics, and trademarks remain with their respective owners. HD2Lab remains an unofficial fan project.
 
+## Weapon and throwable artwork
+
+All **106 currently selectable weapons and throwables** now have matching, locally hosted Helldivers 2 inventory renders in the armory picker, equipped loadout slots, and exported PDF dossiers: **56 primary weapons**, **26 secondary weapons**, and **24 throwables**. This includes Scope of Authority's R-40 Sightliner, P-44 Mist, and G-11 Caltrops. The wider thumbnail framing keeps long weapon profiles readable.
+
+**Art credit:** Community-maintained equipment renders are sourced from [Democracy++](https://github.com/AdamLassiter/democracy-plusplus). Images and game names belong to their respective owners; HD2Lab is an unofficial fan project and not affiliated with Arrowhead or Sony.
+
 ## In-game booster artwork
 
 All **20 boosters** now show their individually matched yellow hexagonal symbols in the booster picker, equipped booster slot, and exported PDF dossiers. The SVGs are stored locally for GitHub Pages; the app does not depend on an external image host to display them.

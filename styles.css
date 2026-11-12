@@ -551,3 +551,29 @@ select option:disabled {
 /* Every booster now displays its own familiar yellow in-game hexagonal symbol. */
 .slot .sicon img.booster-icon-image { display:block; width:43px; height:43px; object-fit:contain; }
 .picon img.booster-icon-image { display:block; width:49px; height:49px; object-fit:contain; }
+
+/* Actual in-game-style inventory renders: use wider frames for weapon silhouettes. */
+.slot:has(.equipment-render-image) .sicon {
+  width:88px;height:62px;flex:0 0 88px;clip-path:none;border-radius:6px;
+  background:#16222d;
+}
+.slot .sicon img.equipment-render-image {
+  display:block;width:86px;height:58px;object-fit:contain;
+  filter:drop-shadow(0 2px 3px rgba(0,0,0,.40));
+}
+.pick:has(.equipment-render-image){grid-template-columns:92px minmax(0,1fr) auto}
+.pick .picon:has(.equipment-render-image){width:90px;height:64px;border-radius:6px;background:#16222d}
+.picon img.equipment-render-image {
+  display:block;width:86px;height:60px;object-fit:contain;
+  filter:drop-shadow(0 2px 3px rgba(0,0,0,.35));
+}
+@media(max-width:760px){
+  .pick:has(.equipment-render-image){grid-template-columns:72px minmax(0,1fr)}
+  .pick .picon:has(.equipment-render-image){width:72px;height:56px}
+  .picon img.equipment-render-image{width:70px;height:54px}
+  .pick:has(.equipment-render-image) .ptag{grid-column:2}
+}
+@media(max-width:440px){
+  .slot:has(.equipment-render-image) .sicon{width:76px;height:56px;flex-basis:76px}
+  .slot .sicon img.equipment-render-image{width:74px;height:52px}
+}

@@ -46,7 +46,7 @@
   }
   function equipCard(g,x,y,w,h,title,item,k,icons){
     rect(g,x,y,w,h,C.panel,14,C.line);rect(g,x,y,5,h,C.gold,2);
-    rect(g,x+18,y+21,63,63,'#0e1925',12,C.line);const art=(k==='strat'||k==='booster')&&item&&icons?.[item.id];if(art)g.drawImage(art,x+21,y+23,57,57);else drawSymbol(g,iconType(item,k),x+28,y+30,43);
+    rect(g,x+18,y+21,63,63,'#0e1925',12,C.line);const art=item&&icons?.[item.id];if(art){const wide=k==='primary'||k==='secondary';g.drawImage(art,x+21,y+(wide?35:23),57,wide?33:57);}else drawSymbol(g,iconType(item,k),x+28,y+30,43);
     text(g,title.toUpperCase(),x+95,y+43,15,C.soft,true,'left',1.1);
     const name=item?.name||'UNASSIGNED';text(g,name,x+95,y+77,fit(g,name,w-119,25,17),C.white,true);
     const chip=k==='armor'&&item?`${item.weight} ARMOR`:item?.cat||'OPEN SLOT';
@@ -130,7 +130,8 @@
   }
   async function createPdf(d){const logo=await loadLogo(d.logoUrl);const icons=Object.create(null);await Promise.all([
   ...(d.strats||[]).filter(Boolean).map(async item=>{if(!/^[a-zA-Z0-9_-]+$/.test(item.id||''))return;icons[item.id]=await loadLogo('./assets/stratagems/'+encodeURIComponent(item.id)+'.svg');}),
-  ...(d.booster?[d.booster]:[]).map(async item=>{if(!/^[a-zA-Z0-9_-]+$/.test(item.id||''))return;icons[item.id]=await loadLogo('./assets/boosters/'+encodeURIComponent(item.id)+'.svg');})
+  ...(d.booster?[d.booster]:[]).map(async item=>{if(!/^[a-zA-Z0-9_-]+$/.test(item.id||''))return;icons[item.id]=await loadLogo('./assets/boosters/'+encodeURIComponent(item.id)+'.svg');}),
+  ...['primary','secondary','throwable'].filter(type=>d[type]).map(async type=>{const item=d[type];if(!/^[a-zA-Z0-9_-]+$/.test(item.id||''))return;icons[item.id]=await loadLogo('./assets/equipment/'+type+'/'+encodeURIComponent(item.id)+'.png');})
 ]);let imgs=analysisPages(d,logo,2);const total=1+imgs.length; // Repaint the page numbers if findings needed extra pages.
     imgs=analysisPages(d,logo,total);return pdfFromCanvases([loadoutPage(d,logo,total,icons),...imgs]);}
   async function download(d){const pdf=await createPdf(d);const url=URL.createObjectURL(pdf),a=document.createElement('a');a.href=url;a.download=`Helldivers2_Loadout_${txt(d.front).replace(/[^a-z0-9]/gi,'_')}_${new Date().toISOString().slice(0,10)}.pdf`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);return pdf;}
