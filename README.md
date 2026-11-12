@@ -8,6 +8,12 @@ HD2Lab is an unofficial **Helldivers 2 loadout builder and tactical synergy plan
 
 The goal isn't to tell every Helldiver to use the same “best” loadout. It's to make experimenting with different weapons, armor, boosters, and stratagems more useful—and a lot more fun.
 
+## In-game stratagem artwork
+
+All **95** selectable stratagems now have individually matched, locally hosted artwork in the equipment picker, equipped loadout slots, and exported PDF dossiers. The familiar per-stratagem symbols retain their in-game red, blue, and green coloring. The icons cover all 95 current stratagem entries, including AMW-20 Apex and LAS-44 Nova.
+
+**Art credit:** Stratagem SVG illustrations are sourced from [nvigneux's Helldivers 2 Stratagems icons collection](https://github.com/nvigneux/Helldivers-2-Stratagems-icons-svg), which invites community use. These are community-maintained recreations of the in-game icon designs, not official images supplied by Arrowhead. HELLDIVERS 2 names, graphics, and trademarks remain with their respective owners. HD2Lab remains an unofficial fan project.
+
 ## Build a complete loadout
 
 Choose every part of your kit:
