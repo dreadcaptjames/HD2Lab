@@ -31,7 +31,12 @@ const realBoosterIconIds=new Set(["supplyPods","concealed","deadSprint","infusio
 const realStratagemIconIds=new Set(["meltagun","acSentry","tesla","flameSentry","gatSentry","gasMortar","strat-alas98lasersentry","mortar","emsSentry","mgSentry","rocketSentry","ac","amr","arcThrower","guarddog","strat-axarc3k9","strat-axflam75hotdog","rover","gasDog","supplyPack","strat-b100portablehellbomb","strat-bflam80cremator","portableHellbomb","strat-cqc1onetrueflag","strat-cqc20breachinghammer","strat-cqc9defoliationtool","antiTankEmplace","strat-egl21grenadierbattlement","hmgEmplace","eagle110","eagle500","eagleAir","eagleCluster","strat-eaglegasairstrike","eagleNap","eagleSmoke","eagleStrafe","eat","leveller","eateNap","patriot","emancipator","lumberer","breakthrough","spear","flame","shieldRelay","grenLaunch","beltGrenade","deescalator","rr","laserC","quasar","strat-lift182warppack","jump","strat-lift860hoverpack","maxigun","frv","supplyFrv","flameFrv","stalwart","atMines","apMines","strat-md8gasmines","incMines","hmg","mg","bulletstorm","commando","strat-ms11solosilo","orb120","orb380","orbAirburst","orbEMS","orbGas","orbGatt","orbLaser","orbNapalm","orbPS","orbRail","orbSmoke","orbWalking","epoch","airburst","rail","strat-s11speargun","ballistic","shieldPack","directionalShield","wasp","maelstrom","bastion","sterilizer","strat-amw20apex","strat-las44nova"]);
 const armorArtworkUrls=Object.create(null);
 window.HD2_ARMOR_IMAGES=armorArtworkUrls;
+// The Liberty Day reward uses a WebP render; all earlier armory equipment uses PNG.
+const legacyRifleId='primary-ar23lliberatorlegacy';
+const legacyRifleCdn='https://helldivers-api.dionatha.com.br/images/v1/weapons/ar-23l-liberator-legacy.54dcb21e.webp';
 function equipmentIconMarkup(item,type){
+  if(type==='primary'&&item?.id===legacyRifleId)
+    return '<img class="equipment-render-image new-gear-render-image" src="./assets/equipment/primary/'+legacyRifleId+'.webp" alt="" loading="lazy" decoding="async">';
   if(type==='armor'&&item&&armorArtworkUrls[item.id])
     return '<span class="armor-artwork">'+svg(iconFor(item,type))+'<img class="armor-render-image" src="'+armorArtworkUrls[item.id]+'" alt="" loading="lazy" decoding="async"></span>';
   if(item&&realEquipmentRenderIds[type]?.has(item.id))
@@ -499,5 +504,12 @@ document.addEventListener('click',e=>{const slot=e.target.closest('.slot[data-ty
 $('#evaluateBtn').addEventListener('click',analyze);$('#exportBtn').addEventListener('click',exportBuildPdf);$('#copyBtn').addEventListener('click',copyBuild);$('#resetBtn').addEventListener('click',()=>{Object.assign(state,{front:'bugs',mission:'general',party:'squad',difficulty:7,armor:null,primary:null,secondary:null,throwable:null,booster:null,strats:[null,null,null,null]});$('#mission').value='general';$('#party').value='squad';$('#difficulty').value='7';$('#diffVal').textContent='7';$('#diffName').textContent='— SUICIDE MISSION';renderFronts();resetRandomizerRules();invalidate();toast('Build cleared.');});
 $('#closeModal').addEventListener('click',closePicker);$('#modal').addEventListener('mousedown',e=>{if(e.target===$('#modal'))closePicker()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&pickerTarget)closePicker()});$('#search').addEventListener('input',e=>{pickerQuery=e.target.value.trim().toLowerCase();renderPicker()});$('#filters').addEventListener('click',e=>{const b=e.target.closest('[data-filter]');if(b){pickerFilter=b.dataset.filter;renderPicker()}});$('#pickerList').addEventListener('click',e=>{const clear=e.target.closest('[data-clear]');if(clear){const {type,idx}=pickerTarget;if(type==='strat')state.strats[idx]=null;else state[type]=null;closePicker();invalidate();return}const b=e.target.closest('[data-pick]');if(b)choose(b.dataset.pick)});
 $('#catalogCount').textContent=Object.values(DB).reduce((n,list)=>n+list.length,0)+' ITEMS';renderFronts();renderSlots();renderBars([0,0,0,0,0,0]);loadArmorArtwork();
-document.addEventListener('error',event=>{if(event.target?.matches?.('img.armor-render-image'))event.target.remove();},true);
+document.addEventListener('error',event=>{
+  const el=event.target;
+  if(el?.matches?.('img.new-gear-render-image')){
+    if(el.dataset.cdnFallback!=='tried'){el.dataset.cdnFallback='tried';el.src=legacyRifleCdn;return;}
+    el.outerHTML=svg('rifle');return;
+  }
+  if(el?.matches?.('img.armor-render-image'))el.remove();
+},true);
 })();
