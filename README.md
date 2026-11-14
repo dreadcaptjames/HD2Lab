@@ -16,7 +16,7 @@ All **95** selectable stratagems now have individually matched, locally hosted a
 
 ## Weapon and throwable artwork
 
-All **107 selectable weapons and throwables** have dedicated inventory artwork in the armory picker and equipped slots: **57 primary weapons**, **26 secondary weapons**, and **24 throwables**. The existing 106 images are hosted locally. The **AR-23L Liberator Legacy**, the Liberty Day 2186 reward, uses its verified weapon render with a hosted fallback while its new WebP file is being cached; exported PDF dossiers support that render, too. The wider thumbnail framing keeps long weapon profiles readable.
+All **107 selectable weapons and throwables** have dedicated inventory artwork in the armory picker and equipped slots: **57 primary weapons**, **26 secondary weapons**, and **24 throwables**. All **107** weapon and throwable renders are hosted locally, including the new **AR-23L Liberator Legacy** WebP image from Liberty Day 2186. The new weapon art also has a hosted fallback; exported PDF dossiers use its actual inventory render. The wider thumbnail framing keeps long weapon profiles readable.
 
 **Art credit:** Community-maintained equipment renders are sourced from [Democracy++](https://github.com/AdamLassiter/democracy-plusplus). Images and game names belong to their respective owners; HD2Lab is an unofficial fan project and not affiliated with Arrowhead or Sony.
 
@@ -30,7 +30,7 @@ All **20 boosters** now show their individually matched yellow hexagonal symbols
 
 The **113 selectable body armors** are matched to their individual Helldivers 2 armor-set renders (not generic category silhouettes). The armor picker and equipped armor slot use full-suit thumbnails, and the chosen armor is also rendered in the PDF dossier when available. The original armor/passive symbol remains as a graceful fallback when an image is unavailable.
 
-The original 112 armor renders are cached locally in `assets/armor/`. The new **SS-500 Pale Prosecutor** has a cache job and can fall back to the community artwork API until cached. To refresh the images later, run `python scripts/sync-armor-artwork.py` or manually run the **Cache real armor artwork** workflow. The site prefers locally hosted WebP renders; while the cache is being populated or if an entry is missing, it can resolve images from the public CORS-enabled community API. This preserves a working armor picker without relying on a successful bulk download.
+All **113 armor renders**, including the new **SS-500 Pale Prosecutor**, are cached locally in `assets/armor/`. Missing local artwork may fall back to the community artwork API. To refresh the images later, run `python scripts/sync-armor-artwork.py` or manually run the **Cache real armor artwork** workflow. The site prefers locally hosted WebP renders; while the cache is being populated or if an entry is missing, it can resolve images from the public CORS-enabled community API. This preserves a working armor picker without relying on a successful bulk download.
 
 **Art credit:** Renders originate with [the Helldivers Wiki](https://helldivers.wiki.gg/wiki/Armor), with WebP files and structured matching references supplied by [Helldivers 2 Data API](https://helldivers-api.dionatha.com.br/). HD2Lab is an unofficial fan project; HELLDIVERS 2 game artwork and marks belong to Arrowhead Game Studios and its licensors.
 
