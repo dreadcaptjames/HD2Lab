@@ -391,8 +391,8 @@ html[data-hd2-theme] .picker-controls .filters::-webkit-scrollbar-thumb:hover{ba
   }
   const counts=Object.fromEntries(Object.entries(window.HD2_DB).map(([key,items])=>[key,items.length]));
   if(window.HD2_CATALOG){
-    window.HD2_CATALOG.version='6.1';
-    window.HD2_CATALOG.audited='2026-10-20';
+    window.HD2_CATALOG.version='6.2';
+    window.HD2_CATALOG.audited='2026-11-14';
     window.HD2_CATALOG.counts=counts;
     window.HD2_CATALOG.warbonds=[...(window.HD2_CATALOG.warbonds||[]).filter(x=>x.name!=='Scope of Authority'),{name:'Scope of Authority',released:'2026-10-20',newEquipment:7}];
   }
