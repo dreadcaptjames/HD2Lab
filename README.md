@@ -16,7 +16,7 @@ All **95** selectable stratagems now have individually matched, locally hosted a
 
 ## Weapon and throwable artwork
 
-All **106 currently selectable weapons and throwables** now have matching, locally hosted Helldivers 2 inventory renders in the armory picker, equipped loadout slots, and exported PDF dossiers: **56 primary weapons**, **26 secondary weapons**, and **24 throwables**. This includes Scope of Authority's R-40 Sightliner, P-44 Mist, and G-11 Caltrops. The wider thumbnail framing keeps long weapon profiles readable.
+All **107 selectable weapons and throwables** have dedicated inventory artwork in the armory picker and equipped slots: **57 primary weapons**, **26 secondary weapons**, and **24 throwables**. The existing 106 images are hosted locally. The **AR-23L Liberator Legacy**, the Liberty Day 2186 reward, uses its verified weapon render with a hosted fallback while its new WebP file is being cached; exported PDF dossiers support that render, too. The wider thumbnail framing keeps long weapon profiles readable.
 
 **Art credit:** Community-maintained equipment renders are sourced from [Democracy++](https://github.com/AdamLassiter/democracy-plusplus). Images and game names belong to their respective owners; HD2Lab is an unofficial fan project and not affiliated with Arrowhead or Sony.
 
@@ -28,9 +28,9 @@ All **20 boosters** now show their individually matched yellow hexagonal symbols
 
 ## Authentic body armor artwork
 
-The **112 selectable body armors** are matched to their individual Helldivers 2 armor-set renders (not generic category silhouettes). The armor picker and equipped armor slot use full-suit thumbnails, and the chosen armor is also rendered in the PDF dossier when available. The original armor/passive symbol remains as a graceful fallback when an image is unavailable.
+The **113 selectable body armors** are matched to their individual Helldivers 2 armor-set renders (not generic category silhouettes). The armor picker and equipped armor slot use full-suit thumbnails, and the chosen armor is also rendered in the PDF dossier when available. The original armor/passive symbol remains as a graceful fallback when an image is unavailable.
 
-All **112 armor renders have been cached locally** in `assets/armor/` by the GitHub Actions workflow. To refresh the images later, run `python scripts/sync-armor-artwork.py` or manually run the **Cache real armor artwork** workflow. The site prefers locally hosted WebP renders; while the cache is being populated or if an entry is missing, it can resolve images from the public CORS-enabled community API. This preserves a working armor picker without relying on a successful bulk download.
+The original 112 armor renders are cached locally in `assets/armor/`. The new **SS-500 Pale Prosecutor** has a cache job and can fall back to the community artwork API until cached. To refresh the images later, run `python scripts/sync-armor-artwork.py` or manually run the **Cache real armor artwork** workflow. The site prefers locally hosted WebP renders; while the cache is being populated or if an entry is missing, it can resolve images from the public CORS-enabled community API. This preserves a working armor picker without relying on a successful bulk download.
 
 **Art credit:** Renders originate with [the Helldivers Wiki](https://helldivers.wiki.gg/wiki/Armor), with WebP files and structured matching references supplied by [Helldivers 2 Data API](https://helldivers-api.dionatha.com.br/). HD2Lab is an unofficial fan project; HELLDIVERS 2 game artwork and marks belong to Arrowhead Game Studios and its licensors.
 
@@ -91,17 +91,19 @@ Changing the aesthetic updates the tactical interface accents without changing t
 
 ## Equipment catalog
 
-The catalog currently contains **333 selectable entries**, including equipment from the **Scope of Authority** Warbond (October 2026):
+The catalog currently contains **335 selectable entries**, including the **Scope of Authority** Warbond (October 2026), the Liberty Day **AR-23L Liberator Legacy**, and the Superstore **SS-500 Pale Prosecutor**. Last catalog comparison: November 14, 2026.
 
 | Category | Entries |
 | --- | ---: |
-| Body armor | 112 |
-| Primary weapons | 56 |
+| Body armor | 113 |
+| Primary weapons | 57 |
 | Secondary weapons | 26 |
 | Throwables | 24 |
 | Boosters | 20 |
 | Stratagems | 95 |
-| **Total** | **333** |
+| **Total** | **335** |
+
+**November 2026 audit:** The late-October Liberty Day AR-23L and the October 20 Superstore SS-500 were missing; both are now in the builder. The November 3 M-104 Incinerator FRV already had a catalog entry. The Liberty Day Eagle Fly By and Orbital Confetti were temporary celebration call-ins, so they are deliberately excluded from permanent selectable stratagem slots. Weapon scoring values remain curated heuristics, not live weapon damage simulation.
 
 The catalog is intended for normal loadout slots, so cosmetic helmets, capes, and mission-only call-ins are outside its scope. Item availability, effects, and balance can change with game updates; **the catalog is not live-synchronized**.
 
