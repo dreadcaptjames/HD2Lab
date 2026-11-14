@@ -83,6 +83,7 @@
     "armor-sr24streetscout": "armor-sr24streetscout.webp",
     "armor-ss15focalpoint": "armor-ss15focalpoint.webp",
     "armor-ss33mimeticmarshal": "armor-ss33mimeticmarshal.webp",
+    "armor-ss500paleprosecutor": "armor-ss500paleprosecutor.webp",
     "armor-tg122demotrooper": "armor-tg122demotrooper.webp",
     "armor-tg8sharpshooter": "armor-tg8sharpshooter.webp",
     "armor-tr117alphacommander": "armor-tr117alphacommander.webp",
@@ -116,5 +117,10 @@
     "sr64": "sr64.webp"
   },
   "unmatchedArmor": [],
-  "failedDownloads": []
+  "failedDownloads": [],
+  "newGearSync": {
+    "weapon": "AR-23L Liberator Legacy",
+    "armor": "SS-500 Pale Prosecutor",
+    "source": "https://helldivers-api.dionatha.com.br"
+  }
 }
