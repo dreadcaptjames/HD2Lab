@@ -1,0 +1,33 @@
+name: Cache November armory additions
+
+on:
+  push:
+    paths:
+      - scripts/sync-november-gear.py
+      - .github/workflows/sync-november-gear.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout HD2Lab
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Cache verified AR-23L and SS-500 renders
+        run: python scripts/sync-november-gear.py
+      - name: Commit updated local assets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/equipment/primary/primary-ar23lliberatorlegacy.webp assets/armor/armor-ss500paleprosecutor.webp assets/armor/manifest.json
+          if ! git diff --cached --quiet; then
+            git commit -m "assets: cache Liberty Day weapon and Pale Prosecutor armor renders"
+            git push
+          fi
